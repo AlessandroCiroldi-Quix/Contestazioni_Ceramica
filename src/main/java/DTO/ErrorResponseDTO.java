@@ -15,7 +15,7 @@ public class ErrorResponseDTO {
         this.type = type;
         this.msg = msg;
     }
-
+    //
     public static String getError(String type, String msg) {
         try{
             return new ObjectMapper().writeValueAsString(new ErrorResponseDTO(type, msg));
