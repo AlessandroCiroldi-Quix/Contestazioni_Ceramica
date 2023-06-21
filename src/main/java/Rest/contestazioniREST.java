@@ -23,7 +23,7 @@ public class contestazioniREST {
     @Inject
     contestazioni_italcerDAO contestazioni_italcerDAO;
 
-    @Path("/artisti")
+    @Path("/ginopaoli") //NOME DA CAMBIARE
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
