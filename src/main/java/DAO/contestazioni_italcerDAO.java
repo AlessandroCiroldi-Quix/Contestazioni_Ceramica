@@ -15,7 +15,7 @@ public class contestazioni_italcerDAO {
     Producer.jdbiProducer jdbiProducer;
 
     //NOME FUNZIONE DA CAMBIARE
-    public List<contestazioni_italcerDTO> getDato(){
+    public List<contestazioni_italcerDTO> getData(){
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         String query = "SELECT * FROM contestazioni_italcer";

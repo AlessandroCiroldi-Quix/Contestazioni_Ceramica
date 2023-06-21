@@ -5,12 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 
 @Data
-public class ErrorResponseDTO {
+public class ErrorResponse {
     private boolean error;
     private String type;
     private String msg;
 
-    public ErrorResponseDTO(String type, String msg) {
+    public ErrorResponse(String type, String msg) {
         this.error = true;
         this.type = type;
         this.msg = msg;
@@ -18,7 +18,7 @@ public class ErrorResponseDTO {
     //
     public static String getError(String type, String msg) {
         try{
-            return new ObjectMapper().writeValueAsString(new ErrorResponseDTO(type, msg));
+            return new ObjectMapper().writeValueAsString(new ErrorResponse(type, msg));
         } catch (JsonProcessingException e) {
             return "{error:true}";
         }
