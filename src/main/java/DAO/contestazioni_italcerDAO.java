@@ -26,4 +26,19 @@ public class contestazioni_italcerDAO {
         );
     }
 
+    public void addContestazione_italcer(contestazioni_italcerDTO contestazione){
+        Jdbi jdbi = jdbiProducer.getJdbi();
+
+        //AGGIUNGERE I CAMPI MANCANTI
+        String query = "INSERT INTO contestazioni_italcer VALUES (:id, :rs_cliente)"; //!!!
+
+        jdbi.withHandle(handle -> handle.createUpdate(query)
+                .bind("id", contestazione.getId())
+                .bind("rs_cliente", contestazione.getRs_cliente())
+                //Altri campi da aggiungere
+                .execute()
+        );
+
+    }
+
 }
