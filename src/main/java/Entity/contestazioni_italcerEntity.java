@@ -1,6 +1,7 @@
 package Entity;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.Date;
 @Data
 public class contestazioni_italcerEntity {
     private int id;
+    @NonNull
     private String cod_cliente; //NOT NULL
     private String rs_cliente; //NOT NULL
     private String cod_articolo; //NOT NULL
