@@ -39,7 +39,7 @@ public class cont_art_italcerEntity {
         this.unitaMisura = unitaMisura;
     }
 
-
+//
 
 
     // Metodi getter e setter
