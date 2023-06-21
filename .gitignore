@@ -43,4 +43,4 @@ nb-configuration.xml
 /.quarkus/cli/plugins/
 
 # JdbiProducer
-./src/main/java/Producer/jdbiProducer.java
+src/main/java/Producer/jdbiProducer.java
