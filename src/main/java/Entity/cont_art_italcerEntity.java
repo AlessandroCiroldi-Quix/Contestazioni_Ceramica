@@ -1,5 +1,7 @@
 package Entity;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cont_art_italcer")
+@Data
 public class cont_art_italcerEntity {
 
     @Id
@@ -25,7 +28,9 @@ public class cont_art_italcerEntity {
 
 
     // Costruttore
-    public cont_art_italcerEntity(int idCont, String codArticolo, String tono, boolean posato,
+
+    /*
+    public cont_art_italcerEntity(int id_Cont, String codArticolo, String tono, boolean posato,
                      String descProdotto, String company, String formato,
                      int qtaContestata, String unitaMisura) {
         this.id_cont = id_cont;
@@ -38,79 +43,5 @@ public class cont_art_italcerEntity {
         this.qtaContestata = qtaContestata;
         this.unitaMisura = unitaMisura;
     }
-
-//
-
-
-    // Metodi getter e setter
-    public Long getId() {
-        return id_cont;
-    }
-    public void setId(Long id) {
-        this.id_cont = id;
-    }
-
-    public String getCodArticolo() {
-        return codArticolo;
-    }
-
-    public void setCodArticolo(String codArticolo) {
-        this.codArticolo = codArticolo;
-    }
-
-    public String getTono() {
-        return tono;
-    }
-
-    public void setTono(String tono) {
-        this.tono = tono;
-    }
-
-    public boolean isPosato() {
-        return posato;
-    }
-
-    public void setPosato(boolean posato) {
-        this.posato = posato;
-    }
-
-    public String getDescProdotto() {
-        return descProdotto;
-    }
-
-    public void setDescProdotto(String descProdotto) {
-        this.descProdotto = descProdotto;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getFormato() {
-        return formato;
-    }
-
-    public void setFormato(String formato) {
-        this.formato = formato;
-    }
-
-    public int getQtaContestata() {
-        return qtaContestata;
-    }
-
-    public void setQtaContestata(int qtaContestata) {
-        this.qtaContestata = qtaContestata;
-    }
-
-    public String getUnitaMisura() {
-        return unitaMisura;
-    }
-
-    public void setUnitaMisura(String unitaMisura) {
-        this.unitaMisura = unitaMisura;
-    }
+    */
 }
