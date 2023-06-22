@@ -90,12 +90,11 @@ public class contestazioni_italcerDAO {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_italcer
-        String query = "SELECT idA FROM contestazioni_italcer WHERE id = :id, cod_cliente = :cod_cliente";
+        String query = "SELECT id FROM contestazioni_italcer WHERE id = :id";
 
         // Esegue la query e ottiene l'ID come Optional<String>
         Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query)
                 .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
-                .bind("cod_cliente", contestazione.getCod_cliente()) // Collega il valore del codice cliente dell'oggetto contestazione al segnaposto ":cod_cliente"
                 .mapTo(String.class) // Indica che si desidera mappare il risultato della query in una stringa
                 .findOne() // Esegue la query e restituisce al massimo un risultato
         );
