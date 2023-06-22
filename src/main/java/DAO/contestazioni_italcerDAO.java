@@ -10,6 +10,7 @@ import java.util.List;
 
 @ApplicationScoped
 @Data
+@SuppressWarnings("nome_warning")
 public class contestazioni_italcerDAO {
     @Inject
     Producer.jdbiProducer jdbiProducer;
@@ -17,6 +18,7 @@ public class contestazioni_italcerDAO {
     // Questa funzione restituisce i dati delle contestazioni italcer
     public List<contestazioni_italcerDTO> getData() {
         Jdbi jdbi = jdbiProducer.getJdbi();
+
 
         String query = "SELECT * FROM contestazioni_italcer";
 
@@ -27,6 +29,7 @@ public class contestazioni_italcerDAO {
     }
 
     // metodo per aggiungere una contestazione
+    @SuppressWarnings("unused")
     public void addContestazione_italcer(contestazioni_italcerDTO contestazione) {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
@@ -67,6 +70,7 @@ public class contestazioni_italcerDAO {
     }
 
     //metodo per eliminare dati dalla tabella
+    @SuppressWarnings("unused")
     public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione){
 
         Jdbi jdbi = jdbiProducer.getJdbi();
