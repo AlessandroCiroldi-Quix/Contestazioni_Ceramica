@@ -14,8 +14,8 @@ public class contestazioni_italcerDAO {
     @Inject
     Producer.jdbiProducer jdbiProducer;
 
-    //NOME FUNZIONE DA CAMBIARE
-    public List<contestazioni_italcerDTO> getData(){
+    // Questa funzione restituisce i dati delle contestazioni italcer
+    public List<contestazioni_italcerDTO> getData() {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         String query = "SELECT * FROM contestazioni_italcer";
@@ -26,16 +26,17 @@ public class contestazioni_italcerDAO {
         );
     }
 
-    public void addContestazione_italcer(contestazioni_italcerDTO contestazione){
+    // Questa funzione aggiunge una contestazione italcer
+    public void addContestazione_italcer(contestazioni_italcerDTO contestazione) {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
-        //AGGIUNGERE I CAMPI MANCANTI
+        // Aggiungere i campi mancanti per l'inserimento della contestazione
         String query = "INSERT INTO contestazioni_italcer VALUES (:id, :rs_cliente)"; //!!!
 
         jdbi.withHandle(handle -> handle.createUpdate(query)
                 .bind("id", contestazione.getId())
                 .bind("rs_cliente", contestazione.getRs_cliente())
-                //Altri campi da aggiungere
+                // Aggiungere altri campi da aggiungere
                 .execute()
         );
 

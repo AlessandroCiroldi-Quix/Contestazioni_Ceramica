@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 public class contestazioni_italcerEntity {
     private int id;
-    //@NonNull
+    @NonNull
     private String cod_cliente; //NOT NULL
     private String rs_cliente; //NOT NULL
     private String cod_articolo; //NOT NULL
