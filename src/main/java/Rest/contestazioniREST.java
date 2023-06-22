@@ -60,7 +60,6 @@ public class contestazioniREST {
                     responseCode = "200",
                     description = "OK")}
     )
-
     //questo metodo controlla se esiste già la contestazione, se esiste lancia un errore,
     //se non esiste lo aggiunge e poi fa una select dei dati aggiornati
     public List<contestazioni_italcerDTO> addPersona(contestazioni_italcerDTO contestazione){
