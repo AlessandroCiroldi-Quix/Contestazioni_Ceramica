@@ -16,6 +16,7 @@ public class cont_art_italcerDAO {
     @Inject
     Producer.jdbiProducer jdbiProducer;
 
+    @SuppressWarnings("unused")
     public List<cont_art_italcerDTO> getData() {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
@@ -28,6 +29,7 @@ public class cont_art_italcerDAO {
     }
 
     // Questa funzione aggiunge una contestazione italcer
+    @SuppressWarnings("unused")
     public void addCont_art_italcer(cont_art_italcerDTO contestazione) {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
@@ -45,7 +47,6 @@ public class cont_art_italcerDAO {
                 .bind("formato", contestazione.getFormato())//
                 .bind("qta_contestata", contestazione.getQtaContestata())
                 .bind("unita_misura", contestazione.getUnitaMisura())
-
                 .execute()
         );
 
