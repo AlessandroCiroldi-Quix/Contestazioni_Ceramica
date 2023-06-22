@@ -67,8 +67,4 @@ public class contestazioni_eliosEntity {
     @NotNull
     private int deleted = 0; //DEFAULT '0'
 
-
-
-
-
 }
