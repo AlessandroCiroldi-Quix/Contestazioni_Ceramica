@@ -1,5 +1,6 @@
 package Entity;
 
+import io.smallrye.common.constraint.NotNull;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -15,15 +16,24 @@ public class cont_art_italcerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_cont;
+    @NotNull
+    int id_cont;
 
-    private String codArticolo;
-    private String tono;
-    private boolean posato;
-    private String descProdotto;
-    private String company;
-    private String formato;
-    private int qtaContestata;
-    private String unitaMisura;
+    @NotNull
+    String cod_articolo;
+    @NotNull
+    String tono;
+    @NotNull
+    boolean posato;
+    @NotNull
+    String desc_prodotto;
+    @NotNull
+    String company;
+    @NotNull
+    String formato;
+    @NotNull
+    int qta_contestata;
+    @NotNull
+    String unita_misura;
 
 }
