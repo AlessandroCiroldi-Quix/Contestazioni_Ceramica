@@ -31,7 +31,7 @@ public class contestazioni_italcerDAO {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         // Aggiungere i campi mancanti per l'inserimento della contestazione
-        String query = "INSERT INTO contestazioni_italcer VALUES (:id, :rs_cliente, :paolo)"; //!!!
+        String query = "INSERT INTO contestazioni_italcer VALUES (:id, :rs_cliente)"; //!!!
 
         jdbi.withHandle(handle -> handle.createUpdate(query)
                 .bind("id", contestazione.getId())
