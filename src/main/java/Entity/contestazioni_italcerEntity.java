@@ -4,8 +4,7 @@ import io.smallrye.common.constraint.NotNull;
 import lombok.Data;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -13,10 +12,17 @@ import java.util.Date;
 @Table(name = "contestazioni_italcer")
 @Data
 public class contestazioni_italcerEntity {
+
+    //! ASSOLUTAMENTE DA RIVEDERE DOMANI!!!
+    //? Dovremmo inserire le annotazioni per le foreign Key
+    //* Sta cosa dei commenti spacca
     @NotNull
     private int id;
     @NotNull
-    private String cod_cliente; //NOT NULL
+    @Column(name = "cod_cliente")       //Foreign KEY
+    @ManyToOne
+    @JoinColumn(name = "cod_cliente", referencedColumnName = "cod_cliente", insertable = false, updatable = false)
+    private String codCliente;
     @NotNull
     private String rs_cliente; //NOT NULL
     @NotNull
