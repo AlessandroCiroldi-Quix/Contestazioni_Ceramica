@@ -4,8 +4,7 @@ import io.smallrye.common.constraint.NotNull;
 import lombok.Data;
 import lombok.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -13,19 +12,24 @@ import java.util.Date;
 @Table(name = "contestazioni_italcer")
 @Data
 public class contestazioni_italcerEntity {
+
+
+    //! ASSOLUTAMENTE DA RIVEDERE DOMANI!!!
+    //? Dovremmo inserire le annotazioni per le foreign Key
+    //* Sta cosa dei commenti spacca
+    //TODO: Il fatto di inserire una todolist nel codice spacca
+
+
     @NotNull
     private int id;
-    @NotNull
-    private String cod_cliente; //NOT NULL
+    private String codCliente;
     @NotNull
     private String rs_cliente; //NOT NULL
     @NotNull
     private String cod_articolo; //NOT NULL
     @NotNull
     private String tono; //NOT NULL
-    @NotNull
     private String num_fattura; //NULL
-    @NotNull
     private Date data_fattura; //NULL
     @NotNull
     private String descrizione; //NOT NULL
@@ -41,27 +45,20 @@ public class contestazioni_italcerEntity {
     private String utente_creazione; //NOT NULL
     @NotNull
     private Timestamp data_creazione;  //DEFAULT CURRENT_TIMESTAMP,
-    @NotNull
     private String utente_ultima_mod; //NULL
     @NotNull
     private Timestamp data_ultima_mod; //DEFAULT '0000-00-00 00:00:00',
     @NotNull
     private String desc_prodotto;
-    @NotNull
     private String uid_files; //NULL
-    @NotNull
     private String tipology; //NULL
     @NotNull
     private String motivazione;
     @NotNull
     private String company; //NOT NULL
-    @NotNull
     private String num_buono; //NULL
-    @NotNull
     private String num_bolla; //NULL
-    @NonNull
     private String num_ord_reparto; //NULL
-    @NotNull
     private String difettosita; //NULL
     @NotNull
     private int deleted = 0; //DEFAULT '0'
