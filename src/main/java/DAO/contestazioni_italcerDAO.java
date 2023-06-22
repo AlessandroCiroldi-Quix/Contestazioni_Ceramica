@@ -86,18 +86,21 @@ public class contestazioni_italcerDAO {
     }
 
     public boolean findContestazione_italcer(contestazioni_italcerDTO contestazione) throws WebApplicationException {
+        // Ottiene un'istanza di Jdbi dal jdbiProducer
+        Jdbi jdbi = jdbiProducer.getJdbi();
 
-        Jdbi jdbi   = jdbiProducer.getJdbi();
-
+        // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_italcer
         String query = "SELECT idA FROM contestazioni_italcer WHERE id = :id, cod_cliente = :cod_cliente";
 
+        // Esegue la query e ottiene l'ID come Optional<String>
         Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query)
-                .bind("id", contestazione.getId())
-                .bind("cod_cliente", contestazione.getCod_cliente())
-                .mapTo(String.class)
-                .findOne()
+                .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
+                .bind("cod_cliente", contestazione.getCod_cliente()) // Collega il valore del codice cliente dell'oggetto contestazione al segnaposto ":cod_cliente"
+                .mapTo(String.class) // Indica che si desidera mappare il risultato della query in una stringa
+                .findOne() // Esegue la query e restituisce al massimo un risultato
         );
 
+        // Restituisce true se l'Optional<String> contiene un valore, altrimenti restituisce false
         return id.isPresent();
     }
 
