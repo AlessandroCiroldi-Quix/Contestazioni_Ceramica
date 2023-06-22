@@ -3,10 +3,12 @@ package DAO;
 import DTO.contestazioni_italcerDTO;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.WebApplicationException;
 import lombok.Data;
 import org.jdbi.v3.core.Jdbi;
 
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 @Data
@@ -81,6 +83,22 @@ public class contestazioni_italcerDAO {
                 .bind("id", contestazione.getId())
                 .execute()
         );
+    }
+
+    public boolean findContestazione_italcer(contestazioni_italcerDTO contestazione) throws WebApplicationException {
+
+        Jdbi jdbi   = jdbiProducer.getJdbi();
+
+        String query = "SELECT idA FROM contestazioni_italcer WHERE id = :id, cod_cliente = :cod_cliente";
+
+        Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query)
+                .bind("id", contestazione.getId())
+                .bind("cod_cliente", contestazione.getCod_cliente())
+                .mapTo(String.class)
+                .findOne()
+        );
+
+        return id.isPresent();
     }
 
 }
