@@ -3,9 +3,13 @@ package Entity;
 import lombok.Data;
 import lombok.NonNull;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.util.Date;
 
+@Entity
+@Table(name = "contestazioni_italcer")
 @Data
 public class contestazioni_italcerEntity {
     private int id;
@@ -35,6 +39,8 @@ public class contestazioni_italcerEntity {
     private String num_ord_reparto; //NULL
     private String difettosita; //NULL
     private int deleted; //DEFAULT '0'
+
+
 
     /*
     public contestazioni_italcerEntity() {

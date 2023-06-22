@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @ApplicationScoped
 @Data
-@SuppressWarnings("nome_warning")
+@SuppressWarnings("nome_warning")       // Per eliminare i warning
 public class contestazioni_italcerDAO {
     @Inject
     Producer.jdbiProducer jdbiProducer;

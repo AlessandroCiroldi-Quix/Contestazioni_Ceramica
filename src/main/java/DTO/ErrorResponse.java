@@ -15,7 +15,8 @@ public class ErrorResponse {
         this.type = type;
         this.msg = msg;
     }
-    //
+
+    @SuppressWarnings("unused")     // Suppress the warning
     public static String getError(String type, String msg) {
         try{
             return new ObjectMapper().writeValueAsString(new ErrorResponse(type, msg));
