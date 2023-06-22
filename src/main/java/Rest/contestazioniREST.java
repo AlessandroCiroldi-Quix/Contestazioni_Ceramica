@@ -17,13 +17,13 @@ import Entity.*;
 
 import java.util.List;
 
-@Path("data") //NOME DA RIVEDERE
+@Path("data")
 @Data
 public class contestazioniREST {
     @Inject
     contestazioni_italcerDAO contestazioni_italcerDAO;
 
-    @Path("/ginopaoli") //NOME DA CAMBIARE
+    @Path("/get")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
@@ -42,7 +42,6 @@ public class contestazioniREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_italcerDTO> GetArtist(){
-        return contestazioni_italcerDAO.getData();
-    }
+    public List<contestazioni_italcerDTO> GetContestazioni_italcer(){ return contestazioni_italcerDAO.getData(); }
+
 }
