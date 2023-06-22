@@ -2,6 +2,7 @@ package DTO;
 
 import lombok.Data;
 
+//
 @Data
 public class cont_art_italcerDTO {
 

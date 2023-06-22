@@ -42,7 +42,7 @@ public class cont_art_italcerDAO {
                 .bind("posato", contestazione.getTono())
                 .bind("desc_prodotto", contestazione.getDescProdotto())
                 .bind("company", contestazione.getCompany())
-                .bind("formato", contestazione.getFormato())
+                .bind("formato", contestazione.getFormato())//
                 .bind("qta_contestata", contestazione.getQtaContestata())
                 .bind("unita_misura", contestazione.getUnitaMisura())
 
