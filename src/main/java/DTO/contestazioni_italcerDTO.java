@@ -5,6 +5,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 import java.util.Date;
 
+@SuppressWarnings("unused")
 @Data
 public class contestazioni_italcerDTO {
     private int id;
