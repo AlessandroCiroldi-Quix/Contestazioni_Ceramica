@@ -33,15 +33,16 @@ public class contestazioni_italcerDAO {
     // metodo per aggiungere una contestazione
     @SuppressWarnings("unused")
     public void addContestazione_italcer(contestazioni_italcerDTO contestazione) {
-        Jdbi jdbi = jdbiProducer.getJdbi();
+        Jdbi jdbi = jdbiProducer.getJdbi(); // Otteniamo l'oggetto Jdbi dal produttore Jdbi
 
         String query = "INSERT INTO contestazioni_italcer VALUES (:id, :cod_cliente, :rs_cliente, :cod_articolo," +
                 " :tono, :num_fattura, :data_fattura, :descrizione, :qta_contestata, :unita_misura, :posato, :stato," +
                 " :utente_creazione, :data_creazione, :utente_ultima_mod, :data_ultima_mod, :desc_prodotto, :uid_files," +
                 " :tipology, :motivazione, :company, :num_buono, :num_bolla, :num_ord_reparto, :difettosita, :deleted)";
+        // Query SQL per inserire i dati nella tabella "contestazioni_italcer"
 
-        jdbi.withHandle(handle -> handle.createUpdate(query)
-                .bind("id", contestazione.getId())
+        jdbi.withHandle(handle -> handle.createUpdate(query) // Eseguiamo una query di aggiornamento
+                .bind("id", contestazione.getId()) // Assegniamo i valori dei parametri alla query
                 .bind("cod_cliente", contestazione.getCod_cliente())
                 .bind("rs_cliente", contestazione.getRs_cliente())
                 .bind("cod_articolo", contestazione.getCod_articolo())
@@ -67,7 +68,7 @@ public class contestazioni_italcerDAO {
                 .bind("num_ord_reparto", contestazione.getNum_ord_reparto())
                 .bind("difettosita", contestazione.getDifettosita())
                 .bind("deleted", contestazione.getDeleted())
-                .execute()
+                .execute() // Eseguiamo la query
         );
     }
 
