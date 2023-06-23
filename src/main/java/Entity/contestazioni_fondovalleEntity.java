@@ -30,7 +30,7 @@ public class contestazioni_fondovalleEntity {
     @NotNull
     private int qta_contestata; //NOT NULL
     @NotNull
-    private String unita_misura; //NOT NULL
+    private String unita_misura; //NOT NULL 'nella foto: U:M contestata'
     @NotNull
     private int posato; //NOT NULL
     @NotNull
