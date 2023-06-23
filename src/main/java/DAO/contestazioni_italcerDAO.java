@@ -77,7 +77,7 @@ public class contestazioni_italcerDAO {
 
         Jdbi jdbi = jdbiProducer.getJdbi();
 
-        String query = "DELETE FROM contestazione_italcer WHERE id = :id";
+        String query = "DELETE FROM contestazioni_italcer WHERE id = :id";
 
         jdbi.useHandle(handle -> handle.createUpdate(query)
                 .bind("id", contestazione.getId())
