@@ -133,7 +133,7 @@ public class contestazioniREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_italcerDTO> upPersona(@PathParam("cod") String cod, contestazioni_italcerDTO contestazione){
+    public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("cod") String cod, contestazioni_italcerDTO contestazione){
 
         contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, "COD070");
 
