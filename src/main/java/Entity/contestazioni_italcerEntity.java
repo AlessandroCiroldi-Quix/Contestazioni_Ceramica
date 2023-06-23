@@ -14,12 +14,6 @@ import java.util.Date;
 public class contestazioni_italcerEntity {
 
 
-    //! ASSOLUTAMENTE DA RIVEDERE DOMANI!!!
-    //? Dovremmo inserire le annotazioni per le foreign Key
-    //* Sta cosa dei commenti spacca
-    //TODO: Il fatto di inserire una todolist nel codice spacca
-
-
     @NotNull
     private int id;
     private String codCliente;

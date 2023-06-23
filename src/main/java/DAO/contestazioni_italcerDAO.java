@@ -6,7 +6,6 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.WebApplicationException;
 import lombok.Data;
 import org.jdbi.v3.core.Jdbi;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +13,6 @@ import static io.smallrye.config.ConfigLogging.log;
 
 @ApplicationScoped
 @Data
-@SuppressWarnings("nome_warning")       // Per eliminare i warning
 public class contestazioni_italcerDAO {
     @Inject
     Producer.jdbiProducer jdbiProducer;
@@ -77,17 +75,17 @@ public class contestazioni_italcerDAO {
     }
 
     //* DELETE
-    //metodo per eliminare dati dalla tabella
+    //metodo per eliminare dati/ elementi dalla tabella
     @SuppressWarnings("unused")
     public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione){
 
-        Jdbi jdbi = jdbiProducer.getJdbi();
+        Jdbi jdbi = jdbiProducer.getJdbi();  // Inizializza l'oggetto Jdbi utilizzando il jdbiProducer
 
-        String query = "DELETE FROM contestazioni_italcer WHERE id = :id";
+        String query = "DELETE FROM contestazioni_italcer WHERE id = :id";  // Query per eliminare una riga dalla tabella 'contestazioni_italcer' basata sull'ID
 
-        jdbi.useHandle(handle -> handle.createUpdate(query)
-                .bind("id", contestazione.getId())
-                .execute()
+        jdbi.useHandle(handle -> handle.createUpdate(query)  // Utilizza l'oggetto Handle per creare un'operazione di eliminazione
+                .bind("id", contestazione.getId())  // Associa il valore dell'ID della contestazione al parametro nella query
+                .execute()  // Esegue l'eliminazione
         );
     }
 
@@ -113,14 +111,14 @@ public class contestazioni_italcerDAO {
     // ! PER ORA AGGIORNA SOLO 'cod_cliente', MANCANO GLI ALTRI CAMPI
     public void updateContestazioni_italcer(contestazioni_italcerDTO contestazione, String cod_cliente){
 
-        Jdbi jdbi = jdbiProducer.getJdbi();
+        Jdbi jdbi = jdbiProducer.getJdbi();  // Inizializza l'oggetto Jdbi utilizzando il jdbiProducer
 
-        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente WHERE id = :id";
+        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente WHERE id = :id";  // Query di aggiornamento che modifica solo il campo 'cod_cliente'
 
-        jdbi.useHandle(handle -> handle.createUpdate(query)
-                .bind("cod_cliente",cod_cliente)
-                .bind("id", contestazione.getId())
-                .execute()
+        jdbi.useHandle(handle -> handle.createUpdate(query)  // Utilizza l'oggetto Handle per creare un'operazione di aggiornamento
+                .bind("cod_cliente",cod_cliente)  // Associa il valore di 'cod_cliente' al parametro nella query
+                .bind("id", contestazione.getId())  // Associa il valore dell'ID della contestazione al parametro nella query
+                .execute()  // Esegue l'aggiornamento
         );
     }
 
