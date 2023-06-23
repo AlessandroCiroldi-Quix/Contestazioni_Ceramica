@@ -71,14 +71,17 @@ public class contestazioni_italcerDAO {
         );
     }
 
-    //metodo per eliminare dati dalla tabella
+    // Metodo per eliminare dati dalla tabella "contestazioni_italcer"
     @SuppressWarnings("unused")
-    public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione){
+    public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione) {
 
+        // Ottenere l'istanza di Jdbi dal produttore JdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
 
+        // Query per eliminare una riga dalla tabella "contestazioni_italcer" in base all'ID
         String query = "DELETE FROM contestazioni_italcer WHERE id = :id";
 
+        // Utilizzare l'istanza di Jdbi per eseguire la query di eliminazione
         jdbi.useHandle(handle -> handle.createUpdate(query)
                 .bind("id", contestazione.getId())
                 .execute()
