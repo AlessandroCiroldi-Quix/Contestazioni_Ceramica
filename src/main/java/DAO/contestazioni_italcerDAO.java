@@ -10,6 +10,8 @@ import org.jdbi.v3.core.Jdbi;
 import java.util.List;
 import java.util.Optional;
 
+import static io.smallrye.config.ConfigLogging.log;
+
 @ApplicationScoped
 @Data
 @SuppressWarnings("nome_warning")       // Per eliminare i warning
@@ -17,6 +19,7 @@ public class contestazioni_italcerDAO {
     @Inject
     Producer.jdbiProducer jdbiProducer;
 
+    //* SELECT
     // Questa funzione restituisce i dati delle contestazioni italcer
     public List<contestazioni_italcerDTO> getData() {
         Jdbi jdbi = jdbiProducer.getJdbi();
@@ -30,6 +33,7 @@ public class contestazioni_italcerDAO {
         );
     }
 
+    //* ADD
     // metodo per aggiungere una contestazione
     @SuppressWarnings("unused")
     public void addContestazione_italcer(contestazioni_italcerDTO contestazione) {
@@ -71,6 +75,7 @@ public class contestazioni_italcerDAO {
         );
     }
 
+    //* DELETE
     //metodo per eliminare dati dalla tabella
     @SuppressWarnings("unused")
     public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione){
@@ -84,6 +89,8 @@ public class contestazioni_italcerDAO {
                 .execute()
         );
     }
+
+
 
     public boolean findContestazione_italcer(contestazioni_italcerDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
@@ -101,6 +108,20 @@ public class contestazioni_italcerDAO {
 
         // Restituisce true se l'Optional<String> contiene un valore, altrimenti restituisce false
         return id.isPresent();
+    }
+
+    // * UPDATE
+    // ! PER ORA AGGIORNA SOLO 'cod_cliente', MANCANO GLI ALTRI CAMPI
+    public void updateAzienda(contestazioni_italcerDTO contestazione, String cod_cliente){
+
+        Jdbi jdbi = jdbiProducer.getJdbi();
+
+        String query = "UPDATE azienda SET cod_cliente = :cod_cliente";
+
+        jdbi.useHandle(handle -> handle.createUpdate(query)
+                .bind("cod_cliente",cod_cliente)
+                .execute()
+        );
     }
 
 }
