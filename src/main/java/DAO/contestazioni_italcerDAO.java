@@ -91,8 +91,6 @@ public class contestazioni_italcerDAO {
         );
     }
 
-
-
     public boolean findContestazione_italcer(contestazioni_italcerDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
@@ -117,10 +115,11 @@ public class contestazioni_italcerDAO {
 
         Jdbi jdbi = jdbiProducer.getJdbi();
 
-        String query = "UPDATE azienda SET cod_cliente = :cod_cliente";
+        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente WHERE id = :id";
 
         jdbi.useHandle(handle -> handle.createUpdate(query)
                 .bind("cod_cliente",cod_cliente)
+                .bind("id", contestazione.getId())
                 .execute()
         );
     }

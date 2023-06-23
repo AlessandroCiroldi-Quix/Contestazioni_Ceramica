@@ -135,7 +135,7 @@ public class contestazioniREST {
     )
     public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("cod") String cod, contestazioni_italcerDTO contestazione){
 
-        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, "COD070");
+        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, contestazione.getCod_cliente());
 
         return contestazioni_italcerDAO.getData();
     }
