@@ -112,4 +112,31 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
+    @Path("/update/{cod}") //! da modificare in seguito
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @APIResponses(value = {
+            @APIResponse(
+                    responseCode = "500",
+                    description = "Errore",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Not found",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @APIResponse(
+                    responseCode = "409",
+                    description = "Conflict",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @APIResponse(
+                    responseCode = "200",
+                    description = "OK")}
+    )
+    public List<contestazioni_italcerDTO> upPersona(@PathParam("cod") String cod, contestazioni_italcerDTO contestazione){
+
+        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, "COD070");
+
+        return contestazioni_italcerDAO.getData();
+    }
 }

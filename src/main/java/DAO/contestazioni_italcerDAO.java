@@ -113,7 +113,7 @@ public class contestazioni_italcerDAO {
 
     // * UPDATE
     // ! PER ORA AGGIORNA SOLO 'cod_cliente', MANCANO GLI ALTRI CAMPI
-    public void updateAzienda(contestazioni_italcerDTO contestazione, String cod_cliente){
+    public void updateContestazioni_italcer(contestazioni_italcerDTO contestazione, String cod_cliente){
 
         Jdbi jdbi = jdbiProducer.getJdbi();
 
