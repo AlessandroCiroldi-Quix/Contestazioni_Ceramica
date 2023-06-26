@@ -22,7 +22,7 @@ public class contestazioniREST {
     @Inject
     contestazioni_italcerDAO contestazioni_italcerDAO;
 
-    @Path("/get") // ! DA RINOMINARE
+    @Path("/getContestazione_italcer")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
@@ -76,7 +76,7 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/remove")
+    @Path("/removeContestazione_italcer")
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -112,7 +112,7 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/update/{id}") //! da modificare in seguito
+    @Path("/updateContestazione_italcer/{id}") //! da modificare in seguito
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
