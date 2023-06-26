@@ -9,11 +9,11 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
-
 import DAO.*;
 import DTO.*;
 
 import java.util.List;
+
 
 @Path("italcer")
 @Data
@@ -40,7 +40,9 @@ public class contestazioni_italcerREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_italcerDTO> GetContestazioni_italcer(){ return contestazioni_italcerDAO.getData(); }
+    public List<contestazioni_italcerDTO> GetContestazioni_italcer() {
+        return contestazioni_italcerDAO.getData();
+    }
 
     @Path("/add")
     @POST
@@ -96,18 +98,18 @@ public class contestazioni_italcerREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_italcerDTO> delContestazione_italcer(contestazioni_italcerDTO contestazione){
+    public List<contestazioni_italcerDTO> delContestazione_italcer(contestazioni_italcerDTO contestazione) {
 
-        if(contestazioni_italcerDAO.findContestazione_italcer(contestazione)){
-                contestazioni_italcerDAO.deleteContestazione_italcer(contestazione);
-            }else {
-                throw new WebApplicationException(
-                        Response.status(Response.Status.CONFLICT)
-                                .entity(ErrorResponse.getError("409", "Conflict"))
-                                .type(MediaType.APPLICATION_JSON)
-                                .build()
-                );
-            }
+        if (contestazioni_italcerDAO.findContestazione_italcer(contestazione)) {
+            contestazioni_italcerDAO.deleteContestazione_italcer(contestazione);
+        } else {
+            throw new WebApplicationException(
+                    Response.status(Response.Status.CONFLICT)
+                            .entity(ErrorResponse.getError("409", "Conflict"))
+                            .type(MediaType.APPLICATION_JSON)
+                            .build()
+            );
+        }
         return contestazioni_italcerDAO.getData();
     }
 
@@ -132,7 +134,7 @@ public class contestazioni_italcerREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("id") String id, contestazioni_italcerDTO contestazione){
+    public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("id") String id, contestazioni_italcerDTO contestazione) {
         //id serve per identificare la contestazione che vogliamo aggiornare
         contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, id);
 
