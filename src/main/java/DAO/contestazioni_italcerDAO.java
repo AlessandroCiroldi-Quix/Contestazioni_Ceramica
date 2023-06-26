@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.WebApplicationException;
 import lombok.Data;
+import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import java.util.List;
 import java.util.Optional;
@@ -107,19 +108,30 @@ public class contestazioni_italcerDAO {
         return id.isPresent();
     }
 
-    // * UPDATE
-    // ! PER ORA AGGIORNA SOLO 'cod_cliente', MANCANO GLI ALTRI CAMPI
-    public void updateContestazioni_italcer(contestazioni_italcerDTO contestazione, String cod_cliente){
+    // Metodo per aggiornare un record nella tabella 'contestazioni_italcer'
+    //! Aggiorna solo il campo 'cod_cliente' per ora, gli altri campi mancano
+    public void updateContestazioni_italcer(contestazioni_italcerDTO contestazione, String id) {
+        Jdbi jdbi = jdbiProducer.getJdbi(); // Ottiene l'oggetto Jdbi tramite jdbiProducer
 
-        Jdbi jdbi = jdbiProducer.getJdbi();  // Inizializza l'oggetto Jdbi utilizzando il jdbiProducer
+        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente WHERE id = :id";
+        // Query di aggiornamento che modifica solo il campo 'cod_cliente'
 
-        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente WHERE id = :id";  // Query di aggiornamento che modifica solo il campo 'cod_cliente'
+        int rowsAffected = 0; // Dichiarazione e inizializzazione della variabile per il conteggio delle righe modificate
 
-        jdbi.useHandle(handle -> handle.createUpdate(query)  // Utilizza l'oggetto Handle per creare un'operazione di aggiornamento
-                .bind("cod_cliente",cod_cliente)  // Associa il valore di 'cod_cliente' al parametro nella query
-                .bind("id", contestazione.getId())  // Associa il valore dell'ID della contestazione al parametro nella query
-                .execute()  // Esegue l'aggiornamento
-        );
+        try (Handle handle = jdbi.open()) {
+            rowsAffected = ((Handle) handle).createUpdate(query)
+                    .bind("cod_cliente", contestazione.getCod_cliente()) // Associa il valore di 'cod_cliente' al parametro nella query
+                    .bind("id", id) // Associa il valore dell'ID della contestazione al parametro nella query
+                    .execute(); // Esegue l'aggiornamento e ottiene il numero di righe modificate
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (rowsAffected > 0) {
+            System.out.println("Aggiornamento riuscito. Righe modificate: " + rowsAffected);
+        } else {
+            System.out.println("Nessuna riga modificata. Controlla i parametri della query.");
+        }
     }
 
 }
