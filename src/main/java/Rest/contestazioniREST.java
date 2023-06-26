@@ -112,7 +112,7 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/updateContestazione_italcer/{id}") //! da modificare in seguito
+    @Path("/updateContestazione_italcer/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
