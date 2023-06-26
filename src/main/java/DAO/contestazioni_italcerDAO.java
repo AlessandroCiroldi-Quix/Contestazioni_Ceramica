@@ -76,6 +76,7 @@ public class contestazioni_italcerDAO {
     }
 
 
+
     //* DELETE
     // Metodo per eliminare dati/elementi dalla tabella
     @SuppressWarnings("unused")
@@ -90,6 +91,8 @@ public class contestazioni_italcerDAO {
         );
     }
 
+
+    //* FIND
     // Metodo per trovare una contestazione italcer
     public boolean findContestazione_italcer(contestazioni_italcerDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
@@ -109,6 +112,9 @@ public class contestazioni_italcerDAO {
         return id.isPresent();
     }
 
+
+    //* UPDATE
+    //! N.B -> Devi inserire tutti i campi nel JSON, altrimenti genera Err:500
     // Metodo per aggiornare un record nella tabella 'contestazioni_italcer'
     public void updateContestazioni_italcer(contestazioni_italcerDTO contestazione, String id) {
         Jdbi jdbi = jdbiProducer.getJdbi(); // Ottiene l'oggetto Jdbi tramite jdbiProducer
