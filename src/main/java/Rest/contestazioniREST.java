@@ -13,7 +13,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import DAO.*;
 import DTO.*;
 import Entity.*;
-
 import java.util.List;
 
 @Path("data")

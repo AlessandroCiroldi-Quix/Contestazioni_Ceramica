@@ -35,5 +35,4 @@ public class contestazioni_italcerDTO {
     private String num_ord_reparto; //NULL
     private String difettosita; //NULL
     private int deleted; //DEFAULT '0'
-    // Prova
 }
