@@ -114,7 +114,7 @@ public class contestazioni_italcerDAO {
         Jdbi jdbi = jdbiProducer.getJdbi(); // Ottiene l'oggetto Jdbi tramite jdbiProducer
 
         String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente, rs_cliente = :rs_cliente, " +
-                "cod_articolo  = :cod_articolo , tono = :tono , num_fatture = :num_fatture , data_fattura= :data_fattura, " +
+                "cod_articolo  = :cod_articolo , tono = :tono , num_fattura = :num_fattura , data_fattura= :data_fattura, " +
                 "descrizione= :descrizione, qta_contestata= :qta_contestata, unita_misura = :unita_misura, " +
                 "posato= :posato , stato= :stato , utente_creazione= :utente_creazione ,data_creazione = :data_creazione, " +
                 "utente_ultima_mod = :utente_ultima_mod , data_ultima_mod= :data_ultima_mod ,desc_prodotto = :desc_prodotto, " +
@@ -131,7 +131,7 @@ public class contestazioni_italcerDAO {
                     .bind("rs_cliente", contestazione.getRs_cliente())
                     .bind("cod_articolo", contestazione.getCod_articolo())
                     .bind("tono", contestazione.getTono())
-                    .bind("num_fatture", contestazione.getNum_fattura())
+                    .bind("num_fattura", contestazione.getNum_fattura())
                     .bind("data_fattura", contestazione.getData_fattura())
                     .bind("descrizione", contestazione.getDescrizione())
                     .bind("qta_contestata", contestazione.getQta_contestata())

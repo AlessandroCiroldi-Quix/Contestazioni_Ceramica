@@ -22,7 +22,7 @@ public class contestazioniREST {
     @Inject
     contestazioni_italcerDAO contestazioni_italcerDAO;
 
-    @Path("/get")
+    @Path("/get") // ! DA RINOMINARE
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
@@ -76,10 +76,10 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/remove") // L'annotazione @Path specifica il percorso per accedere a questo metodo tramite richieste HTTP
-    @DELETE // Questo metodo gestisce richieste HTTP di tipo DELETE
-    @Consumes(MediaType.APPLICATION_JSON) // Specifica che il metodo accetta dati in formato JSON come input
-    @Produces(MediaType.APPLICATION_JSON) // Specifica che il metodo restituisce dati in formato JSON come output
+    @Path("/remove")
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
             @APIResponse(
                     responseCode = "500",
@@ -87,7 +87,7 @@ public class contestazioniREST {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @APIResponse(
                     responseCode = "404",
-                    description = "Not found",
+                    description = "not fnd",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
             @APIResponse(
                     responseCode = "409",
@@ -99,25 +99,23 @@ public class contestazioniREST {
     )
     public List<contestazioni_italcerDTO> delContestazione_italcer(contestazioni_italcerDTO contestazione){
 
-        if(contestazioni_italcerDAO.findContestazione_italcer(contestazione)){ // Controlla se la contestazione esiste nel database
-            contestazioni_italcerDAO.deleteContestazione_italcer(contestazione); // Se esiste, chiama il metodo dell'oggetto contestazioni_italcerDAO per eliminarla
-        } else {
-            throw new WebApplicationException(
-                    Response.status(Response.Status.CONFLICT)
-                            .entity(ErrorResponse.getError("409", "Conflict"))
-                            .type(MediaType.APPLICATION_JSON)
-                            .build()
-            ); // Altrimenti, genera un'eccezione di tipo WebApplicationException con una risposta di conflitto (409) restituita al chiamante dell'API
-        }
-
-        return contestazioni_italcerDAO.getData(); // Restituisce i dati aggiornati dopo l'eliminazione della contestazione
+        if(contestazioni_italcerDAO.findContestazione_italcer(contestazione)){
+                contestazioni_italcerDAO.deleteContestazione_italcer(contestazione);
+            }else {
+                throw new WebApplicationException(
+                        Response.status(Response.Status.CONFLICT)
+                                .entity(ErrorResponse.getError("409", "Conflict"))
+                                .type(MediaType.APPLICATION_JSON)
+                                .build()
+                );
+            }
+        return contestazioni_italcerDAO.getData();
     }
 
-
-    @Path("/update/{id}") // L'annotazione @Path specifica il percorso per accedere a questo metodo tramite richieste HTTP
-    @PUT // Questo metodo gestisce richieste HTTP di tipo PUT
-    @Consumes(MediaType.APPLICATION_JSON) // Specifica che il metodo accetta dati in formato JSON come input
-    @Produces(MediaType.APPLICATION_JSON) // Specifica che il metodo restituisce dati in formato JSON come output
+    @Path("/update/{id}") //! da modificare in seguito
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
             @APIResponse(
                     responseCode = "500",
@@ -136,9 +134,9 @@ public class contestazioniREST {
                     description = "OK")}
     )
     public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("id") String id, contestazioni_italcerDTO contestazione){
+        //id serve per identificare la contestazione che vogliamo aggiornare
+        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, id);
 
-        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, id); // Richiama il metodo dell'oggetto contestazioni_italcerDAO per aggiornare i dati della contestazione
-
-        return contestazioni_italcerDAO.getData(); // Restituisce i dati aggiornati della contestazione
+        return contestazioni_italcerDAO.getData();
     }
 }
