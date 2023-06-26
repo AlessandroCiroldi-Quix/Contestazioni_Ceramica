@@ -45,7 +45,7 @@ public class contestazioni_eliosREST {
     }
 
     @Path("/add")
-    @PUT
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {

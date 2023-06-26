@@ -18,8 +18,6 @@ public class cont_art_italcerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     int id_cont;
-
-    @NotNull
     String cod_articolo;
     @NotNull
     String tono;
