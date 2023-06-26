@@ -62,13 +62,13 @@ public class cont_art_italcerDAO {
     //* DELETE
     // Metodo per eliminare dati/elementi dalla tabella
     @SuppressWarnings("unused")
-    public void deleteCont_art_italcer(cont_art_italcerDTO contestazione) {
+    public void deleteCont_art_italcer(String id) {
         Jdbi jdbi = jdbiProducer.getJdbi();  // Inizializza l'oggetto Jdbi utilizzando il jdbiProducer
 
         String query = "DELETE FROM cont_art_italcer WHERE id_cont = :id_cont";  // Query per eliminare una riga dalla tabella 'cont_art_italcer' basata sull'id_cont
 
         jdbi.useHandle(handle -> handle.createUpdate(query)  // Utilizza l'oggetto Handle per creare un'operazione di eliminazione
-                .bind("id_cont", contestazione.getId_cont())  // Associa il valore dell'ID della contestazione al parametro nella query
+                .bind("id_cont", id)  // Associa il valore dell'ID della contestazione al parametro nella query
                 .execute()  // Esegue l'eliminazione
         );
     }

@@ -79,7 +79,7 @@ public class cont_art_italcerREST {
         return cont_art_italcerDAO.getData();
     }
 
-    @Path("/delete")
+    @Path("/delete/{id_cont}")
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -101,19 +101,9 @@ public class cont_art_italcerREST {
                     description = "OK")}
     )
     @SuppressWarnings("unused")
-    public List<cont_art_italcerDTO> delContestazione_elios(cont_art_italcerDTO contestazione) {
+    public void delContestazione_elios(@PathParam("id_cont") String id_cont) {
+        cont_art_italcerDAO.deleteCont_art_italcer(id_cont);
 
-        if (cont_art_italcerDAO.findCont_art_Italcer(contestazione)) {
-            cont_art_italcerDAO.deleteCont_art_italcer(contestazione);
-        } else {
-            throw new WebApplicationException(
-                    Response.status(Response.Status.CONFLICT)
-                            .entity(ErrorResponse.getError("409", "Conflict"))
-                            .type(MediaType.APPLICATION_JSON)
-                            .build()
-            );
-        }
-        return cont_art_italcerDAO.getData();
     }
 
     @Path("/update/{id_cont}")

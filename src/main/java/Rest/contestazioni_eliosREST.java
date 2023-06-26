@@ -77,7 +77,7 @@ public class contestazioni_eliosREST {
         return contestazioni_eliosDAO.getData();
     }
 
-    @Path("/delete")
+    @Path("/delete/{id}")
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -98,19 +98,8 @@ public class contestazioni_eliosREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_eliosDTO> delContestazione_elios(contestazioni_eliosDTO contestazione) {
-
-        if (contestazioni_eliosDAO.findContestazione_elios(contestazione)) {
-            contestazioni_eliosDAO.deleteContestazione_elios(contestazione);
-        } else {
-            throw new WebApplicationException(
-                    Response.status(Response.Status.CONFLICT)
-                            .entity(ErrorResponse.getError("409", "Conflict"))
-                            .type(MediaType.APPLICATION_JSON)
-                            .build()
-            );
-        }
-        return contestazioni_eliosDAO.getData();
+    public void delContestazione_elios(@PathParam("id") String id) {
+        contestazioni_eliosDAO.deleteContestazione_elios(id);
     }
 
     @Path("/update/{id}")
