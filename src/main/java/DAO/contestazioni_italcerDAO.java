@@ -23,7 +23,6 @@ public class contestazioni_italcerDAO {
     public List<contestazioni_italcerDTO> getData() {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
-
         String query = "SELECT * FROM contestazioni_italcer";
 
         return jdbi.withHandle(handle -> handle.createQuery(query)
@@ -32,8 +31,9 @@ public class contestazioni_italcerDAO {
         );
     }
 
+
     //* ADD
-    // metodo per aggiungere una contestazione
+    // Metodo per aggiungere una contestazione
     @SuppressWarnings("unused")
     public void addContestazione_italcer(contestazioni_italcerDTO contestazione) {
         Jdbi jdbi = jdbiProducer.getJdbi(); // Otteniamo l'oggetto Jdbi dal produttore Jdbi
@@ -75,11 +75,11 @@ public class contestazioni_italcerDAO {
         );
     }
 
-    //* DELETE
-    //metodo per eliminare dati/ elementi dalla tabella
-    @SuppressWarnings("unused")
-    public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione){
 
+    //* DELETE
+    // Metodo per eliminare dati/elementi dalla tabella
+    @SuppressWarnings("unused")
+    public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione) {
         Jdbi jdbi = jdbiProducer.getJdbi();  // Inizializza l'oggetto Jdbi utilizzando il jdbiProducer
 
         String query = "DELETE FROM contestazioni_italcer WHERE id = :id";  // Query per eliminare una riga dalla tabella 'contestazioni_italcer' basata sull'ID
@@ -90,6 +90,7 @@ public class contestazioni_italcerDAO {
         );
     }
 
+    // Metodo per trovare una contestazione italcer
     public boolean findContestazione_italcer(contestazioni_italcerDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
@@ -109,29 +110,57 @@ public class contestazioni_italcerDAO {
     }
 
     // Metodo per aggiornare un record nella tabella 'contestazioni_italcer'
-    //! Aggiorna solo il campo 'cod_cliente' per ora, gli altri campi mancano
     public void updateContestazioni_italcer(contestazioni_italcerDTO contestazione, String id) {
         Jdbi jdbi = jdbiProducer.getJdbi(); // Ottiene l'oggetto Jdbi tramite jdbiProducer
 
-        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente WHERE id = :id";
+        String query = "UPDATE contestazioni_italcer SET cod_cliente = :cod_cliente, rs_cliente = :rs_cliente, " +
+                "cod_articolo  = :cod_articolo , tono = :tono , num_fatture = :num_fatture , data_fattura= :data_fattura, " +
+                "descrizione= :descrizione, qta_contestata= :qta_contestata, unita_misura = :unita_misura, " +
+                "posato= :posato , stato= :stato , utente_creazione= :utente_creazione ,data_creazione = :data_creazione, " +
+                "utente_ultima_mod = :utente_ultima_mod , data_ultima_mod= :data_ultima_mod ,desc_prodotto = :desc_prodotto, " +
+                "uid_files = :uid_files , tipology= :tipology , motivazione= :motivazione, " +
+                "company = :company ,num_buono = :num_buono , num_bolla= :num_bolla, num_ord_reparto= :num_ord_reparto, " +
+                "difettosita= :difettosita ,deleted = :deleted WHERE id = :id";
         // Query di aggiornamento che modifica solo il campo 'cod_cliente'
 
         int rowsAffected = 0; // Dichiarazione e inizializzazione della variabile per il conteggio delle righe modificate
 
         try (Handle handle = jdbi.open()) {
-            rowsAffected = ((Handle) handle).createUpdate(query)
+            rowsAffected = handle.createUpdate(query)
                     .bind("cod_cliente", contestazione.getCod_cliente()) // Associa il valore di 'cod_cliente' al parametro nella query
+                    .bind("rs_cliente", contestazione.getRs_cliente())
+                    .bind("cod_articolo", contestazione.getCod_articolo())
+                    .bind("tono", contestazione.getTono())
+                    .bind("num_fatture", contestazione.getNum_fattura())
+                    .bind("data_fattura", contestazione.getData_fattura())
+                    .bind("descrizione", contestazione.getDescrizione())
+                    .bind("qta_contestata", contestazione.getQta_contestata())
+                    .bind("unita_misura", contestazione.getUnita_misura())
+                    .bind("posato", contestazione.getPosato())
+                    .bind("stato", contestazione.getStato())
+                    .bind("utente_creazione", contestazione.getUtente_creazione())
+                    .bind("data_creazione", contestazione.getData_creazione())
+                    .bind("utente_ultima_mod", contestazione.getUtente_ultima_mod())
+                    .bind("data_ultima_mod", contestazione.getData_ultima_mod())
+                    .bind("desc_prodotto", contestazione.getDesc_prodotto())
+                    .bind("uid_files", contestazione.getUid_files())
+                    .bind("tipology", contestazione.getTipology())
+                    .bind("motivazione", contestazione.getMotivazione())
+                    .bind("company", contestazione.getCompany())
+                    .bind("num_buono", contestazione.getNum_buono())
+                    .bind("num_bolla", contestazione.getNum_bolla())
+                    .bind("num_ord_reparto", contestazione.getNum_ord_reparto())
+                    .bind("difettosita", contestazione.getDifettosita())
+                    .bind("deleted", contestazione.getDeleted())
                     .bind("id", id) // Associa il valore dell'ID della contestazione al parametro nella query
-                    .execute(); // Esegue l'aggiornamento e ottiene il numero di righe modificate
+                    .execute(); // Eseguiamo la query
+
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e); // Logga eventuali errori
         }
 
-        if (rowsAffected > 0) {
-            System.out.println("Aggiornamento riuscito. Righe modificate: " + rowsAffected);
-        } else {
-            System.out.println("Nessuna riga modificata. Controlla i parametri della query.");
+        if (rowsAffected != 1) {
+            throw new WebApplicationException("Errore nell'aggiornamento della contestazione italcer.");
         }
     }
-
 }

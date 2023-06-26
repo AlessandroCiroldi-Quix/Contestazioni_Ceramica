@@ -76,46 +76,10 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/remove")
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @APIResponses(value = {
-            @APIResponse(
-                    responseCode = "500",
-                    description = "Errore",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @APIResponse(
-                    responseCode = "404",
-                    description = "not fnd",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @APIResponse(
-                    responseCode = "409",
-                    description = "Conflict",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
-            @APIResponse(
-                    responseCode = "200",
-                    description = "OK")}
-    )
-    public List<contestazioni_italcerDTO> delContestazione_italcer(contestazioni_italcerDTO contestazione){
-
-        if(contestazioni_italcerDAO.findContestazione_italcer(contestazione)){
-                contestazioni_italcerDAO.deleteContestazione_italcer(contestazione);
-            }else {
-                throw new WebApplicationException(
-                        Response.status(Response.Status.CONFLICT)
-                                .entity(ErrorResponse.getError("409", "Conflict"))
-                                .type(MediaType.APPLICATION_JSON)
-                                .build()
-                );
-            }
-        return contestazioni_italcerDAO.getData();
-    }
-
-    @Path("/update/{cod}") //! da modificare in seguito
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/remove") // L'annotazione @Path specifica il percorso per accedere a questo metodo tramite richieste HTTP
+    @DELETE // Questo metodo gestisce richieste HTTP di tipo DELETE
+    @Consumes(MediaType.APPLICATION_JSON) // Specifica che il metodo accetta dati in formato JSON come input
+    @Produces(MediaType.APPLICATION_JSON) // Specifica che il metodo restituisce dati in formato JSON come output
     @APIResponses(value = {
             @APIResponse(
                     responseCode = "500",
@@ -133,10 +97,48 @@ public class contestazioniREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("cod") String cod, contestazioni_italcerDTO contestazione){
+    public List<contestazioni_italcerDTO> delContestazione_italcer(contestazioni_italcerDTO contestazione){
 
-        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, cod);
+        if(contestazioni_italcerDAO.findContestazione_italcer(contestazione)){ // Controlla se la contestazione esiste nel database
+            contestazioni_italcerDAO.deleteContestazione_italcer(contestazione); // Se esiste, chiama il metodo dell'oggetto contestazioni_italcerDAO per eliminarla
+        } else {
+            throw new WebApplicationException(
+                    Response.status(Response.Status.CONFLICT)
+                            .entity(ErrorResponse.getError("409", "Conflict"))
+                            .type(MediaType.APPLICATION_JSON)
+                            .build()
+            ); // Altrimenti, genera un'eccezione di tipo WebApplicationException con una risposta di conflitto (409) restituita al chiamante dell'API
+        }
 
-        return contestazioni_italcerDAO.getData();
+        return contestazioni_italcerDAO.getData(); // Restituisce i dati aggiornati dopo l'eliminazione della contestazione
+    }
+
+
+    @Path("/update/{id}") // L'annotazione @Path specifica il percorso per accedere a questo metodo tramite richieste HTTP
+    @PUT // Questo metodo gestisce richieste HTTP di tipo PUT
+    @Consumes(MediaType.APPLICATION_JSON) // Specifica che il metodo accetta dati in formato JSON come input
+    @Produces(MediaType.APPLICATION_JSON) // Specifica che il metodo restituisce dati in formato JSON come output
+    @APIResponses(value = {
+            @APIResponse(
+                    responseCode = "500",
+                    description = "Errore",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Not found",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @APIResponse(
+                    responseCode = "409",
+                    description = "Conflict",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+            @APIResponse(
+                    responseCode = "200",
+                    description = "OK")}
+    )
+    public List<contestazioni_italcerDTO> updateContestazioni_italcer(@PathParam("id") String id, contestazioni_italcerDTO contestazione){
+
+        contestazioni_italcerDAO.updateContestazioni_italcer(contestazione, id); // Richiama il metodo dell'oggetto contestazioni_italcerDAO per aggiornare i dati della contestazione
+
+        return contestazioni_italcerDAO.getData(); // Restituisce i dati aggiornati della contestazione
     }
 }
