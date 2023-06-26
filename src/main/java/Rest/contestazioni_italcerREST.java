@@ -12,16 +12,16 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
 import DAO.*;
 import DTO.*;
-import Entity.*;
+
 import java.util.List;
 
-@Path("data")
+@Path("italcer")
 @Data
-public class contestazioniREST {
+public class contestazioni_italcerREST {
     @Inject
     contestazioni_italcerDAO contestazioni_italcerDAO;
 
-    @Path("/getContestazione_italcer")
+    @Path("/select")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
@@ -42,7 +42,7 @@ public class contestazioniREST {
     )
     public List<contestazioni_italcerDTO> GetContestazioni_italcer(){ return contestazioni_italcerDAO.getData(); }
 
-    @Path("/addContestazione_italcer")
+    @Path("/add")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -75,7 +75,7 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/removeContestazione_italcer")
+    @Path("/delete")
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -111,7 +111,7 @@ public class contestazioniREST {
         return contestazioni_italcerDAO.getData();
     }
 
-    @Path("/updateContestazione_italcer/{id}")
+    @Path("/update/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
