@@ -168,7 +168,7 @@ public class contestazioni_fondovalleDAO {
         }
 
         if (rowsAffected != 1) {
-            throw new WebApplicationException("Errore nell'aggiornamento della contestazione italcer.");
+            throw new WebApplicationException("Errore nell'aggiornamento della contestazione fondovalle.");
         }
     }
 }
