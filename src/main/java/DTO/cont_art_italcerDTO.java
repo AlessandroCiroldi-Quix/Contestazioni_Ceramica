@@ -1,5 +1,6 @@
 package DTO;
 
+import enumerators.Company;
 import lombok.Data;
 
 //
@@ -14,7 +15,7 @@ public class cont_art_italcerDTO {
     private String tono;
     private boolean posato;
     private String descProdotto;
-    private String company;
+    private Company company;
     private String formato;
     private int qtaContestata;
     private String unita_misura;

@@ -1,5 +1,6 @@
 package Entity;
 
+import enumerators.Company;
 import io.smallrye.common.constraint.NotNull;
 import lombok.Data;
 
@@ -17,21 +18,21 @@ public class cont_art_italcerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    int id_cont;
-    String cod_articolo;
+    private int id_cont;
+    private String cod_articolo;
     @NotNull
-    String tono;
+    private String tono;
     @NotNull
-    boolean posato;
+    private boolean posato;
     @NotNull
-    String desc_prodotto;
+    private String desc_prodotto;
     @NotNull
-    String company;
+    private Company company;
     @NotNull
-    String formato;
+    private String formato;
     @NotNull
-    int qta_contestata;
+    private int qta_contestata;
     @NotNull
-    String unita_misura;
+    private String unita_misura;
 
 }
