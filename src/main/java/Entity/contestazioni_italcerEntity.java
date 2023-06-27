@@ -57,35 +57,4 @@ public class contestazioni_italcerEntity {
     @NotNull
     private int deleted = 0; //DEFAULT '0'
 
-    /*
-    public contestazioni_italcerEntity() {
-        this.id = id;
-        this.cod_cliente = "";
-        this.rs_cliente = "";
-        this.cod_articolo = "";
-        this.tono = "";
-        this.num_fattura = null;
-        this.data_fattura = null;
-        this.descrizione = "";
-        this.qta_contestata = qta_contestata;
-        this.unita_misura = "";
-        this.posato = posato;
-        this.stato = stato;
-        this.utente_creazione = utente_creazione;
-        Date date = new Date();
-        this.data_creazione = new Timestamp(date.getTime());;
-        this.utente_ultima_mod = null;
-        this.data_ultima_mod = Timestamp.valueOf("0000-00-00 00:00:00");;
-        this.desc_prodotto = desc_prodotto;
-        this.uid_files = null;
-        this.tipology = null;
-        this.motivazione = motivazione;
-        this.company = company;
-        this.num_buono = null;
-        this.num_bolla = null;
-        this.num_ord_reparto = null;
-        this.difettosita = null;
-        this.deleted = 0;
-    }
-     */
 }
