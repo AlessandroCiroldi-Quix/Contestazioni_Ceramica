@@ -1,6 +1,7 @@
 package Entity;
 
 import enumerators.Company;
+import enumerators.Stato;
 import io.smallrye.common.constraint.NotNull;
 import lombok.Data;
 import lombok.NonNull;
@@ -35,7 +36,7 @@ public class contestazioni_eliosEntity {
     @NotNull
     private int posato; //NOT NULL
     @NotNull
-    private String stato;//NOT NULL
+    private Stato stato;//NOT NULL
     @NotNull
     private String utente_creazione; //NOT NULL
     @NotNull
