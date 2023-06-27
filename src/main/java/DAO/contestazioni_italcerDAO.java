@@ -80,13 +80,13 @@ public class contestazioni_italcerDAO {
     //* DELETE
     // Metodo per eliminare dati/elementi dalla tabella
     @SuppressWarnings("unused")
-    public void deleteContestazione_italcer(contestazioni_italcerDTO contestazione) {
+    public void deleteContestazione_italcer(String id) {
         Jdbi jdbi = jdbiProducer.getJdbi();  // Inizializza l'oggetto Jdbi utilizzando il jdbiProducer
 
         String query = "DELETE FROM contestazioni_italcer WHERE id = :id";  // Query per eliminare una riga dalla tabella 'contestazioni_italcer' basata sull'ID
 
         jdbi.useHandle(handle -> handle.createUpdate(query)  // Utilizza l'oggetto Handle per creare un'operazione di eliminazione
-                .bind("id", contestazione.getId())  // Associa il valore dell'ID della contestazione al parametro nella query
+                .bind("id", id)  // Associa il valore dell'ID della contestazione al parametro nella query
                 .execute()  // Esegue l'eliminazione
         );
     }

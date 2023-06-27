@@ -77,7 +77,7 @@ public class contestazioni_fabREST {
         return contestazioni_fabDAO.getDataFab();
     }
 
-    @Path("/delete")
+    @Path("/delete/{id}")
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -98,19 +98,8 @@ public class contestazioni_fabREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_fabDTO> delContestazione_fab(contestazioni_fabDTO contestazione) {
-
-        if (contestazioni_fabDAO.findContestazione_fab(contestazione)) {
-            contestazioni_fabDAO.deleteContestazione_fab(contestazione);
-        } else {
-            throw new WebApplicationException(
-                    Response.status(Response.Status.CONFLICT)
-                            .entity(ErrorResponse.getError("409", "Conflict"))
-                            .type(MediaType.APPLICATION_JSON)
-                            .build()
-            );
-        }
-        return contestazioni_fabDAO.getDataFab();
+    public void delContestazione_elios(@PathParam("id") String id) {
+        contestazioni_fabDAO.deleteContestazione_fab(id);
     }
 
     @Path("/update/{id}")
