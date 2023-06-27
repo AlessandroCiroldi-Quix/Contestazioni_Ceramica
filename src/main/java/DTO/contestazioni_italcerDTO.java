@@ -1,5 +1,6 @@
 package DTO;
 
+import enumerators.Company;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -29,7 +30,7 @@ public class contestazioni_italcerDTO {
     private String uid_files; //NULL
     private String tipology; //NULL
     private String motivazione;
-    private String company; //NOT NULL
+    private Company company; //NOT NULL
     private String num_buono; //NULL
     private String num_bolla; //NULL
     private String num_ord_reparto; //NULL

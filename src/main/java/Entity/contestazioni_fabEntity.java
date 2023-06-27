@@ -1,5 +1,6 @@
 package Entity;
 
+import enumerators.Company;
 import io.smallrye.common.constraint.NotNull;
 import lombok.Data;
 import lombok.NonNull;
@@ -49,7 +50,7 @@ public class contestazioni_fabEntity {
     @NotNull
     private String motivazione;
     @NotNull
-    private String company; //NOT NULL
+    private Company company; //NOT NULL
     private String num_buono; //NULL
     private String num_bolla; //NULL
     private String num_ord_reparto; //NULL
