@@ -6,10 +6,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class jdbiProducer {
     Jdbi jdbi;
 
-    jdbiProducer(){ jdbi = Jdbi.create("jdbc:mysql://localhost:3306/contestazioni","root","Quix2905!"); }
+    jdbiProducer(){ jdbi = Jdbi.create("jdbc:mysql://localhost:3306/contestazioni","root",""); }
     public Jdbi getJdbi(){
         return jdbi;
     }
-    /* Il costruttore inizializza un'istanza jdbi per creare la connessione al db
-     * il metodo pubblico 'getJdbi' rende l'istanza jdbi utilizzabile anche in altre classi */
+    /*
+     * ! Il costruttore inizializza un'istanza jdbi per creare la connessione al db
+     * il metodo pubblico 'getJdbi' rende l'istanza jdbi utilizzabile anche in altre classi
+    */
 }
