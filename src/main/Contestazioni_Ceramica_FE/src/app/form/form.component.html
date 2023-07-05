@@ -1,1 +1,31 @@
-<p>form works!</p>
+<!--? Elementi di inserimento input semplici -->
+<div class="input-cont">
+  <label for="myText">Id contestazione:</label>
+  <br />
+  <input type="text" id="myText" name="myText" />
+</div>
+
+<div class="input-cod_articolo">
+  <label for="myText">Cod Articolo / Descrizione:</label>
+  <br />
+  <input type="text" id="myText" name="myText" />
+</div>
+
+<div class="input-cliente">
+  <label for="myText">Cliente:</label>
+  <br />
+  <input type="text" id="myText" name="myText" />
+</div>
+
+
+<!--? Elementi per input-calendario  -->
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+
+<input type="date" id="date" value="">
