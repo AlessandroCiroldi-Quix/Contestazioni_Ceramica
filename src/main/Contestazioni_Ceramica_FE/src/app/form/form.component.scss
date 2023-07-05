@@ -13,6 +13,7 @@ mat-form-field input {
 }
 
 input {
+  
   border: 1px solid rgb(174, 174, 174); /* Imposta il bordo con spessore 1px e colore nero */
   border-width: 1px; /* Imposta lo spessore del bordo a 2px */
   border-radius: 3px; /* Imposta il raggio di bordo a 4px */
@@ -25,6 +26,9 @@ input:focus {
   border-width: 1px; /* Imposta lo spessore del bordo a 1px quando il campo è in stato di focus */
 }
 
+.input-nrm{
+  margin: 3px;
+}
 // cambiare la lunghezza della cella input
 .input-cont input {
   width: 200px; /* specifica la lunghezza desiderata */
