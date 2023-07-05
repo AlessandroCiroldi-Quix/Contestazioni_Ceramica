@@ -1,40 +1,23 @@
-mat-form-field {
-  font-size: 12px; /* Imposta la dimensione del testo del form field */
-  padding: 4px; /* Imposta il padding interno del form field */
-}
-
-mat-form-field mat-label {
-  font-size: 14px; /* Imposta la dimensione del testo dell'etichetta */
-}
-
-mat-form-field input {
-  height: 20px; /* Imposta l'altezza dell'input field */
-  font-size: 12px; /* Imposta la dimensione del testo dell'input field */
-}
-
+//? SCSS per i componenti input normali (text_input)
+//* Stile barre di ricerca - caselle di input
 input {
-  
   border: 1px solid rgb(174, 174, 174); /* Imposta il bordo con spessore 1px e colore nero */
-  border-width: 1px; /* Imposta lo spessore del bordo a 2px */
-  border-radius: 3px; /* Imposta il raggio di bordo a 4px */
+  border-width: 1px; /* Imposta lo spessore del bordo */
+  border-radius: 3px; /* Imposta il raggio di bordo  */
   padding: 4px; /* Imposta il padding interno del campo di input */
   font-size: 14px; /* Imposta la dimensione del testo nell'input */
 }
-
-input:focus {
+input:focus //è possibile modificare l'aspetto degli elementi quando sono in stato di focus attivo.
+{
   outline: none; /* Rimuove l'outline predefinito quando il campo è in stato di focus */
   border-width: 1px; /* Imposta lo spessore del bordo a 1px quando il campo è in stato di focus */
 }
-
-.input-nrm{
-  margin: 3px;
+label {
+  font-size: 13px;
+  font-weight: 450;
 }
-// cambiare la lunghezza della cella input
-.input-cont input {
-  width: 200px; /* specifica la lunghezza desiderata */
-}
-
 // Mettere in riga gli elementi
+// Elenco degli elementi da ordianre
 .input-cont,
 .input-cod_articolo,
 .input-cliente {
@@ -43,7 +26,19 @@ input:focus {
   margin-right: 20px; /* opzionale: aggiunge uno spazio tra i due elementi */
 }
 
-label{
-  font-size: 13px;
-  font-weight: 450;
+//----------------------------------------------------------------
+
+//? SCSS per i componenti input calendario (calendar_input)
+mat-form-field {
+  font-size: 12px; /* Imposta la dimensione del testo del form field */
+  padding: 4px; /* Imposta il padding interno del form field */
 }
+mat-form-field mat-label {
+  font-size: 14px; /* Imposta la dimensione del testo dell'etichetta */
+}
+mat-form-field input {
+  height: 20px; /* Imposta l'altezza dell'input field */
+  font-size: 12px; /* Imposta la dimensione del testo dell'input field */
+}
+
+//? SCSS per i componenti input select (select_input)
