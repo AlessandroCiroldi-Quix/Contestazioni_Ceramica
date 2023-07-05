@@ -1,3 +1,4 @@
+<!--? Divisione che racchiude tutti input-normali -->
 <div class="input-nrm">
   <div class="input-cont">
     <label for="myText">Id contestazione:</label>
@@ -20,12 +21,15 @@
 
 <!--? Elementi per input-calendario  -->
 <!--! Da decidere cosa fare  -->
-<mat-form-field>
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" />
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<!-- <div class="input-calendario">
+  <label for="myText">Data inserimento (inizio):</label>
+  <br />
+  <div class="datepicker">
+    <input matInput [matDatepicker]="picker" /> -->
+    <!-- iconcina del datapicker -->
+    <!-- <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </div>
+</div> -->
 
-<input type="date" id="date" value="" />
+<input class="calendario" type="date" placeholder="Seleziona una data">

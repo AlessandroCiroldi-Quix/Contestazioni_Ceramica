@@ -6,6 +6,8 @@ input {
   border-radius: 3px; /* Imposta il raggio di bordo  */
   padding: 4px; /* Imposta il padding interno del campo di input */
   font-size: 14px; /* Imposta la dimensione del testo nell'input */
+  height: 15px;
+  width:173px;
 }
 input:focus //è possibile modificare l'aspetto degli elementi quando sono in stato di focus attivo.
 {
@@ -29,16 +31,25 @@ label {
 //----------------------------------------------------------------
 
 //? SCSS per i componenti input calendario (calendar_input)
-mat-form-field {
-  font-size: 12px; /* Imposta la dimensione del testo del form field */
-  padding: 4px; /* Imposta il padding interno del form field */
-}
-mat-form-field mat-label {
-  font-size: 14px; /* Imposta la dimensione del testo dell'etichetta */
-}
-mat-form-field input {
-  height: 20px; /* Imposta l'altezza dell'input field */
-  font-size: 12px; /* Imposta la dimensione del testo dell'input field */
-}
+// mat-form-field {
+//   font-size: 12px; /* Imposta la dimensione del testo del form field */
+//   padding: 4px; /* Imposta il padding interno del form field */
+// }
+// mat-form-field mat-label {
+//   font-size: 14px; /* Imposta la dimensione del testo dell'etichetta */
+// }
+// mat-form-field input {
+//   height: 20px; /* Imposta l'altezza dell'input field */
+//   font-size: 12px; /* Imposta la dimensione del testo dell'input field */
+// }
+
+// mat-datepicker-toggle{
+//   height: 2px!important;
+// }
+
+// .calendario{
+//   height: 15px;
+//   width:173px;
+// }
 
 //? SCSS per i componenti input select (select_input)
