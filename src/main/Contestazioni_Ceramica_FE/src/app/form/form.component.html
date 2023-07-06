@@ -1,35 +1,7 @@
 <!--? Divisione che racchiude tutti input-normali -->
-<div class="input-nrm">
-  <div class="input-cont">
-    <label for="myText">Id contestazione:</label>
-    <br />
-    <input type="text" id="myText" name="myText" />
-  </div>
-
-  <div class="input-cod_articolo">
-    <label for="myText">Cod Articolo / Descrizione:</label>
-    <br />
-    <input type="text" id="myText" name="myText" />
-  </div>
-
-  <div class="input-cliente">
-    <label for="myText">Cliente:</label>
-    <br />
-    <input type="text" id="myText" name="myText" />
-  </div>
-</div>
-
-<!--? Elementi per input-calendario  -->
-<!--! Da decidere cosa fare  -->
-<!-- <div class="input-calendario">
-  <label for="myText">Data inserimento (inizio):</label>
+<!-- <div class="input-nrm"> -->
+<div class="input-cont">
+  <label for="myText">Id contestazione:</label>
   <br />
-  <div class="datepicker">
-    <input matInput [matDatepicker]="picker" /> -->
-    <!-- iconcina del datapicker -->
-    <!-- <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </div>
-</div> -->
-
-<input class="calendario" type="date" placeholder="Seleziona una data">
+  <input type="text" id="myText" name="myText" (input)="onInput($event)" />
+</div>

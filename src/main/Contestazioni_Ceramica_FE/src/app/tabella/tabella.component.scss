@@ -1,9 +1,11 @@
-mat-elevation-z8{
-  background-color: chartreuse;
-  color: red;
+.demo-table {
+  width: 100%;
 }
 
-ng-container{
-  background-color: aqua;
-  color: aqua;
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
 }
