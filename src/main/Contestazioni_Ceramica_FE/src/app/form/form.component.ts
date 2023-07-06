@@ -1,3 +1,4 @@
+//? Importazioni del componente FORM
 import { Component } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -18,14 +19,20 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
   ],
 })
+
+//? Logica del componente FORM
 export class FormComponent {
-  onInput(event: Event): string {
+  valoreID_cont: string = '';
+  // Funzione che inmagazzina il valore quando digiti
+  onInputID_cont(event: Event): string {
     // Aggiunto tipo di ritorno "string"
 
-    // prova del 9
     console.log((<HTMLInputElement>event.target).value);
-
+    this.valoreID_cont = (<HTMLInputElement>event.target).value;
     // ritorna il valore del input
-    return (<HTMLInputElement>event.target).value; // Ritorna il valore di event.target.value
+    return this.valoreID_cont; // Ritorna il valore di event.target.value
   }
+
+  // funzione che fa qualcosa quando click
+  onClick() {}
 }
