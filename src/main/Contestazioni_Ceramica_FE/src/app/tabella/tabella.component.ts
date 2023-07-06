@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
-import {Observable, ReplaySubject} from 'rxjs';
-import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 export interface PeriodicElement {
   name: string;
@@ -32,41 +32,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './tabella.component.html',
   styleUrls: ['./tabella.component.scss'],
   standalone: true,
-  imports: [MatButtonModule, MatTableModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule],
 })
 export class TabellaComponents {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataToDisplay = [...ELEMENT_DATA];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  dataSource = new ExampleDataSource(this.dataToDisplay);
-
-  addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataToDisplay = [...this.dataToDisplay, ELEMENT_DATA[randomElementIndex]];
-    this.dataSource.setData(this.dataToDisplay);
-  }
-
-  removeData() {
-    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    this.dataSource.setData(this.dataToDisplay);
-  }
-}
-
-class ExampleDataSource extends DataSource<PeriodicElement> {
-  private _dataStream = new ReplaySubject<PeriodicElement[]>();
-
-  constructor(initialData: PeriodicElement[]) {
-    super();
-    this.setData(initialData); 
-  }
-
-  connect(): Observable<PeriodicElement[]> {
-    return this._dataStream;
-  }
-
-  disconnect() {}
-
-  setData(data: PeriodicElement[]) {
-    this._dataStream.next(data);
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
