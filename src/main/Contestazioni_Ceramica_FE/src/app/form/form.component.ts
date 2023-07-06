@@ -18,11 +18,14 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
   ],
 })
-export class FormComponent { 
-  onInput(event: Event): void {
-    // diciamo a TS che questo è un input HTML
-    console.log((<HTMLInputElement>event.target).value); //! Casting necessario
+export class FormComponent {
+  onInput(event: Event): string {
+    // Aggiunto tipo di ritorno "string"
 
-    //? Ora questo event (variabile che contiene il valore digitato dall'utente) deve andare a generare il service
+    // prova del 9
+    console.log((<HTMLInputElement>event.target).value);
+
+    // ritorna il valore del input
+    return (<HTMLInputElement>event.target).value; // Ritorna il valore di event.target.value
   }
 }
