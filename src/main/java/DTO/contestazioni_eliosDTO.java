@@ -22,7 +22,7 @@ public class contestazioni_eliosDTO {
     private int qta_contestata; //NOT NULL
     private String unita_misura; //NOT NULL
     private int posato; //NOT NULL
-    private Stato stato;//NOT NULL
+    private String stato;//NOT NULL
     private String utente_creazione; //NOT NULL
     private Timestamp data_creazione;  //DEFAULT CURRENT_TIMESTAMP,
     private String utente_ultima_mod; //NULL
@@ -31,7 +31,7 @@ public class contestazioni_eliosDTO {
     private String uid_files; //NULL
     private String tipology; //NULL
     private String motivazione;
-    private Company company; //NOT NULL
+    private String company; //NOT NULL
     private String num_buono; //NULL
     private String num_bolla; //NULL
     private String num_ord_reparto; //NULL

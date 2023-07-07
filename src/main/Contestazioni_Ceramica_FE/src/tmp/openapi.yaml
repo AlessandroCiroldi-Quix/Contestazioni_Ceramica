@@ -1,0 +1,1194 @@
+---
+openapi: 3.0.3
+info:
+  title: contestazioni_ceramica API
+  version: 1.0.0-SNAPSHOT
+paths:
+  /contart/add:
+    post:
+      tags:
+      - cont _art _italcer REST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cont_art_italcerDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cont_art_italcerDTO'
+  /contart/delete/{id_cont}:
+    delete:
+      tags:
+      - cont _art _italcer REST
+      parameters:
+      - name: id_cont
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: not fnd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+  /contart/select:
+    get:
+      tags:
+      - cont _art _italcer REST
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cont_art_italcerDTO'
+  /contart/update/{id_cont}:
+    put:
+      tags:
+      - cont _art _italcer REST
+      parameters:
+      - name: id_cont
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cont_art_italcerDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cont_art_italcerDTO'
+  /elios/add:
+    post:
+      tags:
+      - contestazioni _elios REST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_eliosDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_eliosDTO'
+  /elios/delete/{id}:
+    delete:
+      tags:
+      - contestazioni _elios REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: not fnd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+  /elios/select:
+    get:
+      tags:
+      - contestazioni _elios REST
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_eliosDTO'
+  /elios/update/{id}:
+    put:
+      tags:
+      - contestazioni _elios REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_eliosDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_eliosDTO'
+  /fab/add:
+    post:
+      tags:
+      - contestazioni _fab REST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_fabDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fabDTO'
+  /fab/delete/{id}:
+    delete:
+      tags:
+      - contestazioni _fab REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: not fnd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+  /fab/select:
+    get:
+      tags:
+      - contestazioni _fab REST
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fabDTO'
+  /fab/update/{id}:
+    put:
+      tags:
+      - contestazioni _fab REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_fabDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fabDTO'
+  /fondovalle/add:
+    post:
+      tags:
+      - contestazioni _fondovalle REST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+  /fondovalle/delete:
+    delete:
+      tags:
+      - contestazioni _fondovalle REST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: not fnd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+  /fondovalle/select:
+    get:
+      tags:
+      - contestazioni _fondovalle REST
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+  /fondovalle/update/{id}:
+    put:
+      tags:
+      - contestazioni _fondovalle REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_fondovalleDTO'
+  /italcer/add:
+    post:
+      tags:
+      - contestazioni _italcer REST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_italcerDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_italcerDTO'
+  /italcer/delete/{id}:
+    delete:
+      tags:
+      - contestazioni _italcer REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: not fnd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+  /italcer/select:
+    get:
+      tags:
+      - contestazioni _italcer REST
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_italcerDTO'
+  /italcer/update/{id}:
+    put:
+      tags:
+      - contestazioni _italcer REST
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contestazioni_italcerDTO'
+      responses:
+        "500":
+          description: Errore
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contestazioni_italcerDTO'
+components:
+  schemas:
+    CalendarDate:
+      type: object
+      properties:
+        era:
+          $ref: '#/components/schemas/Era'
+        year:
+          format: int32
+          type: integer
+        month:
+          format: int32
+          type: integer
+        dayOfMonth:
+          format: int32
+          type: integer
+        dayOfWeek:
+          format: int32
+          type: integer
+        leapYear:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        minutes:
+          format: int32
+          type: integer
+        seconds:
+          format: int32
+          type: integer
+        millis:
+          format: int32
+          type: integer
+        fraction:
+          format: int64
+          type: integer
+        normalized:
+          type: boolean
+        zoneinfo:
+          $ref: '#/components/schemas/TimeZone'
+        zoneOffset:
+          format: int32
+          type: integer
+        daylightSaving:
+          format: int32
+          type: integer
+        forceStandardTime:
+          type: boolean
+        locale:
+          $ref: '#/components/schemas/Locale'
+        timeOfDay:
+          format: int64
+          type: integer
+        standardTime:
+          type: boolean
+        daylightTime:
+          type: boolean
+        zone:
+          $ref: '#/components/schemas/TimeZone'
+    Company:
+      enum:
+      - RON
+      - ELI
+      - FAB
+      - FON
+      type: string
+    Date:
+      format: date
+      type: string
+      example: 2022-03-10
+    Date1:
+      type: object
+      properties:
+        era:
+          $ref: '#/components/schemas/Era'
+        year:
+          format: int32
+          type: integer
+        month:
+          format: int32
+          type: integer
+        dayOfMonth:
+          format: int32
+          type: integer
+        dayOfWeek:
+          format: int32
+          type: integer
+        leapYear:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        minutes:
+          format: int32
+          type: integer
+        seconds:
+          format: int32
+          type: integer
+        millis:
+          format: int32
+          type: integer
+        fraction:
+          format: int64
+          type: integer
+        normalized:
+          type: boolean
+        zoneinfo:
+          $ref: '#/components/schemas/TimeZone'
+        zoneOffset:
+          format: int32
+          type: integer
+        daylightSaving:
+          format: int32
+          type: integer
+        forceStandardTime:
+          type: boolean
+        locale:
+          $ref: '#/components/schemas/Locale'
+        timeOfDay:
+          format: int64
+          type: integer
+        standardTime:
+          type: boolean
+        daylightTime:
+          type: boolean
+        zone:
+          $ref: '#/components/schemas/TimeZone'
+        cachedYear:
+          format: int32
+          type: integer
+        cachedFixedDateJan1:
+          format: int64
+          type: integer
+        cachedFixedDateNextJan1:
+          format: int64
+          type: integer
+        normalizedYear:
+          format: int32
+          type: integer
+        cachedJan1:
+          format: int64
+          type: integer
+    Era:
+      type: object
+      properties:
+        name:
+          type: string
+        abbr:
+          type: string
+        since:
+          format: int64
+          type: integer
+        sinceDate:
+          $ref: '#/components/schemas/CalendarDate'
+        localTime:
+          type: boolean
+        hash:
+          format: int32
+          type: integer
+        abbreviation:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: boolean
+        type:
+          type: string
+        msg:
+          type: string
+    Locale:
+      type: object
+      properties:
+        language:
+          type: string
+        script:
+          type: string
+        country:
+          type: string
+        variant:
+          type: string
+        extensionKeys:
+          uniqueItems: true
+          type: array
+          items:
+            format: byte
+            type: string
+        unicodeLocaleAttributes:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        unicodeLocaleKeys:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        iSO3Language:
+          type: string
+        iSO3Country:
+          type: string
+        displayLanguage:
+          type: string
+        displayScript:
+          type: string
+        displayCountry:
+          type: string
+        displayVariant:
+          type: string
+        displayName:
+          type: string
+    Stato:
+      enum:
+      - presa_in_carico
+      - inserita
+      - accettata
+      - rifiutata
+      type: string
+    TimeZone:
+      type: object
+      properties:
+        ID:
+          type: string
+        rawOffset:
+          format: int32
+          type: integer
+        iD:
+          type: string
+        displayName:
+          type: string
+        dSTSavings:
+          format: int32
+          type: integer
+    Timestamp:
+      type: object
+      properties:
+        year:
+          format: int32
+          type: integer
+          deprecated: true
+        month:
+          format: int32
+          type: integer
+          deprecated: true
+        date:
+          format: int32
+          type: integer
+          deprecated: true
+        day:
+          format: int32
+          type: integer
+          deprecated: true
+        hours:
+          format: int32
+          type: integer
+          deprecated: true
+        minutes:
+          format: int32
+          type: integer
+          deprecated: true
+        seconds:
+          format: int32
+          type: integer
+          deprecated: true
+        timeImpl:
+          format: int64
+          type: integer
+        timezoneOffset:
+          format: int32
+          type: integer
+          deprecated: true
+        calendarDate:
+          $ref: '#/components/schemas/Date1'
+        nanos:
+          format: int32
+          type: integer
+        time:
+          format: int64
+          type: integer
+    cont_art_italcerDTO:
+      type: object
+      properties:
+        id_cont:
+          format: int64
+          type: integer
+        cod_articolo:
+          type: string
+        tono:
+          type: string
+        posato:
+          type: boolean
+        descProdotto:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+        formato:
+          type: string
+        qtaContestata:
+          format: int32
+          type: integer
+        unita_misura:
+          type: string
+    contestazioni_eliosDTO:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        cod_cliente:
+          type: string
+        rs_cliente:
+          type: string
+        cod_articolo:
+          type: string
+        tono:
+          type: string
+        num_fattura:
+          type: string
+        data_fattura:
+          $ref: '#/components/schemas/Date'
+        descrizione:
+          type: string
+        qta_contestata:
+          format: int32
+          type: integer
+        unita_misura:
+          type: string
+        posato:
+          format: int32
+          type: integer
+        stato:
+          $ref: '#/components/schemas/Stato'
+        utente_creazione:
+          type: string
+        data_creazione:
+          $ref: '#/components/schemas/Timestamp'
+        utente_ultima_mod:
+          type: string
+        data_ultima_mod:
+          $ref: '#/components/schemas/Timestamp'
+        desc_prodotto:
+          type: string
+        uid_files:
+          type: string
+        tipology:
+          type: string
+        motivazione:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+        num_buono:
+          type: string
+        num_bolla:
+          type: string
+        num_ord_reparto:
+          type: string
+        difettosita:
+          type: string
+        deleted:
+          format: int32
+          type: integer
+    contestazioni_fabDTO:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        cod_cliente:
+          type: string
+        rs_cliente:
+          type: string
+        cod_articolo:
+          type: string
+        tono:
+          type: string
+        num_fattura:
+          type: string
+        data_fattura:
+          $ref: '#/components/schemas/Date'
+        descrizione:
+          type: string
+        qta_contestata:
+          format: int32
+          type: integer
+        unita_misura:
+          type: string
+        posato:
+          format: int32
+          type: integer
+        stato:
+          $ref: '#/components/schemas/Stato'
+        utente_creazione:
+          type: string
+        data_creazione:
+          $ref: '#/components/schemas/Timestamp'
+        utente_ultima_mod:
+          type: string
+        data_ultima_mod:
+          $ref: '#/components/schemas/Timestamp'
+        desc_prodotto:
+          type: string
+        uid_files:
+          type: string
+        tipology:
+          type: string
+        motivazione:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+        num_buono:
+          type: string
+        num_bolla:
+          type: string
+        num_ord_reparto:
+          type: string
+        difettosita:
+          type: string
+        deleted:
+          format: int32
+          type: integer
+    contestazioni_fondovalleDTO:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        cod_cliente:
+          type: string
+        rs_cliente:
+          type: string
+        cod_articolo:
+          type: string
+        tono:
+          type: string
+        num_fattura:
+          type: string
+        data_fattura:
+          $ref: '#/components/schemas/Date'
+        descrizione:
+          type: string
+        qta_contestata:
+          format: int32
+          type: integer
+        unita_misura:
+          type: string
+        posato:
+          format: int32
+          type: integer
+        stato:
+          $ref: '#/components/schemas/Stato'
+        utente_creazione:
+          type: string
+        data_creazione:
+          $ref: '#/components/schemas/Timestamp'
+        utente_ultima_mod:
+          type: string
+        data_ultima_mod:
+          $ref: '#/components/schemas/Timestamp'
+        desc_prodotto:
+          type: string
+        uid_files:
+          type: string
+        tipology:
+          type: string
+        motivazione:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+        num_buono:
+          type: string
+        num_bolla:
+          type: string
+        num_ord_reparto:
+          type: string
+        difettosita:
+          type: string
+        deleted:
+          format: int32
+          type: integer
+    contestazioni_italcerDTO:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        cod_cliente:
+          type: string
+        rs_cliente:
+          type: string
+        cod_articolo:
+          type: string
+        tono:
+          type: string
+        num_fattura:
+          type: string
+        data_fattura:
+          $ref: '#/components/schemas/Date'
+        descrizione:
+          type: string
+        qta_contestata:
+          format: int32
+          type: integer
+        unita_misura:
+          type: string
+        posato:
+          format: int32
+          type: integer
+        stato:
+          $ref: '#/components/schemas/Stato'
+        utente_creazione:
+          type: string
+        data_creazione:
+          $ref: '#/components/schemas/Timestamp'
+        utente_ultima_mod:
+          type: string
+        data_ultima_mod:
+          $ref: '#/components/schemas/Timestamp'
+        desc_prodotto:
+          type: string
+        uid_files:
+          type: string
+        tipology:
+          type: string
+        motivazione:
+          type: string
+        company:
+          $ref: '#/components/schemas/Company'
+        num_buono:
+          type: string
+        num_bolla:
+          type: string
+        num_ord_reparto:
+          type: string
+        difettosita:
+          type: string
+        deleted:
+          format: int32
+          type: integer
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: basic
