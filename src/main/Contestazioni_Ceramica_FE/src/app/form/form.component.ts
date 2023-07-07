@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,10 +12,16 @@ import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.s
   templateUrl: './form.component.html', 
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
   valoreID_cont: string = '';
-
+  datasource: Contestazioni_eliosDTO[] = [];
   constructor(private contestazioniService: contestazioniEliosservice) {}
+
+  ngOnInit(): void {
+    this.contestazioniService.getContesatzioni_elios().subscribe( res => 
+      this.datasource = res
+    );
+  }
 
   onInputID_cont(event: Event): string {
     console.log((<HTMLInputElement>event.target).value);
@@ -23,8 +29,6 @@ export class FormComponent {
     return this.valoreID_cont;
   }
 
-  fetchContestazioni(): void {
-    this.contestazioniService.getContesatzioni_elios();
-    const ciao = this.contestazioniService.getContesatzioni_elios().subscribe( res => console.log("this res : " + res));
-  }
 }
+
+

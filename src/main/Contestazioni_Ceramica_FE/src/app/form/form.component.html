@@ -3,7 +3,15 @@
 <div class="input-cont">
   <label for="myText">Id contestazione:</label>
   <br />
-  <input type="text" id="myText" name="myText" (input)="onInputID_cont($event)" />
+  <input
+    type="text"
+    id="myText"
+    name="myText"
+    (input)="onInputID_cont($event)"
+  />
 </div>
 
-<button type="button" (click)="fetchContestazioni()"></button>
+<div *ngFor="let con of datasource">
+
+  <p> ID : {{con.company}}</p>
+</div>
