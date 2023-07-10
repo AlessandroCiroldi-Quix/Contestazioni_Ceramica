@@ -9,26 +9,27 @@ import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.s
 
 @Component({
   selector: 'app-form',
-  templateUrl: './form.component.html', 
+  templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent implements OnInit{
-  valoreID_cont: string = '';
-  datasource: Contestazioni_eliosDTO[] = [];
+export class FormComponent implements OnInit {
+  valoreID_cont: string = ''; // Dichiarazione di una variabile di tipo stringa per l'ID della contestazione
+
+  datasource: Contestazioni_eliosDTO[] = []; // Dichiarazione di un array di tipo Contestazioni_eliosDTO per il datasource
+
   constructor(private contestazioniService: contestazioniEliosservice) {}
 
   ngOnInit(): void {
-    this.contestazioniService.getContesatzioni_elios().subscribe( res => 
-      this.datasource = res
-    );
+    this.contestazioniService
+      .getContesatzioni_elios()
+      .subscribe((res) => (this.datasource = res)); // Assegnamento del risultato dell'observable al datasource dell'array
   }
 
+  // Funzione che prende l'input da tastiera e lo assegna alla variabile
+  //! Ce ne deve essere una per ogni form !
   onInputID_cont(event: Event): string {
     console.log((<HTMLInputElement>event.target).value);
     this.valoreID_cont = (<HTMLInputElement>event.target).value;
     return this.valoreID_cont;
   }
-
 }
-
-

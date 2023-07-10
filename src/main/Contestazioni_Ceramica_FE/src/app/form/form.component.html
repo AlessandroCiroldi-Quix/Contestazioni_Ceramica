@@ -11,7 +11,19 @@
   />
 </div>
 
-<div *ngFor="let con of datasource">
-
-  <p> ID : {{con.company}}</p>
-</div>
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Cliente</th>
+    <th>Num. Fattura</th>
+    <th>Data Fattura</th>
+    <th>Stato</th>
+    <th>Utente Creazione</th>
+    <th>Data Creazione</th>
+    <th>Reparto</th>
+    <th>Articoli</th>
+  </tr>
+  <tr *ngFor="let con of datasource">
+    <td>{{ con.company }}</td>
+  </tr>
+</table>
