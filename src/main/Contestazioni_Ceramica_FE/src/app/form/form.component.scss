@@ -7,7 +7,7 @@ input {
   padding: 4px; /* Imposta il padding interno del campo di input */
   font-size: 14px; /* Imposta la dimensione del testo nell'input */
   height: 15px;
-  width:173px;
+  width: 173px;
 }
 input:focus //è possibile modificare l'aspetto degli elementi quando sono in stato di focus attivo.
 {
@@ -54,13 +54,13 @@ label {
 
 //? SCSS per i componenti input select (select_input)
 
-
-
-
+/* CSS per la tabella */
 /* CSS per la tabella */
 .table {
-  border-collapse: collapse;
-  width: 100%;
+  border: 1px solid #bbbbbb; /* Bordo in grassetto */
+  width: 50%; /* Larghezza ridotta */
+  margin: 0 auto; /* Centratura orizzontale */
+  border-radius: 5px;
 }
 
 /* CSS per le righe dispari */
@@ -75,13 +75,15 @@ label {
 
 /* CSS per le celle della colonna */
 .table td {
-  padding: 8px;
   border: 1px solid #dddddd;
 }
 
 /* CSS per l'intestazione delle colonne */
 .table th {
   padding: 8px;
-  border: 1px solid #dddddd;
   background-color: #f2f2f2;
+}
+
+.table tr {
+  height: 20px; /* Altezza desiderata per le righe */
 }

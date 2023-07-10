@@ -24,6 +24,12 @@
     <th>Articoli</th>
   </tr>
   <tr *ngFor="let con of datasource">
+    <td>{{ con.id }}</td>
     <td>{{ con.company }}</td>
+    <td>{{ con.num_fattura }}</td>
+    <td>{{ con.data_fattura }}</td>
+    <td>{{ con.stato }}</td>
+    <td>{{ con.utente_creazione }}</td>
+    <td>{{ con.data_creazione }}</td>
   </tr>
 </table>
