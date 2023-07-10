@@ -52,15 +52,13 @@ label {
 //   width:173px;
 // }
 
-//? SCSS per i componenti input select (select_input)
+//? SCSS per la tabella
 
-/* CSS per la tabella */
-/* CSS per la tabella */
 .table {
-  border: 1px solid #bbbbbb; /* Bordo in grassetto */
-  width: 50%; /* Larghezza ridotta */
+  border: 1px solid #f5f5f5; /* Bordo in grassetto */
+  width: 90%; /* Larghezza ridotta */
   margin: 0 auto; /* Centratura orizzontale */
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* CSS per le righe dispari */
@@ -73,15 +71,16 @@ label {
   background-color: #ffffff;
 }
 
-/* CSS per le celle della colonna */
+/* CSS per le celle della colonna con linea di divisione */
 .table td {
   border: 1px solid #dddddd;
 }
 
-/* CSS per l'intestazione delle colonne */
+/* CSS per l'intestazione delle colonne con linea di divisione */
 .table th {
   padding: 8px;
   background-color: #f2f2f2;
+  border: 1px solid #dddddd;
 }
 
 .table tr {
