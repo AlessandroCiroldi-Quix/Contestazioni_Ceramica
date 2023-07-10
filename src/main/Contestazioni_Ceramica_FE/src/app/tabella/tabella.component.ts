@@ -38,6 +38,21 @@ export class TabellaComponents {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
+  ngOnInit(): void {
+
+    const elemento = document.querySelector('.peso');
+    console.log("elemento: ", elemento.id)
+
+
+
+    this.dataSource.filterPredicate = function (record,filter) {
+      console.log("Reocrd: ", record)
+      return record.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase());
+    }
+
+
+}
+
   //Filtro
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

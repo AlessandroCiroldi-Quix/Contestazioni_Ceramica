@@ -14,8 +14,13 @@
 
 <!-- Filtro e Tabella -->
 <mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+  <mat-label>Nome</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="nome" #input class="nome">
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Peso</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="peso" #input class="peso">
 </mat-form-field>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
