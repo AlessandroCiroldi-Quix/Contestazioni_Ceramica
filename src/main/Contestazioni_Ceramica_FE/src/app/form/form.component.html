@@ -1,38 +1,6 @@
 <!--? Divisione che racchiude tutti input-normali -->
 <!--* <div class="input-nrm"> -->
-<!-- <div class="input-cont">
-  <label for="myText">Id contestazione:</label>
-  <br />
-  <input
-    type="text"
-    id="myText"
-    name="myText"
-    (input)="onInputID_cont($event)"
-  />
-</div> -->
 
-<!-- <table class="table">
-  <tr>
-    <th>ID</th>
-    <th>Cliente</th>
-    <th>Num. Fattura</th>
-    <th>Data Fattura</th>
-    <th>Stato</th>
-    <th>Utente Creazione</th>
-    <th>Data Creazione</th>
-    <th>Reparto</th>
-    <th>Articoli</th>
-  </tr>
-  <tr *ngFor="let con of datasource">
-    <td>{{ con.id }}</td>
-    <td>{{ con.company }}</td>
-    <td>{{ con.num_fattura }}</td>
-    <td>{{ con.data_fattura }}</td>
-    <td>{{ con.stato }}</td>
-    <td>{{ con.utente_creazione }}</td>
-    <td>{{ con.data_creazione }}</td>
-  </tr>
-</table> -->
 <form>
   <!-- Input di testo -->
   <div class="id_cont">
@@ -52,7 +20,6 @@
     <input type="date" id="datepicker2" name="datepicker2" />
   </div>
 
-  
   <div class="cod_art">
     <label for="input2">Testo 2:</label>
     <input type="text" id="input2" name="input2" />
@@ -101,8 +68,43 @@
   </div>
 
   <!-- Pulsanti -->
+  <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
   <div class="pulsanti">
     <button type="reset">Azzera</button>
     <button type="submit">Cerca</button>
   </div>
 </form>
+<!-- 
+<div class="input-cont">
+  <label for="myText">Id contestazione:</label>
+  <br />
+  <input
+    type="text"
+    id="myText"
+    name="myText"
+    (input)="onInputID_cont($event)"
+  />
+</div> -->
+
+<table class="table"> 
+  <tr>
+    <th>ID</th>
+    <th>Cliente</th>
+    <th>Num. Fattura</th>
+    <th>Data Fattura</th>
+    <th>Stato</th>
+    <th>Utente Creazione</th>
+    <th>Data Creazione</th>
+    <th>Reparto</th>
+    <th>Articoli</th>
+  </tr>
+  <tr *ngFor="let con of datasource">
+    <td>{{ con.id }}</td>
+    <td>{{ con.company }}</td>
+    <td>{{ con.num_fattura }}</td>
+    <td>{{ con.data_fattura }}</td>
+    <td>{{ con.stato }}</td>
+    <td>{{ con.utente_creazione }}</td>
+    <td>{{ con.data_creazione }}</td>
+  </tr>
+</table>
