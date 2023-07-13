@@ -22,9 +22,9 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.contestazioniService
       .getContesatzioni_elios()
-      .subscribe((res) => {this.datasource = res 
+      .subscribe((res) => {this.datasource = res
         console.log(JSON.stringify(res))}); // Assegnamento del risultato dell'observable al datasource dell'array
-     
+
   }
 
   // Funzione che prende l'input da tastiera e lo assegna alla variabile
@@ -35,3 +35,4 @@ export class FormComponent implements OnInit {
     return this.valoreID_cont;
   }
 }
+
