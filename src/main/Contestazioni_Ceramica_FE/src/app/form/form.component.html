@@ -1,6 +1,6 @@
 <!--? Divisione che racchiude tutti input-normali -->
 <!--* <div class="input-nrm"> -->
-<div class="input-cont">
+<!-- <div class="input-cont">
   <label for="myText">Id contestazione:</label>
   <br />
   <input
@@ -9,9 +9,9 @@
     name="myText"
     (input)="onInputID_cont($event)"
   />
-</div>
+</div> -->
 
-<table class="table">
+<!-- <table class="table">
   <tr>
     <th>ID</th>
     <th>Cliente</th>
@@ -32,4 +32,77 @@
     <td>{{ con.utente_creazione }}</td>
     <td>{{ con.data_creazione }}</td>
   </tr>
-</table>
+</table> -->
+<form>
+  <!-- Input di testo -->
+  <div class="id_cont">
+    <label for="input1">Testo 1:</label>
+    <input type="text" id="input1" name="input1" />
+  </div>
+
+  <!-- Datepicker -->
+
+  <div class="data_inz">
+    <label for="datepicker1">Data 1:</label>
+    <input type="date" id="datepicker1" name="datepicker1" />
+  </div>
+
+  <div class="data_fine">
+    <label for="datepicker2">Data 2:</label>
+    <input type="date" id="datepicker2" name="datepicker2" />
+  </div>
+
+  
+  <div class="cod_art">
+    <label for="input2">Testo 2:</label>
+    <input type="text" id="input2" name="input2" />
+  </div>
+
+  <div class="cliente">
+    <label for="input3">Testo 3:</label>
+    <input type="text" id="input3" name="input3" />
+  </div>
+
+  <!-- Dropdown menu -->
+  <div class="stato">
+    <label for="dropdown1">Opzione 1:</label>
+    <select id="dropdown1" name="dropdown1">
+      <option value="opzione1">Opzione 1</option>
+      <option value="opzione2">Opzione 2</option>
+      <option value="opzione3">Opzione 3</option>
+    </select>
+  </div>
+
+  <div class="reparto">
+    <label for="dropdown2">Opzione 2:</label>
+    <select id="dropdown2" name="dropdown2">
+      <option value="opzione1">Opzione 1</option>
+      <option value="opzione2">Opzione 2</option>
+      <option value="opzione3">Opzione 3</option>
+    </select>
+  </div>
+
+  <div class="formato">
+    <label for="dropdown3">Opzione 3:</label>
+    <select id="dropdown3" name="dropdown3">
+      <option value="opzione1">Opzione 1</option>
+      <option value="opzione2">Opzione 2</option>
+      <option value="opzione3">Opzione 3</option>
+    </select>
+  </div>
+
+  <div class="utente_crtr">
+    <label for="dropdown4">Opzione 4:</label>
+    <select id="dropdown4" name="dropdown4">
+      <option value="opzione1">Opzione 1</option>
+      <option value="opzione2">Opzione 2</option>
+      <option value="opzione3">Opzione 3</option>
+    </select>
+  </div>
+
+  <!-- Pulsanti -->
+  <div class="pulsanti">
+    <button type="reset">Azzera</button>
+    <button type="submit">Cerca</button>
+  </div>
+</form>
