@@ -6,7 +6,11 @@
   <div class="id_cont">
     <label for="input1">Id contestazione:</label>
     <br />
-    <input type="text" id="myText" name="myText" (input)="onInputID_cont($event)"
+    <input
+      type="text"
+      id="myText"
+      name="myText"
+      (input)="onInputID_cont($event)"
     />
   </div>
 
@@ -86,6 +90,8 @@
   </div>
 </form>
 
+<button class="ricarica" onclick="location.reload()"> R</button>
+
 <table class="table">
   <tr>
     <th>ID</th>
@@ -95,8 +101,9 @@
     <th>Stato</th>
     <th>Utente Creazione</th>
     <th>Data Creazione</th>
-    <th>Reparto</th>
-    <th>Articoli</th>
+    <!-- <th>Reparto</th>
+    <th>Articoli</th> -->
+    <th>Azioni</th> <!-- Aggiungi una nuova colonna per i pulsanti -->
   </tr>
   <tr *ngFor="let con of datasource">
     <td>{{ con.id }}</td>
@@ -106,5 +113,12 @@
     <td>{{ con.stato }}</td>
     <td>{{ con.utente_creazione }}</td>
     <td>{{ con.data_creazione }}</td>
+    <td>
+      <button class="azione-btn">M</button> <!-- Pulsante per Modifica (M) -->
+      <button class="azione-btn">D</button> <!-- Pulsante per Elimina (D) -->
+      <button class="azione-btn">
+        <img src="src\main\resources\image\reload.png">
+      </button>
+    </td>
   </tr>
 </table>
