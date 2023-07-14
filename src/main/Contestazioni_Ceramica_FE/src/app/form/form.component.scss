@@ -1,3 +1,4 @@
+//----------------------------------------------------------------
 //? SCSS per i componenti input normali (text_input)
 //* Stile barre di ricerca - caselle di input
 input {
@@ -31,60 +32,38 @@ label {
 //----------------------------------------------------------------
 //? SCSS per i componenti calendario
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //----------------------------------------------------------------
 //? SCSS per la tabella
-
 .table {
-  border: 1px solid #f5f5f5; /* Bordo in grassetto */
-  width: 90%; /* Larghezza ridotta */
-  margin: 0 auto; /* Centratura orizzontale */
-  border-radius: 10px;
+  width: 100%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
+  border-collapse: collapse; /* Comprime i bordi delle celle in modo che si uniscano */
+
+  th,
+  td {
+    padding: 8px; /* Aggiunge un padding di 8 pixel alle celle del titolo e del contenuto */
+    text-align: left; /* Allinea il testo delle celle a sinistra */
+    border-bottom: 1px solid #ddd; /* Aggiunge un bordo inferiore di 1 pixel alle celle */
+  }
+
+  th {
+    background-color: #f2f2f2; /* Imposta il colore di sfondo del titolo */
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Imposta il colore di sfondo delle righe pari */
+  }
+
+  tr:hover {
+    background-color: #f1f1f1b7; /* Imposta il colore di sfondo delle righe al passaggio del mouse */
+  }
 }
 
-/* CSS per le righe dispari */
-.table tr:nth-child(odd) {
-  background-color: #f2f2f2;
-}
-
-/* CSS per le righe pari */
-.table tr:nth-child(even) {
-  background-color: #ffffff;
-}
-
-/* CSS per le celle della colonna con linea di divisione */
-.table td {
-  border: 1px solid #dddddd;
-}
-
-/* CSS per l'intestazione delle colonne con linea di divisione */
-.table th {
-  padding: 8px;
-  background-color: #f2f2f2;
-  border: 1px solid #dddddd;
-}
-
-.table tr {
-  height: 20px; /* Altezza desiderata per le righe */
-}
-
-
+//----------------------------------------------------------------
 //! SCSS prova per form
 form {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .id_cont,
@@ -112,4 +91,32 @@ select {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+//----------------------------------------------------------------
+//? SCSS per i pulsanti cerca e Azzera
+.pulsanti {
+
+
+  button[type="reset"],
+  button[type="submit"] {
+    background-color: #337ab7; /* Imposta il colore di sfondo dei pulsanti */
+    color: #fff; /* Imposta il colore del testo dei pulsanti a bianco */
+    padding: 8px 16px; /* Aggiunge un padding di 8px in verticale e 16px in orizzontale ai pulsanti */
+    border: none; /* Rimuove i bordi dei pulsanti */
+    border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
+    cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
+    transition: background-color 0.3s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
+    margin-right: 10px; /* Aggiunge uno spazio di 10px tra i pulsanti */ 
+    width: 200px; /* Imposta la larghezza del pulsante*/
+    &:hover {
+      background-color: darken(
+        #337ab7,
+        10%
+      ); /* Scure il colore di sfondo del pulsante del 10% al passaggio del mouse */
+    }
+
+    &:focus {
+      outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
+    }
+  }
 }
