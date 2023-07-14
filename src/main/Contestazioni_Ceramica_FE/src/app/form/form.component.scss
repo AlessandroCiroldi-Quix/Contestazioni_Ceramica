@@ -4,9 +4,12 @@
 //----------------------------------------------------------------
 //? SCSS per la tabella
 .table {
-  width: 80%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
+  width: 95%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
   border-collapse: collapse; /* Comprime i bordi delle celle in modo che si uniscano */
-
+  margin: 0 auto; /* Imposta il margine sinistro e destro a "auto" per centrare la tabella orizzontalmente */
+  margin-bottom: 20px; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
+  border-radius: 10px;
+   
   th,
   td {   
     padding: 8px; /* Aggiunge un padding di 8 pixel alle celle del titolo e del contenuto */
@@ -26,13 +29,18 @@
   tr:hover {
     background-color: #f1f1f1b7; /* Imposta il colore di sfondo delle righe al passaggio del mouse */
   }
+
+  .rigavuota {
+    margin-bottom: 40%;
+    height: 100px !important;
+  }
 }
 
 //----------------------------------------------------------------
 //! SCSS prova per form
 form {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
 }
 
 .id_cont,

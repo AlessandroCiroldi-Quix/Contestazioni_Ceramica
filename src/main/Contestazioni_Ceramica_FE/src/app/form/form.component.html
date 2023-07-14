@@ -2,7 +2,6 @@
 <!--* <div class="input-nrm"> -->
 
 <form>
-  <!-- Input di testo -->
   <div class="id_cont">
     <label for="input1">Id contestazione:</label>
     <br />
@@ -14,11 +13,10 @@
     />
   </div>
 
-  <!-- Datepicker -->
   <div class="data_inz">
     <label for="datepicker1">Data inserimento (inizio):</label>
     <br />
-    <input type="date" id="datepicker1" name="datepicker1" />
+    <input type="date" (change)="salvareValoreDateIni($event)" />
   </div>
 
   <div class="data_fine">
@@ -30,16 +28,25 @@
   <div class="cod_art">
     <label for="input2">Cod Articolo / Descrizione:</label>
     <br />
-    <input type="text" id="input2" name="input2" />
+    <input
+      type="text"
+      id="myText"
+      name="myText"
+      (input)="onInputCod_art($event)"
+    />
   </div>
 
   <div class="cliente">
     <label for="input3">Cliente:</label>
     <br />
-    <input type="text" id="input3" name="input3" />
+    <input
+      type="text"
+      id="myText"
+      name="myText"
+      (input)="onInputCliente($event)"
+    />
   </div>
 
-  <!-- Dropdown menu -->
   <div class="stato">
     <label for="dropdown1">Stato:</label>
     <br />
@@ -62,7 +69,7 @@
     </select>
   </div>
 
-  <div class="formato">
+  <div class="id_cont">
     <label for="dropdown3">Formato: </label>
     <br />
     <select id="dropdown3" name="dropdown3">
@@ -90,7 +97,7 @@
   </div>
 </form>
 
-<button class="ricarica" onclick="location.reload()"> R</button>
+<button class="ricarica" onclick="location.reload()">R</button>
 
 <table class="table">
   <tr>
@@ -102,8 +109,9 @@
     <th>Utente Creazione</th>
     <th>Data Creazione</th>
     <!-- <th>Reparto</th>
-    <th>Articoli</th> -->
-    <th>Azioni</th> <!-- Aggiungi una nuova colonna per i pulsanti -->
+      <th>Articoli</th> -->
+    <th></th>
+    <!-- Aggiungi una nuova colonna per i pulsanti -->
   </tr>
   <tr *ngFor="let con of datasource">
     <td>{{ con.id }}</td>
@@ -114,11 +122,14 @@
     <td>{{ con.utente_creazione }}</td>
     <td>{{ con.data_creazione }}</td>
     <td>
-      <button class="azione-btn">M</button> <!-- Pulsante per Modifica (M) -->
-      <button class="azione-btn">D</button> <!-- Pulsante per Elimina (D) -->
-      <button class="azione-btn">
-        <img src="src\main\resources\image\reload.png">
-      </button>
+      <button class="azione-btn">Mod</button>
+      <!-- Pulsante per Modifica (M) -->
+      <button class="azione-btn">Del</button>
+      <!-- Pulsante per Elimina (D) -->
+      <button class="azione-btn">Eli</button>
     </td>
+  </tr>
+  <tr class="rigavuota">
+    <td colspan="8"></td>
   </tr>
 </table>
