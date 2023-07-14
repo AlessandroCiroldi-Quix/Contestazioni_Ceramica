@@ -23,10 +23,10 @@ export class FormComponent implements OnInit {
   }
 
   // Funzione che prende l'input da tastiera e lo assegna alla variabile
-  //! Ce ne deve essere una per ogni form !
+  //! Ce ne deve essere una per ogni campo del form !
   onInputID_cont(event: Event): string {
-    console.log((<HTMLInputElement>event.target).value);
     this.valoreID_cont = (<HTMLInputElement>event.target).value;
+    console.log(this.valoreID_cont);  // Per verificare che effettivamente prende l'input
     return this.valoreID_cont;
   }
 }

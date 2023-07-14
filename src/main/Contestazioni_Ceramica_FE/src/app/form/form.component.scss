@@ -1,35 +1,4 @@
 //----------------------------------------------------------------
-//? SCSS per i componenti input normali (text_input)
-//* Stile barre di ricerca - caselle di input
-input {
-  border: 1px solid rgb(174, 174, 174); /* Imposta il bordo con spessore 1px e colore nero */
-  border-width: 1px; /* Imposta lo spessore del bordo */
-  border-radius: 3px; /* Imposta il raggio di bordo  */
-  padding: 4px; /* Imposta il padding interno del campo di input */
-  font-size: 14px; /* Imposta la dimensione del testo nell'input */
-  height: 15px;
-  width: 173px;
-}
-input:focus //è possibile modificare l'aspetto degli elementi quando sono in stato di focus attivo.
-{
-  outline: none; /* Rimuove l'outline predefinito quando il campo è in stato di focus */
-  border-width: 1px; /* Imposta lo spessore del bordo a 1px quando il campo è in stato di focus */
-}
-label {
-  font-size: 13px;
-  font-weight: 450;
-}
-// Mettere in riga gli elementi
-// Elenco degli elementi da ordianre
-.input-cont,
-.input-cod_articolo,
-.input-cliente {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 20px; /* opzionale: aggiunge uno spazio tra i due elementi */
-}
-
-//----------------------------------------------------------------
 //? SCSS per i componenti calendario
 
 //----------------------------------------------------------------
@@ -63,7 +32,6 @@ label {
 form {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .id_cont,
@@ -87,7 +55,7 @@ form {
 
 input,
 select {
-  width: 100%;
+  width: 20%;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -95,8 +63,6 @@ select {
 //----------------------------------------------------------------
 //? SCSS per i pulsanti cerca e Azzera
 .pulsanti {
-
-
   button[type="reset"],
   button[type="submit"] {
     background-color: #337ab7; /* Imposta il colore di sfondo dei pulsanti */
@@ -106,7 +72,7 @@ select {
     border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
     cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
     transition: background-color 0.3s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
-    margin-right: 10px; /* Aggiunge uno spazio di 10px tra i pulsanti */ 
+    margin-right: 10px; /* Aggiunge uno spazio di 10px tra i pulsanti */
     width: 200px; /* Imposta la larghezza del pulsante*/
     &:hover {
       background-color: darken(

@@ -5,33 +5,40 @@
   <!-- Input di testo -->
   <div class="id_cont">
     <label for="input1">Id contestazione:</label>
-    <input type="text" id="input1" name="input1" />
+    <br />
+    <input type="text" id="myText" name="myText" (input)="onInputID_cont($event)"
+    />
   </div>
 
   <!-- Datepicker -->
   <div class="data_inz">
     <label for="datepicker1">Data inserimento (inizio):</label>
+    <br />
     <input type="date" id="datepicker1" name="datepicker1" />
   </div>
 
   <div class="data_fine">
     <label for="datepicker2">Data inserimento (fine):</label>
+    <br />
     <input type="date" id="datepicker2" name="datepicker2" />
   </div>
 
   <div class="cod_art">
     <label for="input2">Cod Articolo / Descrizione:</label>
+    <br />
     <input type="text" id="input2" name="input2" />
   </div>
 
   <div class="cliente">
     <label for="input3">Cliente:</label>
+    <br />
     <input type="text" id="input3" name="input3" />
   </div>
 
   <!-- Dropdown menu -->
   <div class="stato">
     <label for="dropdown1">Stato:</label>
+    <br />
     <select id="dropdown1" name="dropdown1">
       <option value="opzione0"></option>
       <option value="opzione1">INSERITA</option>
@@ -43,6 +50,7 @@
 
   <div class="reparto">
     <label for="dropdown2">Reparto: </label>
+    <br />
     <select id="dropdown2" name="dropdown2">
       <option value="opzione0"></option>
       <option value="opzione2">Produzione</option>
@@ -52,6 +60,7 @@
 
   <div class="formato">
     <label for="dropdown3">Formato: </label>
+    <br />
     <select id="dropdown3" name="dropdown3">
       <option value="opzione1">Opzione 1</option>
       <option value="opzione2">Opzione 2</option>
@@ -61,6 +70,7 @@
 
   <div class="utente_crtr">
     <label for="dropdown4"> Utente creatore:</label>
+    <br />
     <select id="dropdown4" name="dropdown4">
       <option value="opzione1">Opzione 1</option>
       <option value="opzione2">Opzione 2</option>
