@@ -9,9 +9,9 @@
   margin: 0 auto; /* Imposta il margine sinistro e destro a "auto" per centrare la tabella orizzontalmente */
   margin-bottom: 20px; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
   border-radius: 10px;
-   
+
   th,
-  td {   
+  td {
     padding: 8px; /* Aggiunge un padding di 8 pixel alle celle del titolo e del contenuto */
     text-align: left; /* Allinea il testo delle celle a sinistra */
     border-bottom: 1px solid #ddd; /* Aggiunge un bordo inferiore di 1 pixel alle celle */
@@ -40,7 +40,7 @@
 //! SCSS prova per form
 form {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .id_cont,
@@ -57,11 +57,9 @@ form {
   padding: 10px;
 }
 
-
 label {
   font-weight: 550; /* Imposta il grado di grassetto a 600 */
 }
-
 
 input,
 select {
@@ -84,6 +82,7 @@ select {
     transition: background-color 0.3s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
     margin-right: 10px; /* Aggiunge uno spazio di 10px tra i pulsanti */
     width: 200px; /* Imposta la larghezza del pulsante*/
+
     &:hover {
       background-color: darken(
         #337ab7,
@@ -95,4 +94,12 @@ select {
       outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
     }
   }
+}
+//----------------------------------------------------------------
+//? SCSS per il menù scelta delle ceramiche
+#scelta-aziende {
+  position: absolute; /*
+  top: 50px; /* Regola la distanza dall'alto come desiderato */
+  right: 50px; /* Regola la distanza dalla destra come desiderato */
+  width: 5%;
 }
