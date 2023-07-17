@@ -6,7 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class jdbiProducer {
     Jdbi jdbi;
 
-    jdbiProducer(){ jdbi = Jdbi.create("jdbc:mysql://localhost:3306/contestazioni","root",""); }
+    jdbiProducer(){ jdbi = Jdbi.create("jdbc:mysql://localhost:3306/contestazioni","root","Quix2905!"); }
     public Jdbi getJdbi(){
         return jdbi;
     }
