@@ -4,17 +4,21 @@
 //----------------------------------------------------------------
 //? SCSS per la tabella
 .table {
-  width: 100%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
+  width: 95%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
   border-collapse: collapse; /* Comprime i bordi delle celle in modo che si uniscano */
-
+  margin: 0 auto; /* Imposta il margine sinistro e destro a "auto" per centrare la tabella orizzontalmente */
+  margin-bottom: 20px; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
+  border-radius: 10px;
+   
   th,
-  td {
+  td {   
     padding: 8px; /* Aggiunge un padding di 8 pixel alle celle del titolo e del contenuto */
     text-align: left; /* Allinea il testo delle celle a sinistra */
     border-bottom: 1px solid #ddd; /* Aggiunge un bordo inferiore di 1 pixel alle celle */
   }
 
   th {
+    font-weight: 570;
     background-color: #f2f2f2; /* Imposta il colore di sfondo del titolo */
   }
 
@@ -25,13 +29,18 @@
   tr:hover {
     background-color: #f1f1f1b7; /* Imposta il colore di sfondo delle righe al passaggio del mouse */
   }
+
+  .rigavuota {
+    margin-bottom: 40%;
+    height: 100px !important;
+  }
 }
 
 //----------------------------------------------------------------
 //! SCSS prova per form
 form {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
 }
 
 .id_cont,
@@ -48,10 +57,11 @@ form {
   padding: 10px;
 }
 
-.label {
-  display: block;
-  margin-bottom: 5px;
+
+label {
+  font-weight: 550; /* Imposta il grado di grassetto a 600 */
 }
+
 
 input,
 select {
