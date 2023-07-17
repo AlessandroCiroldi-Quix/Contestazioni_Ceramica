@@ -1,6 +1,16 @@
-<!--? Divisione che racchiude tutti input-normali -->
-<!--* <div class="input-nrm"> -->
-
+<!-- Scelta delle Ceramiche -->
+<br />
+<div class="scelta-azienda">
+  <select id="scelta-aziende">
+    <option value="rondine">Rondine</option>
+    <option value="elios">Elios</option>
+    <option value="fabbrica">Fabbrica</option>
+    <option value="fondovalle">Fondovalle</option>
+  </select>
+  <br />
+</div>
+<!-- -------------------------------------------------------------------------- -->
+<!--? Form -->
 <form>
   <div class="id_cont">
     <label for="input1">Id contestazione:</label>
@@ -97,8 +107,11 @@
   </div>
 </form>
 
-<button class="ricarica" onclick="location.reload()">R</button>
+<!-- Tasto per ricaricae la pagina -->
+<button class="ricarica" onclick="location.reload()">Ricarica Pagina</button>
+<br />
 
+<br />
 <table class="table">
   <tr>
     <th>ID</th>
@@ -108,28 +121,30 @@
     <th>Stato</th>
     <th>Utente Creazione</th>
     <th>Data Creazione</th>
-    <!-- <th>Reparto</th>
-      <th>Articoli</th> -->
+    <th>Reparto</th>
+    <th>Articoli</th>
     <th></th>
     <!-- Aggiungi una nuova colonna per i pulsanti -->
   </tr>
   <tr *ngFor="let con of datasource">
     <td>{{ con.id }}</td>
-    <td>{{ con.company }}</td>
+    <td>{{ con.cod_cliente }} - {{ con.company }}</td>
     <td>{{ con.num_fattura }}</td>
     <td>{{ con.data_fattura }}</td>
     <td>{{ con.stato }}</td>
     <td>{{ con.utente_creazione }}</td>
     <td>{{ con.data_creazione }}</td>
+    <td>Vuoto</td>
+    <td>Vuoto</td>
     <td>
       <button class="azione-btn">Mod</button>
       <!-- Pulsante per Modifica (M) -->
-      <button class="azione-btn">Del</button>
+      <button class="azione-btn">Visu</button>
       <!-- Pulsante per Elimina (D) -->
       <button class="azione-btn">Eli</button>
     </td>
   </tr>
   <tr class="rigavuota">
-    <td colspan="8"></td>
+    <td colspan="10"></td>
   </tr>
 </table>
