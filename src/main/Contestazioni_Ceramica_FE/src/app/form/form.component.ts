@@ -60,7 +60,8 @@ export class FormComponent implements OnInit {
   salvareValoreDateOut(event: Event): Date {
     const pick = event.target as HTMLInputElement;
     this.valoreDateOut = new Date(pick.value);
-      console.log(this.valoreDateOut);
+      console.log(this.valoreDateOut);  // Ciao commento
     return this.valoreDateOut;
   }
 }
+ 
