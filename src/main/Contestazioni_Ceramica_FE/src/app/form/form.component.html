@@ -32,7 +32,7 @@
   <div class="data_fine">
     <label for="datepicker2">Data inserimento (fine):</label>
     <br />
-    <input type="date" id="datepicker2" name="datepicker2" />
+    <input type="date" (change)="salvareValoreDateOut($event)" />
   </div>
 
   <div class="cod_art">
@@ -60,12 +60,12 @@
   <div class="stato">
     <label for="dropdown1">Stato:</label>
     <br />
-    <select id="dropdown1" name="dropdown1">
-      <option value="opzione0"></option>
-      <option value="opzione1">INSERITA</option>
-      <option value="opzione2">PRESA IN CARICO</option>
-      <option value="opzione3">ACCETTATA</option>
-      <option value="opzione4">RIFIUTATA</option>
+    <select id="dropdown1" name="dropdown1" (change)="sceltaStato($event)">
+      <option value="Null"></option>
+      <option value="INSERITA">INSERITA</option>
+      <option value="PRESA IN CARICO">PRESA IN CARICO</option>
+      <option value="ACCETTATA">ACCETTATA</option>
+      <option value="RIFIUTATA">RIFIUTATA</option>
     </select>
   </div>
 
@@ -103,7 +103,7 @@
   <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
   <div class="pulsanti">
     <button type="reset">Azzera</button>
-    <button type="submit">Cerca</button>
+    <button type="submit" onclick="eliosByCondition(valoreID_cont, valoreDateIni, valoreDateOut, valoreCod_art, valoreCliente, valoreStato )">Cerca</button>
   </div>
 </form>
 
@@ -118,7 +118,7 @@
     <th>Cliente</th>
     <th>Num. Fattura</th>
     <th>Data Fattura</th>
-    <th>Stato</th>
+    <th>Stato</th>   
     <th>Utente Creazione</th>
     <th>Data Creazione</th>
     <th>Reparto</th>
@@ -137,11 +137,11 @@
     <td>Vuoto</td>
     <td>Vuoto</td>
     <td>
-      <button class="azione-btn">Mod</button>
+      <button class="azione-btn" src="C:\Users\filippo.minelli\Desktop\Contestazioni_Ceramica\src\main\resources\image\reload.png">Modifica </button>
       <!-- Pulsante per Modifica (M) -->
-      <button class="azione-btn">Visu</button>
+      <button class="azione-btn">Visualizza</button>
       <!-- Pulsante per Elimina (D) -->
-      <button class="azione-btn">Eli</button>
+      <button class="azione-btn">Elimina</button>
     </td>
   </tr>
   <tr class="rigavuota">
