@@ -73,4 +73,12 @@ export class FormComponent implements OnInit {
     console.log('Stato: ' + this.valoreStato); // Per verificare che effettivamente prende l'input
     return this.valoreStato;
   }
+
+  // Bottoni contestazioni
+  bottoneModifica(){
+    console.log("bottone modifica funzionante!")
+  }
+
+  bottoneVisualizza(){console.log("bottone visualizza funzionante!")}
+  bottoneElimina(){console.log("bottone elimina funzionante!")}
 }
