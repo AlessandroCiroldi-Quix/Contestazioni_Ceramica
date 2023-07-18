@@ -103,7 +103,8 @@
   <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
   <div class="pulsanti">
     <button type="reset">Azzera</button>
-    <button type="submit" onclick="eliosByCondition(valoreID_cont, valoreDateIni, valoreDateOut, valoreCod_art, valoreCliente, valoreStato )">Cerca</button>
+    <button type="button" (click)="querySearch(valoreID_cont)">Cerca</button>
+
   </div>
 </form>
 

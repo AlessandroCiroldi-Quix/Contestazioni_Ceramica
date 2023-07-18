@@ -72,7 +72,7 @@ select {
 //? SCSS per i pulsanti cerca e Azzera
 .pulsanti {
   button[type="reset"],
-  button[type="submit"] {
+  button[type="button"] {
     background-color: #337ab7; /* Imposta il colore di sfondo dei pulsanti */
     color: #fff; /* Imposta il colore del testo dei pulsanti a bianco */
     padding: 8px 16px; /* Aggiunge un padding di 8px in verticale e 16px in orizzontale ai pulsanti */
