@@ -81,4 +81,5 @@ export class FormComponent implements OnInit {
 
   bottoneVisualizza(){console.log("bottone visualizza funzionante!")}
   bottoneElimina(){console.log("bottone elimina funzionante!")}
+  bottoneScarica(){console.log("bottone scarica funzionante!")}
 }

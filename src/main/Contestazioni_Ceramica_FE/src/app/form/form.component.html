@@ -137,11 +137,20 @@
     <td>Vuoto</td>
     <td>Vuoto</td>
     <td>
-      <a><img src="/assets/images/modifica.png" (click)="bottoneModifica()"></a>
-      <!-- Pulsante per Visualizzazione (M) -->
-      <a><img src="/assets/images/visualizza.png" (click)="bottoneVisualizza()"></a>
-      <!-- Pulsante per Elimina (D) -->
-      <a><img src="/assets/images/elimina.png" (click)="bottoneElimina()"></a>
+      <!-- bottone per scaricale le contestazioni -->
+      <a><img src="/assets/images/scarica.png" (click)="bottoneScarica()"></a>
+
+      <!-- Verifica se il campo "stato" è uguale a "ACCETTATA" o "RIFIUTATA" -->
+      <ng-container *ngIf="con.stato === 'accettata' ||con.stato === 'rifiutata'">
+        <a><img src="/assets/images/visualizza.png" (click)="bottoneVisualizza()"></a>
+      </ng-container>
+
+      <!-- Mostra i botton di modifica ed eliminazione se lo stato è "presa in carico" -->
+      <ng-container *ngIf="con.stato === 'presa_in_carico'">
+        <a><img src="/assets/images/modifica.png" (click)="bottoneModifica()"></a>
+        <a><img src="/assets/images/elimina.png" (click)="bottoneElimina()"></a>
+      </ng-container>
+
     </td>
   </tr>
   <tr class="rigavuota">
