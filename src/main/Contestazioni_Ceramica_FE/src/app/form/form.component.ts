@@ -75,24 +75,31 @@ export class FormComponent implements OnInit {
   }
 
   // Bottoni contestazioni
-  bottoneModifica(){
-    console.log("bottone modifica funzionante!")
+  bottoneModifica() {
+    console.log('bottone modifica funzionante!');
+  }
+  bottoneVisualizza() {
+    console.log('bottone visualizza funzionante!');
+  }
+  bottoneElimina(id: number) {
+    const url = "http://localhost:8080/elios/delete/" + id;
+
+    fetch(url, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Elemento eliminato con successo!');
+        } else {
+          console.log("Si è verificato un errore durante l'eliminazione.");
+        }
+      })
+      .catch((error) => {
+        console.error('Si è verificato un errore nella richiesta:', error);
+      });
   }
 
-  bottoneVisualizza(){console.log("bottone visualizza funzionante!")}
-  bottoneElimina(){console.log("bottone elimina funzionante!")}
-  bottoneScarica(){console.log("bottone scarica funzionante!")}
-
-
-  querySearch(
-    condition: string
-  ): Observable<Contestazioni_eliosDTO[]> {
-    // Metodo per ottenere le contestazioni Elios filtrate in base a una condizione
-    const url = `http://localhost:8080/elios/select?condition=${encodeURIComponent(condition)}`;
-    // Costruisce l'URL includendo la condizione come parametro della query string
-    console.log("condition: "+condition);
-    console.log("url: " + url);
-    return this.http.get<Contestazioni_eliosDTO[]>(url);
-    // Effettua una richiesta GET all'URL specificato e restituisce l'Observable di tipo Contestazioni_eliosDTO[]
+  bottoneScarica() {
+    console.log('bottone scarica funzionante!');
   }
 }

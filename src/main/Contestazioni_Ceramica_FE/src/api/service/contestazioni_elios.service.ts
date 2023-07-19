@@ -20,6 +20,4 @@ export class contestazioniEliosservice {
     return this.http.get<Contestazioni_eliosDTO[]>(this.basePath + '/select');
     // Effettua una richiesta GET all'URL composto da basePath + '/select' e restituisce l'Observable di tipo Contestazioni_eliosDTO[]
   }
-
-
 }

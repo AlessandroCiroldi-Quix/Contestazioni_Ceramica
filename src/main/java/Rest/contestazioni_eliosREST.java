@@ -24,6 +24,7 @@ public class contestazioni_eliosREST {
     @Path("/select")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     @APIResponses(value = {
 
             @APIResponse(

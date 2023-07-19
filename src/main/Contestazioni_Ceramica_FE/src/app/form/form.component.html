@@ -103,7 +103,7 @@
   <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
   <div class="pulsanti">
     <button type="reset">Azzera</button>
-    <button type="button" (click)="querySearch(valoreID_cont)">Cerca</button>
+    <button type="button" onclick="getContestationById(valoreID_cont)">Cerca</button>
 
   </div>
 </form>
@@ -142,14 +142,14 @@
       <a><img src="/assets/images/scarica.png" (click)="bottoneScarica()"></a>
 
       <!-- Verifica se il campo "stato" è uguale a "ACCETTATA" o "RIFIUTATA" -->
-      <ng-container *ngIf="con.stato === 'accettata' ||con.stato === 'rifiutata'">
+      <ng-container *ngIf="con.stato === 'accettata' || con.stato === 'rifiutata'">
         <a><img src="/assets/images/visualizza.png" (click)="bottoneVisualizza()"></a>
       </ng-container>
 
       <!-- Mostra i botton di modifica ed eliminazione se lo stato è "presa in carico" -->
       <ng-container *ngIf="con.stato === 'presa_in_carico'">
         <a><img src="/assets/images/modifica.png" (click)="bottoneModifica()"></a>
-        <a><img src="/assets/images/elimina.png" (click)="bottoneElimina()"></a>
+        <a><img src="/assets/images/elimina.png" (click)="bottoneElimina(con.id)"></a>
       </ng-container>
 
     </td>
