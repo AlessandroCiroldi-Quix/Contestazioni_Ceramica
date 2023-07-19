@@ -2,6 +2,7 @@ package DAO;
 
 import DTO.contestazioni_eliosDTO;
 
+import DTO.eliosFiltroDTO;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.WebApplicationException;
@@ -169,5 +170,25 @@ public class contestazioni_eliosDAO {
         if (rowsAffected != 1) {
             throw new WebApplicationException("Errore nell'aggiornamento della contestazione elios.");
         }
+    }
+
+
+
+    public boolean FiltroElios(eliosFiltroDTO contestazione) throws WebApplicationException {
+        // Ottiene un'istanza di Jdbi dal jdbiProducer
+        Jdbi jdbi = jdbiProducer.getJdbi();
+
+        // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_elios
+        String query = "SELECT id FROM contestazioni_elios WHERE id = :id";
+
+        // Esegue la query e ottiene l'ID come Optional<String>
+        Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query)
+                .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
+                .mapTo(String.class) // Indica che si desidera mappare il risultato della query in una stringa
+                .findOne() // Esegue la query e restituisce al massimo un risultato
+        );
+
+        // Restituisce true se l'Optional<String> contiene un valore, altrimenti restituisce false
+        return id.isPresent();
     }
 }

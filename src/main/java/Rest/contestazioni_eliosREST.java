@@ -45,6 +45,32 @@ public class contestazioni_eliosREST {
         return contestazioni_eliosDAO.getData();
     }
 
+    //* Filtro
+    @Path("/select")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @APIResponses(value = {
+
+            @APIResponse(
+                    responseCode = "500",
+                    description = "Errore",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Not found",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))),
+
+            @APIResponse(
+                    responseCode = "200",
+                    description = "OK")}
+    )
+    public List<contestazioni_eliosDTO> getFiltroElios(contestazioni_eliosDTO filtroElios) {
+        return contestazioni_eliosDAO.getData();
+    }
+
+
     @Path("/add")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
