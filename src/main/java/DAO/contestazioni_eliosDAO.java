@@ -191,4 +191,5 @@ public class contestazioni_eliosDAO {
         // Restituisce true se l'Optional<String> contiene un valore, altrimenti restituisce false
         return id.isPresent();
     }
+
 }

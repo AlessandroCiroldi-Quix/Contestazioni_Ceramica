@@ -66,8 +66,8 @@ public class contestazioni_eliosREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public List<contestazioni_eliosDTO> getFiltroElios(contestazioni_eliosDTO filtroElios) {
-        return contestazioni_eliosDAO.getData();
+    public boolean getFiltroElios(eliosFiltroDTO filtroElios) {
+        return contestazioni_eliosDAO.FiltroElios(filtroElios);
     }
 
 

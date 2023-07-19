@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.Date;
 
+@SuppressWarnings("unused")
 @Data
 public class eliosFiltroDTO {
     private int id;
