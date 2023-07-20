@@ -109,6 +109,7 @@ export class FormComponent implements OnInit {
       .catch((error) => {
         console.error('Si è verificato un errore nella richiesta:', error);
       });
+      location.reload();
   }
 
   bottoneScarica() {
