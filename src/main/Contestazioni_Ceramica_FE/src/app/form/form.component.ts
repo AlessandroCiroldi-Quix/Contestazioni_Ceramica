@@ -116,10 +116,9 @@ export class FormComponent implements OnInit {
   }
 
   getContestationByFiltro(id:  any){
-    console.log("aPaolo", id)
     this.eliosFiltroDTO.id = id;
     this.contestazioniService.eliosFiltro(this.eliosFiltroDTO).subscribe((res) => {
-      console.log("andrà?",  JSON.stringify(res));
+      //console.log("andrà?",  JSON.stringify(res));
       this.datasource = res
     });
   }

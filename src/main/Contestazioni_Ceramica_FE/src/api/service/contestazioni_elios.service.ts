@@ -26,5 +26,4 @@ export class contestazioniEliosservice {
   eliosFiltro(body: eliosFiltroDTO): Observable<Contestazioni_eliosDTO[]> {
     return this.http.post<Contestazioni_eliosDTO[]>(this.basePath + '/select', body)
   }
-
 }
