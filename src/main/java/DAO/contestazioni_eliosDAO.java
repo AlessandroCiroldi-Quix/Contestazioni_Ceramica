@@ -97,7 +97,7 @@ public class contestazioni_eliosDAO {
     //* FIND
     // Metodo per trovare una contestazione elios
     public boolean findContestazione_elios(contestazioni_eliosDTO contestazione) throws WebApplicationException {
-        // Ottiene un'istanza di Jdbi dal jdbiProducer
+        // Ottiene un'istanza della classe Jdbi dal jdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_elios
@@ -174,6 +174,7 @@ public class contestazioni_eliosDAO {
 
 
 
+    // Questo metodo prende un oggetto eliosFiltroDTO come input e restituisce una lista di oggetti contestazioni_eliosDTO.
     public List<contestazioni_eliosDTO> FiltroElios(eliosFiltroDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
@@ -182,10 +183,15 @@ public class contestazioni_eliosDAO {
         String query = "SELECT * FROM contestazioni_elios WHERE id = :id";
 
         // Esegue la query e ottiene l'ID come Optional<String>
+        // Utilizzando withHandle(), si ottiene una connessione al database gestita automaticamente.
+        // Si prepara la query utilizzando il segnaposto ":id" e si collega il valore dell'ID dell'oggetto contestazione.
+        // La query restituirà una lista di oggetti contestazioni_eliosDTO mappati automaticamente dalla query SQL.
         return jdbi.withHandle(handle -> handle.createQuery(query)
                 .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
-                .mapToBean(contestazioni_eliosDTO.class)
-                .list()
+                .mapToBean(contestazioni_eliosDTO.class) // Mappa i risultati della query all'oggetto contestazioni_eliosDTO.
+                .list() // Restituisce la lista risultante.
         );
     }
+
+
 }

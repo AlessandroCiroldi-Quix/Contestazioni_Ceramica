@@ -20,16 +20,18 @@ export class FormComponent implements OnInit {
   valoreStato: string = '';
 
   eliosFiltroDTO: eliosFiltroDTO = {
-  id: 0,
-  data_creazione: "",
-  data_ultima_mod: "",
-  cod_articolo: "",
-  rs_cliente: "",
-  stato: "",
-  reparto: "",
-  formato: "",
-  utente_creazione: ""}
+    id: 0,
+    data_creazione: '',
+    data_ultima_mod: '',
+    cod_articolo: '',
+    rs_cliente: '',
+    stato: '',
+    reparto: '',
+    formato: '',
+    utente_creazione: '',
+  };
   datasource: Contestazioni_eliosDTO[] = []; // Dichiarazione di un array di tipo Contestazioni_eliosDTO per il datasource
+  private baseUrl = 'http://localhost:8080/elios/delete/';
 
   //* ----------------------------------------------------------------
 
@@ -93,34 +95,34 @@ export class FormComponent implements OnInit {
   bottoneVisualizza() {
     console.log('bottone visualizza funzionante!');
   }
-  bottoneElimina(id: number) {
-    const url = "http://localhost:8080/elios/delete/" + id;
 
-    fetch(url, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log('Elemento eliminato con successo!');
-        } else {
-          console.log("Si è verificato un errore durante l'eliminazione.");
-        }
-      })
-      .catch((error) => {
-        console.error('Si è verificato un errore nella richiesta:', error);
-      });
+  async bottoneElimina(id: number) {
+    const url = `${this.baseUrl}${id}`;
+    try {
+      await this.http.delete(url).toPromise();
+      console.log(`Elemento con id ${id} eliminato con successo.`);
+      // Puoi anche aggiornare la tua UI o fare altre operazioni qui in caso di successo.
+    } catch (error) {
+      console.error(
+        `Errore durante l'eliminazione dell'elemento con id ${id}:`,
+        error
+      );
+      // Puoi gestire l'errore in modo appropriato, aggiornare la tua UI, o fornire un messaggio di errore all'utente.
+    }
   }
 
   bottoneScarica() {
     console.log('bottone scarica funzionante!');
   }
 
-  getContestationByFiltro(id:  any){
-    console.log("aPaolo", id)
+  getContestationByFiltro(id: any) {
+    console.log(id);
     this.eliosFiltroDTO.id = id;
-    this.contestazioniService.eliosFiltro(this.eliosFiltroDTO).subscribe((res) => {
-      console.log("andrà?",  JSON.stringify(res));
-      this.datasource = res
-    });
+    this.contestazioniService
+      .eliosFiltro(this.eliosFiltroDTO)
+      .subscribe((res) => {
+        console.log(JSON.stringify(res));
+        this.datasource = res;
+      });
   }
 }
