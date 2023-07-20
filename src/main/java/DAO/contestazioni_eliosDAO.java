@@ -179,7 +179,7 @@ public class contestazioni_eliosDAO {
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_elios
-        String query = "SELECT id FROM contestazioni_elios WHERE id = :id";
+        String query = "SELECT * FROM contestazioni_elios WHERE id = :id";
 
         // Esegue la query e ottiene l'ID come Optional<String>
         return jdbi.withHandle(handle -> handle.createQuery(query)

@@ -23,7 +23,8 @@ export class contestazioniEliosservice {
     // Effettua una richiesta GET all'URL composto da basePath + '/select' e restituisce l'Observable di tipo Contestazioni_eliosDTO[]
   }
 
-  eliosFiltro(body: eliosFiltroDTO): Observable<eliosFiltroDTO[]> {
-    return this.http.post<eliosFiltroDTO[]>(this.basePath + '/select', body)
+  eliosFiltro(body: eliosFiltroDTO): Observable<Contestazioni_eliosDTO[]> {
+    return this.http.post<Contestazioni_eliosDTO[]>(this.basePath + '/select', body)
   }
+
 }

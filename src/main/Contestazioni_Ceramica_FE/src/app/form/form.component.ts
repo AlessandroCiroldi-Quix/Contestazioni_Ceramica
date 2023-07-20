@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contestazioni_eliosDTO } from 'src/api/model/contesatzioni_eliosDTO';
+import { eliosFiltroDTO } from 'src/api/model/eliosFiltroDTO';
 import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.service';
 
 @Component({
@@ -17,9 +18,20 @@ export class FormComponent implements OnInit {
   valoreDateIni: Date; // Dichiarazione della variabile per immagazzinare il valore del datepicker
   valoreDateOut: Date;
   valoreStato: string = '';
-  //* ----------------------------------------------------------------
 
+  eliosFiltroDTO: eliosFiltroDTO = {
+  id: 0,
+  data_creazione: "",
+  data_ultima_mod: "",
+  cod_articolo: "",
+  rs_cliente: "",
+  stato: "",
+  reparto: "",
+  formato: "",
+  utente_creazione: ""}
   datasource: Contestazioni_eliosDTO[] = []; // Dichiarazione di un array di tipo Contestazioni_eliosDTO per il datasource
+
+  //* ----------------------------------------------------------------
 
   constructor(
     private contestazioniService: contestazioniEliosservice,
@@ -29,7 +41,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.contestazioniService.getContesatzioni_elios().subscribe((res) => {
       this.datasource = res;
-      console.log(JSON.stringify(res));
+      //console.log(JSON.stringify(res));
     }); // Assegnamento del risultato dell'observable al datasource dell'array
   }
 
@@ -101,5 +113,14 @@ export class FormComponent implements OnInit {
 
   bottoneScarica() {
     console.log('bottone scarica funzionante!');
+  }
+
+  getContestationByFiltro(id:  any){
+    console.log("aPaolo", id)
+    this.eliosFiltroDTO.id = id;
+    this.contestazioniService.eliosFiltro(this.eliosFiltroDTO).subscribe((res) => {
+      console.log("andrà?",  JSON.stringify(res));
+      this.datasource = res
+    });
   }
 }
