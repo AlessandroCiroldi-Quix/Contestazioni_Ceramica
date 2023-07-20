@@ -174,7 +174,7 @@ public class contestazioni_eliosDAO {
 
 
 
-    public boolean FiltroElios(eliosFiltroDTO contestazione) throws WebApplicationException {
+    public List<contestazioni_eliosDTO> FiltroElios(eliosFiltroDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
 
@@ -182,14 +182,10 @@ public class contestazioni_eliosDAO {
         String query = "SELECT id FROM contestazioni_elios WHERE id = :id";
 
         // Esegue la query e ottiene l'ID come Optional<String>
-        Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query)
+        return jdbi.withHandle(handle -> handle.createQuery(query)
                 .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
-                .mapTo(String.class) // Indica che si desidera mappare il risultato della query in una stringa
-                .findOne() // Esegue la query e restituisce al massimo un risultato
+                .mapToBean(contestazioni_eliosDTO.class)
+                .list()
         );
-
-        // Restituisce true se l'Optional<String> contiene un valore, altrimenti restituisce false
-        return id.isPresent();
     }
-
 }

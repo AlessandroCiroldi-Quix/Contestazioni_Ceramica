@@ -45,7 +45,7 @@ public class contestazioni_eliosREST {
         return contestazioni_eliosDAO.getData();
     }
 
-    //* Filtro
+    //* Filtro tabella
     @Path("/select")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -66,7 +66,7 @@ public class contestazioni_eliosREST {
                     responseCode = "200",
                     description = "OK")}
     )
-    public boolean getFiltroElios(eliosFiltroDTO filtroElios) {
+    public List<contestazioni_eliosDTO> getFiltroElios(eliosFiltroDTO filtroElios) {
         return contestazioni_eliosDAO.FiltroElios(filtroElios);
     }
 
