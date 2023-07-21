@@ -21,6 +21,9 @@ export class FormComponent implements OnInit {
   valoreDateIni: Date; // Data iniziale selezionata tramite datepicker
   valoreDateOut: Date; // Data finale selezionata tramite datepicker
   valoreStato: string = ''; // Stato selezionato tramite select
+  datasourceTabella: any[]; // Assumi che tu abbia già inizializzato la variabile datasource con i dati della tabella
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
 
   // Dichiarazione di un oggetto eliosFiltroDTO con valori di default per i filtri
   eliosFiltroDTO: eliosFiltroDTO = {
@@ -150,5 +153,26 @@ export class FormComponent implements OnInit {
         console.log(JSON.stringify(res));
         this.datasource = res;
       });
+  }
+
+  //! Funzioni per la tabella
+  getCurrentPageData(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.datasource.slice(startIndex, endIndex);
+  }
+
+  goToPage(pageNumber: number): void {
+    if (pageNumber >= 1 && pageNumber <= this.getTotalPages()) {
+      this.currentPage = pageNumber;
+    }
+  }
+
+  isLastPage(): boolean {
+    return this.currentPage === this.getTotalPages();
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.datasource.length / this.itemsPerPage);
   }
 }

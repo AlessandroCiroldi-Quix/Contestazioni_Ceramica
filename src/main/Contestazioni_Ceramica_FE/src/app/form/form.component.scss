@@ -33,7 +33,7 @@
 
   .rigavuota {
     margin-bottom: 40%;
-    height: 100px !important;
+    height: 40px !important;
   }
 }
 
@@ -133,7 +133,6 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 40px;
-
 }
 
 .custom-box {
@@ -164,4 +163,67 @@ a {
 
 .custom-box button:hover {
   background-color: darken(#337ab7, 10%);
+}
+
+//----------------------------------------------------------------
+//* SCSS per il counter delle pagine
+/* Stile di base per la classe pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+/* Stile dei pulsanti di navigazione */
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Stile del testo "Pagina X" */
+.pagination span {
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+/* Stile del pulsante di navigazione disabilitato */
+.pagination button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Stile attivo per il pulsante di navigazione corrente */
+.pagination button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+// ----------------------------------------------------------------
+//! SCSS per il Footer
+/* Stile per il footer */
+.footer {
+  background-color: #b6b4b4;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Stile per i link nel footer */
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
