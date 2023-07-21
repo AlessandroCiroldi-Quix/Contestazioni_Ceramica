@@ -13,7 +13,6 @@ import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.s
 })
 export class FormComponent implements OnInit {
   //* Variabili
-
   // Dichiarazione delle variabili per immagazzinare i valori del form
   valoreID_cont: string = ''; // ID della contestazione
   valoreCod_art: string = ''; // Codice articolo
@@ -21,9 +20,9 @@ export class FormComponent implements OnInit {
   valoreDateIni: Date; // Data iniziale selezionata tramite datepicker
   valoreDateOut: Date; // Data finale selezionata tramite datepicker
   valoreStato: string = ''; // Stato selezionato tramite select
-  datasourceTabella: any[]; // Assumi che tu abbia già inizializzato la variabile datasource con i dati della tabella
-  currentPage: number = 1;
-  itemsPerPage: number = 10;
+  // Variabili per il pageCounter
+  currentPage: number = 1; // Counter per le pagine della tabella
+  itemsPerPage: number = 25; // Numero di righe max che puoi visualizzare in una pagina della tabella
 
   // Dichiarazione di un oggetto eliosFiltroDTO con valori di default per i filtri
   eliosFiltroDTO: eliosFiltroDTO = {
@@ -49,17 +48,18 @@ export class FormComponent implements OnInit {
     private http: HttpClient
   ) {}
 
+  //! ----------------------------------------------------------------
+  //* Funzioni del Form
+
   // Metodo chiamato all'inizializzazione del componente
   ngOnInit(): void {
     // Ottenimento delle contestazioni dal servizio all'avvio del componente
     this.contestazioniService.getContesatzioni_elios().subscribe((res) => {
       this.datasource = res;
-      //console.log(JSON.stringify(res));
     }); // Assegnamento del risultato dell'observable al datasource dell'array
   }
 
-  //! Ce ne deve essere una per ogni campo del form !
-  //! Funzioni che permettono di immagazzinare il valore dei textForm in delle variabili
+  //* Funzioni che permettono di immagazzinare il valore dei textForm in delle variabili
 
   // Metodo per prendere l'input di ID
   onInputID_cont(event: Event): string {
@@ -67,14 +67,12 @@ export class FormComponent implements OnInit {
     console.log('ID: ' + this.valoreID_cont); // Per verificare che effettivamente prende l'input
     return this.valoreID_cont;
   }
-
   // Metodo per prendere l'input di Codice Articolo
   onInputCod_art(event: Event): string {
     this.valoreCod_art = (<HTMLInputElement>event.target).value;
     console.log('Cod_art: ' + this.valoreCod_art); //Queste console.log sono di prova
     return this.valoreCod_art;
   }
-
   // Metodo per prendere l'input del Cliente
   onInputCliente(event: Event): string {
     this.valoreCliente = (<HTMLInputElement>event.target).value;
@@ -89,7 +87,6 @@ export class FormComponent implements OnInit {
     console.log(this.valoreDateIni);
     return this.valoreDateIni;
   }
-
   // Metodo per salvare il valore della data finale selezionata tramite il datepicker
   salvareValoreDateOut(event: Event): Date {
     const pick = event.target as HTMLInputElement;
@@ -97,13 +94,13 @@ export class FormComponent implements OnInit {
     console.log(this.valoreDateOut); // Ciao commento
     return this.valoreDateOut;
   }
-
   // Metodo per salvare lo stato selezionato tramite il select
   sceltaStato(event: Event): string {
     this.valoreStato = (<HTMLInputElement>event.target).value;
     console.log('Stato: ' + this.valoreStato); // Per verificare che effettivamente prende l'input
     return this.valoreStato;
   }
+
 
   //* ----------------------------------------------------------------
   // Bottoni contestazioni
@@ -112,12 +109,10 @@ export class FormComponent implements OnInit {
   bottoneModifica() {
     console.log('bottone modifica funzionante!');
   }
-
   // Metodo chiamato quando il bottone "Visualizza" viene cliccato
   bottoneVisualizza() {
     console.log('bottone visualizza funzionante!');
   }
-
   // Metodo chiamato quando il bottone "Elimina" viene cliccato
   bottoneElimina(id: number) {
     const url = 'http://localhost:8080/elios/delete/' + id;
@@ -137,11 +132,11 @@ export class FormComponent implements OnInit {
       });
     location.reload();
   }
-
   // Metodo chiamato quando il bottone "Scarica" viene cliccato
   bottoneScarica() {
     console.log('bottone scarica funzionante!');
   }
+
 
   // Metodo per ottenere le contestazioni tramite i filtri selezionati
   getContestationByFiltro(id: any) {
@@ -155,6 +150,7 @@ export class FormComponent implements OnInit {
       });
   }
 
+  
   //! Funzioni per la tabella
   getCurrentPageData(): any[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -174,5 +170,17 @@ export class FormComponent implements OnInit {
 
   getTotalPages(): number {
     return Math.ceil(this.datasource.length / this.itemsPerPage);
+  }
+
+  //* Funzione per il pulsante ricarica tabella
+  /*
+  Quando si preme il pulsante dovrebbe rigenerare la query select all al database
+  */
+  reloadTable() {
+    // Rifà la chaiamta al Database
+    this.contestazioniService.getContesatzioni_elios().subscribe((res) => {
+      console.log(JSON.stringify(res) + 'funziona');
+      this.datasource = res;
+    });
   }
 }

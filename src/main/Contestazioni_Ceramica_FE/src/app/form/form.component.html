@@ -115,22 +115,20 @@
   </div>
 </form>
 
-<!-- Tasto per ricaricae la pagina -->
-<button class="ricarica" onclick="location.reload()">Ricarica Pagina</button>
 <br />
 
 <br />
 
 <div class="container">
   <div class="custom-box">
-    <img src="path_to_image1.jpg" alt=" " />
-    <img src="C:\Users\filippo.minelli\Desktop\Contestazioni_Ceramica\src\main\Contestazioni_Ceramica_FE\src\assets\images\reload.png" alt=" " />
-    <img src="path_to_image3.jpg" alt=" " />
-    <button onclick="creaContestazioni()">+</button>    
+    <a><img src="path_to_image1.jpg" alt=" " /></a>
+    <a><img src="path_to_image2.jpg"  (click)="reloadTable()" /></a>
+    <a><img src="path_to_image1.jpg" alt=" " /></a>
+    <button onclick="creaContestazioni()">+</button>
   </div>
 </div>
 
-<table class="table">
+<table class="table" id="myTable">
   <thead>
     <!-- Aggiunta della sezione di intestazione -->
     <tr>
@@ -161,17 +159,31 @@
       <td>Vuoto</td>
       <td>
         <!-- bottone per scaricare le contestazioni -->
-        <a><img src="/assets/images/scarica.png" (click)="bottoneScarica()" /></a>
+        <a
+          ><img src="/assets/images/scarica.png" (click)="bottoneScarica()"
+        /></a>
 
         <!-- Verifica se il campo "stato" è uguale a "ACCETTATA" o "RIFIUTATA" -->
-        <ng-container *ngIf="con.stato === 'accettata' || con.stato === 'rifiutata'">
-          <a><img src="/assets/images/visualizza.png" (click)="bottoneVisualizza()" /></a>
+        <ng-container
+          *ngIf="con.stato === 'accettata' || con.stato === 'rifiutata'"
+        >
+          <a
+            ><img
+              src="/assets/images/visualizza.png"
+              (click)="bottoneVisualizza()"
+          /></a>
         </ng-container>
 
         <!-- Mostra i bottoni di modifica ed eliminazione se lo stato è "presa in carico" -->
         <ng-container *ngIf="con.stato === 'presa_in_carico'">
-          <a><img src="/assets/images/modifica.png" (click)="bottoneModifica()" /></a>
-          <a><img src="/assets/images/elimina.png" (click)="bottoneElimina(con.id)" /></a>
+          <a
+            ><img src="/assets/images/modifica.png" (click)="bottoneModifica()"
+          /></a>
+          <a
+            ><img
+              src="/assets/images/elimina.png"
+              (click)="bottoneElimina(con.id)"
+          /></a>
         </ng-container>
       </td>
     </tr>
@@ -184,14 +196,21 @@
 
 <!-- Paginazione -->
 <div class="pagination">
-  <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">Indietro</button>
+  <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">
+    Indietro
+  </button>
   <span>Pagina {{ currentPage }}</span>
-  <button [disabled]="isLastPage()" (click)="goToPage(currentPage + 1)">Avanti</button>
+  <button [disabled]="isLastPage()" (click)="goToPage(currentPage + 1)">
+    Avanti
+  </button>
 </div>
-
 
 <footer class="footer">
   <div class="container">
-    <p>Italcer S.p.A. Via Emilia Ovest, 53/A - Rubiera (RE) Italy - Tel. +39 0522.625111 - P. IVA 00142060359 - <a href="mailto:info@ceramicarondine.it">info@ceramicarondine.it</a></p>
+    <p>
+      Italcer S.p.A. Via Emilia Ovest, 53/A - Rubiera (RE) Italy - Tel. +39
+      0522.625111 - P. IVA 00142060359 -
+      <a href="mailto:info@ceramicarondine.it">info@ceramicarondine.it</a>
+    </p>
   </div>
 </footer>
