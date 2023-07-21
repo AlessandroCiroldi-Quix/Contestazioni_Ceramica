@@ -9,6 +9,7 @@
   margin: 0 auto; /* Imposta il margine sinistro e destro a "auto" per centrare la tabella orizzontalmente */
   margin-bottom: 20px; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
   border-radius: 10px;
+  // margin-top: 20px;
 
   th,
   td {
@@ -39,8 +40,9 @@
 //----------------------------------------------------------------
 //! SCSS prova per form
 form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr); // Two rows with equal height
+  grid-template-columns: repeat(4, 1fr); // Four columns with equal width
 }
 
 .id_cont,
@@ -53,10 +55,26 @@ form {
 .formato,
 .utente_crtr,
 .pulsanti {
-  flex-basis: 50%;
-  padding: 10px;
+  flex: 50%;
+  padding: 0px;
+  margin: 5px; // Adjust the margin between each container
 }
 
+$common-width: 200px;
+
+input[type="text"],
+input[type="date"] {
+  width: $common-width;
+  /* Add any other common styling for the input elements here */
+}
+
+.mioPadre {
+  width: 212px;
+}
+
+.cod_art_input {
+  width: 500px !important;
+}
 label {
   font-weight: 550; /* Imposta il grado di grassetto a 600 */
 }
@@ -107,4 +125,43 @@ select {
 //-----------------------
 a {
   cursor: pointer;
+}
+
+//----------------------------------------------------------------
+//* SCSS per la riga di aggiornamento tabella
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+
+.custom-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 94%;
+  justify-content: flex-end; /* Modifica per allineare a destra */
+}
+
+.custom-box img {
+  max-width: 100px;
+  margin-right: 10px;
+}
+
+.custom-box button {
+  padding: 8px 16px;
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-box button:hover {
+  background-color: darken(#337ab7, 10%);
 }

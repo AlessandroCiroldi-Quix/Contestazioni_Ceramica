@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './form/form.component';
-import { TabellaComponents } from './tabella/tabella.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
@@ -22,9 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatDatepickerModule,
     MatTableModule,
-    TabellaComponents,
   ],
   providers: [contestazioniEliosservice],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent],  
 })
 export class AppModule {}

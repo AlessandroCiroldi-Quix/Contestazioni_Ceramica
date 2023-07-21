@@ -39,6 +39,7 @@
     <label for="input2">Cod Articolo / Descrizione:</label>
     <br />
     <input
+      class="cod_art_input"
       type="text"
       id="myText"
       name="myText"
@@ -60,7 +61,12 @@
   <div class="stato">
     <label for="dropdown1">Stato:</label>
     <br />
-    <select id="dropdown1" name="dropdown1" (change)="sceltaStato($event)">
+    <select
+      class="mioPadre"
+      id="dropdown1"
+      name="dropdown1"
+      (change)="sceltaStato($event)"
+    >
       <option value="Null"></option>
       <option value="INSERITA">INSERITA</option>
       <option value="PRESA IN CARICO">PRESA IN CARICO</option>
@@ -72,7 +78,7 @@
   <div class="reparto">
     <label for="dropdown2">Reparto: </label>
     <br />
-    <select id="dropdown2" name="dropdown2">
+    <select class="mioPadre" id="dropdown2" name="dropdown2">
       <option value="opzione0"></option>
       <option value="opzione2">Produzione</option>
       <option value="opzione3">Logistica</option>
@@ -82,7 +88,7 @@
   <div class="id_cont">
     <label for="dropdown3">Formato: </label>
     <br />
-    <select id="dropdown3" name="dropdown3">
+    <select class="mioPadre" id="dropdown3" name="dropdown3">
       <option value="opzione1">Opzione 1</option>
       <option value="opzione2">Opzione 2</option>
       <option value="opzione3">Opzione 3</option>
@@ -92,7 +98,7 @@
   <div class="utente_crtr">
     <label for="dropdown4"> Utente creatore:</label>
     <br />
-    <select id="dropdown4" name="dropdown4">
+    <select class="mioPadre" id="dropdown4" name="dropdown4">
       <option value="opzione1">Opzione 1</option>
       <option value="opzione2">Opzione 2</option>
       <option value="opzione3">Opzione 3</option>
@@ -103,8 +109,9 @@
   <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
   <div class="pulsanti">
     <button type="reset">Azzera</button>
-    <button type="button" (click)="getContestationByFiltro(valoreID_cont)">Cerca</button>
-
+    <button type="button" (click)="getContestationByFiltro(valoreID_cont)">
+      Cerca
+    </button>
   </div>
 </form>
 
@@ -113,48 +120,78 @@
 <br />
 
 <br />
+
+<div class="container">
+  <div class="custom-box">
+    <img src="path_to_image1.jpg" alt=" " />
+    <img src="path_to_image2.jpg" alt=" " />
+    <img src="path_to_image3.jpg" alt=" " />
+    <button onclick="creaContestazioni()">+</button>    
+  </div>
+</div>
+
 <table class="table">
-  <tr>
-    <th>ID</th>
-    <th>Cliente</th>
-    <th>Num. Fattura</th>
-    <th>Data Fattura</th>
-    <th>Stato</th>
-    <th>Utente Creazione</th>
-    <th>Data Creazione</th>
-    <th>Reparto</th>
-    <th>Articoli</th>
-    <th></th>
-    <!-- Aggiungi una nuova colonna per i pulsanti -->
-  </tr>
-  <tr *ngFor="let con of datasource">
-    <td>{{ con.id }}</td>
-    <td>{{ con.cod_cliente }} - {{ con.company }}</td>
-    <td>{{ con.num_fattura }}</td>
-    <td>{{ con.data_fattura }}</td>
-    <td>{{ con.stato }}</td>
-    <td>{{ con.utente_creazione }}</td>
-    <td>{{ con.data_creazione }}</td>54
-    <td>Vuoto</td>
-    <td>Vuoto</td>
-    <td>
-      <!-- bottone per scaricale le contestazioni -->
-      <a><img src="/assets/images/scarica.png" (click)="bottoneScarica()"></a>
+  <thead>
+    <!-- Aggiunta della sezione di intestazione -->
+    <tr>
+      <th>ID</th>
+      <th>Cliente</th>
+      <th>Num. Fattura</th>
+      <th>Data Fattura</th>
+      <th>Stato</th>
+      <th>Utente Creazione</th>
+      <th>Data Creazione</th>
+      <th>Reparto</th>
+      <th>Articoli</th>
+      <th></th>
+      <!-- Aggiungi una nuova colonna per i pulsanti -->
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Inizio della sezione del corpo della tabella -->
+    <tr *ngFor="let con of datasource">
+      <td>{{ con.id }}</td>
+      <td>{{ con.cod_cliente }} - {{ con.company }}</td>
+      <td>{{ con.num_fattura }}</td>
+      <td>{{ con.data_fattura }}</td>
+      <td>{{ con.stato }}</td>
+      <td>{{ con.utente_creazione }}</td>
+      <td>{{ con.data_creazione }}</td>
+      <td>Vuoto</td>
+      <td>Vuoto</td>
+      <td>
+        <!-- bottone per scaricare le contestazioni -->
+        <a
+          ><img src="/assets/images/scarica.png" (click)="bottoneScarica()"
+        /></a>
 
-      <!-- Verifica se il campo "stato" è uguale a "ACCETTATA" o "RIFIUTATA" -->
-      <ng-container *ngIf="con.stato === 'accettata' || con.stato === 'rifiutata'">
-        <a><img src="/assets/images/visualizza.png" (click)="bottoneVisualizza()"></a>
-      </ng-container>
+        <!-- Verifica se il campo "stato" è uguale a "ACCETTATA" o "RIFIUTATA" -->
+        <ng-container
+          *ngIf="con.stato === 'accettata' || con.stato === 'rifiutata'"
+        >
+          <a
+            ><img
+              src="/assets/images/visualizza.png"
+              (click)="bottoneVisualizza()"
+          /></a>
+        </ng-container>
 
-      <!-- Mostra i botton di modifica ed eliminazione se lo stato è "presa in carico" -->
-      <ng-container *ngIf="con.stato === 'presa_in_carico'">
-        <a><img src="/assets/images/modifica.png" (click)="bottoneModifica()"></a>
-        <a><img src="/assets/images/elimina.png" (click)="bottoneElimina(con.id)"></a>
-      </ng-container>
-
-    </td>
-  </tr>
-  <tr class="rigavuota">
-    <td colspan="10"></td>
-  </tr>
+        <!-- Mostra i bottoni di modifica ed eliminazione se lo stato è "presa in carico" -->
+        <ng-container *ngIf="con.stato === 'presa_in_carico'">
+          <a
+            ><img src="/assets/images/modifica.png" (click)="bottoneModifica()"
+          /></a>
+          <a
+            ><img
+              src="/assets/images/elimina.png"
+              (click)="bottoneElimina(con.id)"
+          /></a>
+        </ng-container>
+      </td>
+    </tr>
+    <tr class="rigavuota">
+      <td colspan="10"></td>
+    </tr>
+  </tbody>
+  <!-- Fine della sezione del corpo della tabella -->
 </table>
