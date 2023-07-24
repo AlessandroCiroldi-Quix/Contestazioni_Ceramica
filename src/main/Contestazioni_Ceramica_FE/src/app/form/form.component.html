@@ -62,7 +62,7 @@
     <label for="dropdown1">Stato:</label>
     <br />
     <select
-      class="mioPadre"
+      class="select"
       id="dropdown1"
       name="dropdown1"
       (change)="sceltaStato($event)"
@@ -78,7 +78,7 @@
   <div class="reparto">
     <label for="dropdown2">Reparto: </label>
     <br />
-    <select class="mioPadre" id="dropdown2" name="dropdown2">
+    <select class="select" id="dropdown2" name="dropdown2">
       <option value="opzione0"></option>
       <option value="opzione2">Produzione</option>
       <option value="opzione3">Logistica</option>
@@ -88,7 +88,7 @@
   <div class="id_cont">
     <label for="dropdown3">Formato: </label>
     <br />
-    <select class="mioPadre" id="dropdown3" name="dropdown3">
+    <select class="select" id="dropdown3" name="dropdown3">
       <option value="opzione1">Opzione 1</option>
       <option value="opzione2">Opzione 2</option>
       <option value="opzione3">Opzione 3</option>
@@ -98,13 +98,15 @@
   <div class="utente_crtr">
     <label for="dropdown4"> Utente creatore:</label>
     <br />
-    <select class="mioPadre" id="dropdown4" name="dropdown4">
+    <select class="select" id="dropdown4" name="dropdown4">
       <option value="opzione1">Opzione 1</option>
       <option value="opzione2">Opzione 2</option>
       <option value="opzione3">Opzione 3</option>
     </select>
-  </div>
 
+    <br />
+  </div>
+  <br />
   <!-- Pulsanti -->
   <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
   <div class="pulsanti">
@@ -121,10 +123,12 @@
 
 <div class="container">
   <div class="custom-box">
-    <a><img src="path_to_image1.jpg" alt=" " /></a>
-    <a><img src="path_to_image2.jpg"  (click)="reloadTable()" /></a>
-    <a><img src="path_to_image1.jpg" alt=" " /></a>
-    <a routerLink="add"><button onclick="creaContestazioni()">+</button></a>
+    <a><img src="path_to_image1.jpg" alt="FltrTab" /></a>
+    <a
+      ><img src="path_to_image2.jpg" (click)="reloadTable()" alt="ricarica"
+    /></a>
+    <a><img src="path_to_image1.jpg" alt="Cont" /></a>
+    <a routerLink="add"><button class="crea">+</button></a>
   </div>
 </div>
 

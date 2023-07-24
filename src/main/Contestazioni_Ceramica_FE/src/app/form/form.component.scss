@@ -38,7 +38,7 @@
 }
 
 //----------------------------------------------------------------
-//! SCSS prova per form
+//! SCSS per form
 form {
   display: grid;
   grid-template-rows: repeat(2, 1fr); // Two rows with equal height
@@ -60,23 +60,26 @@ form {
   margin: 5px; // Adjust the margin between each container
 }
 
-$common-width: 200px;
+$common-width: 220px;
+$common-height: 21px;
 
 input[type="text"],
 input[type="date"] {
   width: $common-width;
+  height: $common-height;
   /* Add any other common styling for the input elements here */
 }
 
-.mioPadre {
-  width: 212px;
+.select {
+  width: 232px;
+  height: 32px;
 }
 
 .cod_art_input {
   width: 500px !important;
 }
 label {
-  font-weight: 550; /* Imposta il grado di grassetto a 600 */
+  font-weight: 590; /* Imposta il grado di grassetto a 600 */
 }
 
 input,
@@ -87,7 +90,8 @@ select {
   border-radius: 4px;
 }
 //----------------------------------------------------------------
-//? SCSS per i pulsanti cerca e Azzera
+//? SCSS per i pulsanti cerca e Azzera e crea
+//* SCSS per i pulsanti cerca e Azzera
 .pulsanti {
   button[type="reset"],
   button[type="button"] {
@@ -97,9 +101,13 @@ select {
     border: none; /* Rimuove i bordi dei pulsanti */
     border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
     cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
-    transition: background-color 0.3s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
+    transition: background-color 0.4s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
     margin-right: 10px; /* Aggiunge uno spazio di 10px tra i pulsanti */
     width: 200px; /* Imposta la larghezza del pulsante*/
+    margin-top: 70px;
+    text-align: center;
+    display: inline-block;
+
 
     &:hover {
       background-color: darken(
@@ -112,6 +120,12 @@ select {
       outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
     }
   }
+}
+
+//* SCSS per il pulsante Crea +
+.crea:hover {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s ease; /* Aggiungi l'animazione di 1 secondo */
+  transform: scale(0.9);
 }
 //----------------------------------------------------------------
 //? SCSS per il menù scelta delle ceramiche
@@ -210,7 +224,7 @@ a {
   border-color: #007bff;
 }
 // ----------------------------------------------------------------
-//! SCSS per il Footer    
+//! SCSS per il Footer
 /* Stile per il footer */
 .footer {
   background-color: #b6b4b4;
