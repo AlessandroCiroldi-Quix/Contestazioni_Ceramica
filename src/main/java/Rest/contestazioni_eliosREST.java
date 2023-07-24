@@ -14,6 +14,8 @@ import DTO.*;
 
 import java.util.List;
 
+import static io.smallrye.config.ConfigLogging.log;
+
 
 @Path("elios")
 @Data
@@ -68,6 +70,7 @@ public class contestazioni_eliosREST {
                     description = "OK")}
     )
     public List<contestazioni_eliosDTO> getFiltroElios(eliosFiltroDTO filtroElios) {
+        log.info("paolo: "+ filtroElios);
         return contestazioni_eliosDAO.FiltroElios(filtroElios);
     }
 

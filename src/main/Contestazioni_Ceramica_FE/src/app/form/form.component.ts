@@ -139,9 +139,27 @@ export class FormComponent implements OnInit {
 
 
   // Metodo per ottenere le contestazioni tramite i filtri selezionati
-  getContestationByFiltro(id: any) {
-    console.log(id);
+  getContestationByFiltro(
+      id: any,
+      stato: any,
+      cod_articolo: any,
+      rs_cliente: any,
+      data_creazione: any,
+      data_ultima_mod: any,
+      )
+    {
+    //console.log(id);
+    // formato: any utente_creazione: any, reparto: any,
     this.eliosFiltroDTO.id = id;
+    this.eliosFiltroDTO.stato = stato;
+    this.eliosFiltroDTO.data_creazione = data_creazione;
+    this.eliosFiltroDTO.data_ultima_mod = data_ultima_mod;
+    this.eliosFiltroDTO.cod_articolo = cod_articolo;
+    this.eliosFiltroDTO.rs_cliente = rs_cliente;
+    //this.eliosFiltroDTO.reparto = reparto;
+    //this.eliosFiltroDTO.utente_creazione = utente_creazione;
+    //this.eliosFiltroDTO.formato = formato;
+
     this.contestazioniService
       .eliosFiltro(this.eliosFiltroDTO)
       .subscribe((res) => {
@@ -150,7 +168,7 @@ export class FormComponent implements OnInit {
       });
   }
 
-  
+
   //! Funzioni per la tabella
   getCurrentPageData(): any[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -184,5 +202,5 @@ export class FormComponent implements OnInit {
     });
   }
 
-  
+
 }

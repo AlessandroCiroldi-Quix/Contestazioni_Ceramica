@@ -9,6 +9,7 @@ import jakarta.ws.rs.WebApplicationException;
 import lombok.Data;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.statement.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -173,25 +174,90 @@ public class contestazioni_eliosDAO {
     }
 
 
-
     // Questo metodo prende un oggetto eliosFiltroDTO come input e restituisce una lista di oggetti contestazioni_eliosDTO.
     public List<contestazioni_eliosDTO> FiltroElios(eliosFiltroDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
         Jdbi jdbi = jdbiProducer.getJdbi();
 
         // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_elios
-        String query = "SELECT * FROM contestazioni_elios WHERE id = :id";
+        String query = "SELECT * FROM contestazioni_elios WHERE ";
+
+
+        if (contestazione.getData_creazione() != null) {
+            query += ", data_creazione = :data_creazione";
+        }
+
+        if (contestazione.getData_ultima_mod() != null) {
+            query += ", data_ultima_mod = :data_ultima_mod";
+        }
+
+        if (contestazione.getCod_articolo() != "") {
+            query += ", cod_articolo = :cod_articolo";
+        }
+
+        if (contestazione.getRs_cliente() != "") {
+            query += ", rs_cliente = :rs_cliente";
+        }
+
+        if (contestazione.getStato() != "") {
+            query += "stato = :stato";
+        }
+
+        if (contestazione.getReparto() != "") {
+            query += ", reparto = :reparto";
+        }
+
+        if (contestazione.getFormato() != "") {
+            query += ", formato = :formato";
+        }
+
+        if (contestazione.getUtente_creazione() != "") {
+            query += ", utente_creazione = :utente_creazione";
+        }
+
 
         // Esegue la query e ottiene l'ID come Optional<String>
         // Utilizzando withHandle(), si ottiene una connessione al database gestita automaticamente.
         // Si prepara la query utilizzando il segnaposto ":id" e si collega il valore dell'ID dell'oggetto contestazione.
         // La query restituirà una lista di oggetti contestazioni_eliosDTO mappati automaticamente dalla query SQL.
-        return jdbi.withHandle(handle -> handle.createQuery(query)
-                .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
-                .mapToBean(contestazioni_eliosDTO.class) // Mappa i risultati della query all'oggetto contestazioni_eliosDTO.
-                .list() // Restituisce la lista risultante.
-        );
+        String finalQuery = query;
+        return jdbi.withHandle(handle -> {
+            Query q = handle.createQuery(finalQuery);
+
+            if (contestazione.getData_creazione() != null) {
+                q.bind("data_creazione", contestazione.getData_creazione());
+            }
+
+            if (contestazione.getData_ultima_mod() != null) {
+                q.bind("data_ultima_modifica", contestazione.getData_ultima_mod());
+            }
+
+            if (contestazione.getCod_articolo() != "") {
+                q.bind("cod_articolo", contestazione.getCod_articolo());
+            }
+
+            if (contestazione.getRs_cliente() != "") {
+                q.bind("rs_cliente", contestazione.getRs_cliente());
+            }
+
+            if (contestazione.getStato() != "") {
+                q.bind("stato", contestazione.getStato());
+            }
+
+            if (contestazione.getReparto() != "") {
+                q.bind("reparto", contestazione.getReparto());
+            }
+
+            if (contestazione.getFormato() != "") {
+                q.bind("formato", contestazione.getFormato());
+            }
+
+            if (contestazione.getUtente_creazione() != "") {
+                q.bind("utente_creazione", contestazione.getUtente_creazione());
+            }
+
+            return q.mapToBean(contestazioni_eliosDTO.class) // Mappa i risultati della query all'oggetto contestazioni_eliosDTO.
+                    .list();
+        });
     }
-
-
 }
