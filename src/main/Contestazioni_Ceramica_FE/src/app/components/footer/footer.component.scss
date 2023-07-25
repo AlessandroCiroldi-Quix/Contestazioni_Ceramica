@@ -6,10 +6,14 @@ p {
 
 /* Style the footer */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #e5e5e5;;
+  color: #6c757d;;
   padding: 20px;
   text-align: center;
+
+  bottom: 0; /* Fissa il footer in basso rispetto al contenitore principale */
+  width: 100%; /* Fissa la larghezza del footer al 100% della larghezza del contenitore */
+  height: 60px; /* Imposta l'altezza del footer, regola il valore in base alle tue esigenze */
 }
 
 /* Style the footer content */
@@ -20,7 +24,7 @@ footer {
 
 /* Style the link within the footer content */
 .footer-content a {
-  color: #fff;
+  color: #6c757d;;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -52,3 +56,4 @@ footer {
   background-color: #ff9900; /* Change to your desired hover color */
   color: #fff;
 }
+

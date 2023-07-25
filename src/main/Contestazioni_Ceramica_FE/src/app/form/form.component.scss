@@ -127,6 +127,7 @@ a {
   cursor: pointer;
 }
 
+
 //----------------------------------------------------------------
 //* SCSS per la riga di aggiornamento tabella
 .container {
@@ -162,7 +163,7 @@ a {
 }
 
 .custom-box button:hover {
-  background-color: darken(#337ab7, 10%);
+  background-color: darken(rgb(92, 184, 92), 10%);
 }
 
 //----------------------------------------------------------------
