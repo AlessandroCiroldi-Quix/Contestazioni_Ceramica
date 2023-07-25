@@ -1,1 +1,155 @@
-<p>add-cont works!</p>
+<!-- HTML per il rettangolo Articoli -->
+<div class="container">
+  <div class="contenitoreArticoli">
+    <!-- Campo per inserire il Cod. Articolo / Descrizione -->
+    <div class="articoli">
+      <label for="articoli">Cod. Articolo / Descrizione: </label>
+      <br />
+      <input type="text" id="articoli" name="articoli" />
+    </div>
+
+    <!-- Campo per inserire il Tono / Calibro -->
+    <div class="tono">
+      <label for="tono"> Tono / Calibro: </label>
+      <br />
+      <input type="text" id="tono" name="tono" />
+    </div>
+
+    <!-- Campo per inserire la Quantità contestata -->
+    <div class="qta_cont">
+      <label for="qta">Quantità contestata: </label>
+      <br />
+      <input type="text" id="qta" name="qta" />
+    </div>
+
+    <!-- Menu a tendina per selezionare l'Unità di misura contestata -->
+    <div class="uinita_mis">
+      <label for="dropdown1">U.M contestata: </label>
+      <br />
+      <select class="uinita_mis" id="uinita_mis" name="uinita_mis">
+        <option value="Null"></option>
+        <option value="MQ">MQ</option>
+        <option value="PZ">PZ</option>
+        <option value="CO">CO</option>
+      </select>
+    </div>
+
+    <!-- Menu a tendina per selezionare se l'articolo è stato Posato o meno -->
+    <div class="posato">
+      <label>Posato </label>
+      <br />
+      <select class="posato" name="posato" id="posato">
+        <option value="Null"></option>
+        <option value="NO">NO</option>
+        <option value="SI">SI</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Separatore -->
+<br />
+<br />
+
+<!-- HTML per il Form -->
+<body>
+  <div ng-app="formAdd">
+    <!-- Campo per inserire il nome del Cliente -->
+    <div class="cliente">
+      <label for="input1">Cliente</label>
+      <input type="text" id="input1" />
+    </div>
+
+    <!-- Campo per inserire il Numero della Fattura -->
+    <div class="num_fattura">
+      <label for="input2">Numero fattura</label>
+      <input type="text" id="input2" />
+    </div>
+
+    <!-- Campo per inserire il Numero della Bolla -->
+    <div class="num_bolla">
+      <label for="input3">Numero bolla: </label>
+      <input type="text" id="input3" />
+    </div>
+
+    <!-- Campo per inserire il Numero del Buono di Prelievo -->
+    <div class="num_buono">
+      <label for="input4">Numero buono di prelievo: </label>
+      <input type="text" id="input4" />
+    </div>
+
+    <!-- Campo per inserire il Numero dell'Ordine del reparto contestazione selezionato -->
+    <div class="num_ordine">
+      <label for="input5"
+        >Numero ordine del reparto contestazione selezionato:</label
+      >
+      <input type="text" id="input5" />
+    </div>
+
+    <!-- Selezionatore di data (Datepicker) per la Data della Fattura -->
+    <div class="data_fattura">
+      <label for="datepicker">Data fattura</label>
+      <input type="date" id="datepicker" ng-model="selectedDate" />
+    </div>
+
+    <!-- Menu a tendina per selezionare la Difettosità -->
+    <div class="difettosita">
+      <label for="dropdown">Difettosità: </label>
+      <select id="dropdown" ng-model="selectedOption">
+        <option value="Null"></option>
+        <option value="opzione1">Errore qta (in evasione ordine)</option>
+        <option value="opzione1">Opzione 1</option>
+        <option value="opzione2">Opzione 2</option>
+        <option value="opzione3">Opzione 3</option>
+        <!-- Aggiungi altre opzioni se necessario -->
+      </select>
+    </div>
+
+    <!-- Menu a tendina per selezionare il Reparto di contestazione -->
+    <div class="reparto">
+      <label for="dropdown">Reparto contestazione</label>
+      <br />
+      <select id="dropdown">
+        <option value="Null"></option>
+        <option value="Produzione">Produzione</option>
+        <option value="logistica">Logistica</option>
+      </select>
+    </div>
+
+    <!-- Campo textarea per inserire la Descrizione del problema -->
+    <div class="textarea">
+      <label for="textarea" class="textarea" id="textarea"
+        >Descrizione del problema:</label
+      >
+      <br />
+      <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+    </div>
+
+    <!-- Menu a tendina per selezionare lo Stato dell'articolo -->
+    <div class="stato">
+      <label for="dropdown"> Stato </label>
+      <br />
+      <select id="dropdownStato">
+        <option value="Null"></option>
+        <option value="Accettata">Accettata</option>
+        <option value="Rifiutata">Rifiutata</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Contenitore per i pulsanti -->
+  <div class="containerPulsanti">
+    <!-- Pulsante per inviare Email -->
+    <div class="pulsanteMail">
+      <button type="button">Invia Email</button>
+    </div>
+    <!-- Pulsante per tornare indietro -->
+    <div class="pulsanteindietro">
+      <button type="button">Indietro</button>
+    </div>
+    <!-- Pulsante per salvare i dati -->
+    <div class="pulsanteSalva">
+      <button type="button">Salva</button>
+    </div>
+  </div>
+</body>
