@@ -27,8 +27,8 @@ export class FormComponent implements OnInit {
   // Dichiarazione di un oggetto eliosFiltroDTO con valori di default per i filtri
   eliosFiltroDTO: eliosFiltroDTO = {
     id: 0,
-    data_creazione: '',
-    data_ultima_mod: '',
+    data_creazione: null,
+    data_ultima_mod: null,
     cod_articolo: '',
     rs_cliente: '',
     stato: '',
@@ -88,11 +88,16 @@ export class FormComponent implements OnInit {
     return this.valoreDateIni;
   }
   // Metodo per salvare il valore della data finale selezionata tramite il datepicker
-  salvareValoreDateOut(event: Event): Date {
+  salvareValoreDateOut(event: Event | null): string | null{
     const pick = event.target as HTMLInputElement;
     this.valoreDateOut = new Date(pick.value);
-    console.log(this.valoreDateOut); // Ciao commento
-    return this.valoreDateOut;
+
+    this.valoreDateOut.setHours(this.valoreDateOut.getHours()+2)
+
+    console.log(this.valoreDateOut);
+    return this.valoreDateOut.toISOString();
+    //return this.valoreDateOut;
+
   }
   // Metodo per salvare lo stato selezionato tramite il select
   sceltaStato(event: Event): string {
@@ -141,11 +146,11 @@ export class FormComponent implements OnInit {
   // Metodo per ottenere le contestazioni tramite i filtri selezionati
   getContestationByFiltro(
       id: any,
-      stato: any,
+      stato: string,
       cod_articolo: any,
       rs_cliente: any,
-      data_creazione: any,
-      data_ultima_mod: any,
+      data_creazione: Date,
+      data_ultima_mod: Date,
       )
     {
     //console.log(id);

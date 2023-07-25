@@ -182,37 +182,80 @@ public class contestazioni_eliosDAO {
         // Costruisce la stringa di query SQL per selezionare l'ID dalla tabella contestazioni_elios
         String query = "SELECT * FROM contestazioni_elios WHERE ";
 
+        Boolean primo = false;
+
+
+        if (contestazione.getId() > 0) {
+            query += ", id = :id";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
+        }
 
         if (contestazione.getData_creazione() != null) {
             query += ", data_creazione = :data_creazione";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getData_ultima_mod() != null) {
             query += ", data_ultima_mod = :data_ultima_mod";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getCod_articolo() != "") {
             query += ", cod_articolo = :cod_articolo";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getRs_cliente() != "") {
+
             query += ", rs_cliente = :rs_cliente";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getStato() != "") {
-            query += "stato = :stato";
+            query += ", stato = :stato";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getReparto() != "") {
             query += ", reparto = :reparto";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getFormato() != "") {
             query += ", formato = :formato";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
         if (contestazione.getUtente_creazione() != "") {
             query += ", utente_creazione = :utente_creazione";
+            if(!primo){ //se falso
+                query = query.replace(",", "");
+                primo = true;
+            }
         }
 
 
@@ -223,6 +266,9 @@ public class contestazioni_eliosDAO {
         String finalQuery = query;
         return jdbi.withHandle(handle -> {
             Query q = handle.createQuery(finalQuery);
+            if (contestazione.getId() > 0) {
+                q.bind("id", contestazione.getId());
+            }
 
             if (contestazione.getData_creazione() != null) {
                 q.bind("data_creazione", contestazione.getData_creazione());
