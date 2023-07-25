@@ -1,0 +1,54 @@
+/* Reset default margin and padding for footer and p tag */
+footer,
+p {
+    padding: 0%;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the footer content */
+.footer-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Style the link within the footer content */
+.footer-content a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-content a:hover {
+  color: #ff9900; /* Change to your desired hover color */
+}
+
+/* Style the footer social media icons or links */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover {
+  background-color: #ff9900; /* Change to your desired hover color */
+  color: #fff;
+}

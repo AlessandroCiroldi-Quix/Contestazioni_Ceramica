@@ -12,110 +12,128 @@
 <!-- -------------------------------------------------------------------------- -->
 <!--? Form -->
 <form>
-  <div class="id_cont">
-    <label for="input1">Id contestazione:</label>
-    <br />
-    <input
-      type="text"
-      id="myText"
-      name="myText"
-      (input)="onInputID_cont($event)"
-    />
-  </div>
+  <div class="table-container">
+    <table class="form">
+      <tr>
+        <!--Riga 1-->
+        <td class="id_cont">
+          <label for="input1">Id contestazione:</label>
+          <br />
+          <input
+            type="text"
+            id="myText"
+            name="myText"
+            (input)="onInputID_cont($event)"
+          />
+        </td>
 
-  <div class="data_inz">
-    <label for="datepicker1">Data inserimento (inizio):</label>
-    <br />
-    <input type="date" (change)="salvareValoreDateIni($event)" />
-  </div>
+        <td class="data_inz">
+          <label for="datepicker1">Data inserimento (inizio):</label>
+          <br />
+          <input type="date" (change)="salvareValoreDateIni($event)" />
+        </td>
 
-  <div class="data_fine">
-    <label for="datepicker2">Data inserimento (fine):</label>
-    <br />
-    <input type="date" (change)="salvareValoreDateOut($event)" />
-  </div>
+        <td class="data_fine">
+          <label for="datepicker2">Data inserimento (fine):</label>
+          <br />
+          <input type="date" (change)="salvareValoreDateOut($event)" />
+        </td>
 
-  <div class="cod_art">
-    <label for="input2">Cod Articolo / Descrizione:</label>
-    <br />
-    <input
-      class="cod_art_input"
-      type="text"
-      id="myText"
-      name="myText"
-      (input)="onInputCod_art($event)"
-    />
-  </div>
+        <td class="cod_art">
+          <label for="input2">Cod Articolo / Descrizione:</label>
+          <br />
+          <input
+            class="cod_art_input"
+            type="text"
+            id="myText"
+            name="myText"
+            (input)="onInputCod_art($event)"
+          />
+        </td>
 
-  <div class="cliente">
-    <label for="input3">Cliente:</label>
-    <br />
-    <input
-      type="text"
-      id="myText"
-      name="myText"
-      (input)="onInputCliente($event)"
-    />
-  </div>
-
-  <div class="stato">
-    <label for="dropdown1">Stato:</label>
-    <br />
-    <select
-      class="select"
-      id="dropdown1"
-      name="dropdown1"
-      (change)="sceltaStato($event)"
-    >
-      <option value="Null"></option>
-      <option value="INSERITA">INSERITA</option>
-      <option value="PRESA IN CARICO">PRESA IN CARICO</option>
-      <option value="ACCETTATA">ACCETTATA</option>
-      <option value="RIFIUTATA">RIFIUTATA</option>
-    </select>
-  </div>
-
-  <div class="reparto">
-    <label for="dropdown2">Reparto: </label>
-    <br />
-    <select class="select" id="dropdown2" name="dropdown2">
-      <option value="opzione0"></option>
-      <option value="opzione2">Produzione</option>
-      <option value="opzione3">Logistica</option>
-    </select>
-  </div>
-
-  <div class="id_cont">
-    <label for="dropdown3">Formato: </label>
-    <br />
-    <select class="select" id="dropdown3" name="dropdown3">
-      <option value="opzione1">Opzione 1</option>
-      <option value="opzione2">Opzione 2</option>
-      <option value="opzione3">Opzione 3</option>
-    </select>
-  </div>
-
-  <div class="utente_crtr">
-    <label for="dropdown4"> Utente creatore:</label>
-    <br />
-    <select class="select" id="dropdown4" name="dropdown4">
-      <option value="opzione1">Opzione 1</option>
-      <option value="opzione2">Opzione 2</option>
-      <option value="opzione3">Opzione 3</option>
-    </select>
-
-    <br />
-  </div>
-  <br />
-  <!-- Pulsanti -->
-  <!--! la funzione dei pulsanti deve essere cambiata, faremo OnClick() ->> FunctionCerca() / functionAzzera() -->
-  <div class="pulsanti">
-    <button type="reset">Azzera</button>
-    <button type="button" (click)="getContestationByFiltro(valoreID_cont, valoreStato, valoreCod_art, valoreCliente, valoreDateIni, valoreDateOut)">
-      Cerca
-    </button>
+        <td class="cliente">
+          <label for="input3">Cliente:</label>
+          <br />
+          <input
+            type="text"
+            id="myText"
+            name="myText"
+            (input)="onInputCliente($event)"
+          />
+        </td>
+      </tr>
+      <tr>
+        <!--Riga 2-->
+        <td class="stato">
+          <label for="dropdown1">Stato:</label>
+          <br />
+          <select
+            class="select"
+            id="dropdown1"
+            name="dropdown1"
+            (change)="sceltaStato($event)"
+          >
+            <option value="Null"></option>
+            <option value="INSERITA">INSERITA</option>
+            <option value="PRESA IN CARICO">PRESA IN CARICO</option>
+            <option value="ACCETTATA">ACCETTATA</option>
+            <option value="RIFIUTATA">RIFIUTATA</option>
+          </select>
+        </td>
+        <td class="reparto">
+          <label for="dropdown2">Reparto: </label>
+          <br />
+          <select class="select" id="dropdown2" name="dropdown2">
+            <option value="opzione0"></option>
+            <option value="opzione2">Produzione</option>
+            <option value="opzione3">Logistica</option>
+          </select>
+        </td>
+        <td class="formato">
+          <label for="dropdown3">Formato: </label>
+          <br />
+          <select class="select" id="dropdown3" name="dropdown3">
+            <option value="opzione1">Opzione 1</option>
+            <option value="opzione2">Opzione 2</option>
+            <option value="opzione3">Opzione 3</option>
+          </select>
+        </td>
+        <td class="utente_crtr">
+          <label for="dropdown4"> Utente creatore:</label>
+          <br />
+          <select class="select" id="dropdown4" name="dropdown4">
+            <option value="opzione1">Opzione 1</option>
+            <option value="opzione2">Opzione 2</option>
+            <option value="opzione3">Opzione 3</option>
+          </select>
+        </td>
+      </tr>
+    </table>
   </div>
 </form>
+
+<br />
+<!-- Pulsanti -->
+<div class="pulsanti">
+  <button type="reset" class="resettaPulsante">Azzera</button>
+  <button
+    type="button"
+    class="cercaPulsante"
+    (click)="
+      getContestationByFiltro(
+        valoreID_cont,
+        valoreStato,
+        valoreCod_art,
+        valoreCliente,
+        valoreDateIni,
+        valoreDateOut
+      )
+    "
+  >
+    Cerca
+  </button>
+</div>
+<br />
 
 <br />
 
@@ -209,12 +227,4 @@
   </button>
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <p>
-      Italcer S.p.A. Via Emilia Ovest, 53/A - Rubiera (RE) Italy - Tel. +39
-      0522.625111 - P. IVA 00142060359 -
-      <a href="mailto:info@ceramicarondine.it">info@ceramicarondine.it</a>
-    </p>
-  </div>
-</footer>
+<app-footer></app-footer>

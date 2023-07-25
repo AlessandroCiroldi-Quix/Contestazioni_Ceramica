@@ -12,12 +12,14 @@ import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.s
 import { HttpClientModule } from '@angular/common/http';
 import { AddContComponent } from './components/add-cont/add-cont.component';
 import { ModContComponent } from './components/mod-cont/mod-cont.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, AddContComponent, ModContComponent,],
+  declarations: [AppComponent, FormComponent, AddContComponent, ModContComponent, FooterComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,3 +1,4 @@
+<!--? ARTICOLI -->
 <!-- HTML per il rettangolo Articoli -->
 <div class="container">
   <div class="contenitoreArticoli">
@@ -54,30 +55,35 @@
 <!-- HTML per il Form -->
 <body>
   <div ng-app="formAdd">
+    <!--? CLIENTE -->
     <!-- Campo per inserire il nome del Cliente -->
     <div class="cliente">
       <label for="input1">Cliente</label>
       <input type="text" id="input1" />
     </div>
 
+    <!--? NUMERO FATTURA -->
     <!-- Campo per inserire il Numero della Fattura -->
     <div class="num_fattura">
       <label for="input2">Numero fattura</label>
       <input type="text" id="input2" />
     </div>
 
+    <!--? NUMERO BOLLA -->
     <!-- Campo per inserire il Numero della Bolla -->
     <div class="num_bolla">
       <label for="input3">Numero bolla: </label>
       <input type="text" id="input3" />
     </div>
 
+    <!--? NUMERO BUONO -->
     <!-- Campo per inserire il Numero del Buono di Prelievo -->
     <div class="num_buono">
       <label for="input4">Numero buono di prelievo: </label>
       <input type="text" id="input4" />
     </div>
 
+    <!--? ORDINE REPARTO -->
     <!-- Campo per inserire il Numero dell'Ordine del reparto contestazione selezionato -->
     <div class="num_ordine">
       <label for="input5"
@@ -86,12 +92,15 @@
       <input type="text" id="input5" />
     </div>
 
+    <!--? DATA FATTURA -->
     <!-- Selezionatore di data (Datepicker) per la Data della Fattura -->
     <div class="data_fattura">
       <label for="datepicker">Data fattura</label>
       <input type="date" id="datepicker" ng-model="selectedDate" />
     </div>
 
+    <!--? DIFETTOSITA -->
+    <!--! Attenzione! devo capire ancora se questo menù a tendina va in base al back oppure è unico per tutte le contestazioni -->
     <!-- Menu a tendina per selezionare la Difettosità -->
     <div class="difettosita">
       <label for="dropdown">Difettosità: </label>
@@ -105,6 +114,7 @@
       </select>
     </div>
 
+    <!--? REPARTO -->
     <!-- Menu a tendina per selezionare il Reparto di contestazione -->
     <div class="reparto">
       <label for="dropdown">Reparto contestazione</label>
@@ -116,6 +126,7 @@
       </select>
     </div>
 
+    <!--? DESCRIZIONE -->
     <!-- Campo textarea per inserire la Descrizione del problema -->
     <div class="textarea">
       <label for="textarea" class="textarea" id="textarea"
@@ -125,6 +136,7 @@
       <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
     </div>
 
+    <!--? STATO -->
     <!-- Menu a tendina per selezionare lo Stato dell'articolo -->
     <div class="stato">
       <label for="dropdown"> Stato </label>
@@ -135,8 +147,9 @@
         <option value="Rifiutata">Rifiutata</option>
       </select>
     </div>
-  </div>
+  </div>  
 
+  <!--? PULSANTI FORM -->
   <!-- Contenitore per i pulsanti -->
   <div class="containerPulsanti">
     <!-- Pulsante per inviare Email -->
@@ -153,3 +166,11 @@
     </div>
   </div>
 </body>
+
+
+
+<!--! TO-DO -->
+<!--? MOTIVAZIONE -->
+
+
+<!--!  -->
