@@ -1,7 +1,6 @@
 // Import delle librerie necessarie
 import { HttpClient } from '@angular/common/http'; // Per eseguire richieste HTTP
 import { Component, OnInit } from '@angular/core'; // Component decorator e OnInit interface
-import { Observable } from 'rxjs'; // Per supportare la programmazione reattiva con Observable
 import { Contestazioni_eliosDTO } from 'src/api/model/contesatzioni_eliosDTO'; // Import del modello per le contestazioni
 import { eliosFiltroDTO } from 'src/api/model/eliosFiltroDTO'; // Import del modello per il filtro
 import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.service'; // Import del servizio per le contestazioni

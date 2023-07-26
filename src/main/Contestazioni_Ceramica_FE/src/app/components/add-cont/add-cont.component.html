@@ -149,37 +149,44 @@
     </div>
   </div>
 
-  <table>
-    <tr>
-      <!-- First row: Pulsante per inviare Email -->
-      <td colspan="3">
-        <div class="containerPulsanti">
-          <div>
-            <button class="pulsanteMail" type="button">Invia Email</button>
+
+  <br/>
+  <br/>
+  <br/>
+  <!--? PULSANTI -->
+  <div class="table-container">
+    <table class="pulsantiAdd">
+      <tr>
+        <!-- First row: Pulsante per inviare Email -->
+        <td colspan="3">
+          <div class="containerPulsanti">
+            <div>
+              <button class="pulsanteMail" type="button">Invia Email</button>
+            </div>
           </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <!-- Second row: Other buttons -->
-      <td>
-        <div class="containerPulsanti">
-          <div>
-            <button class="pulsanteIndietro" type="button">Indietro</button>
+        </td>
+      </tr>
+      <tr>
+        <!-- Second row: Other buttons -->
+        <td>
+          <div class="containerPulsanti">
+            <div>
+              <button class="pulsanteIndietro" type="button">Indietro</button>
+            </div>
           </div>
-        </div>
-      </td>
-      <td>
-        <div class="containerPulsanti">
-          <div>
-            <button class="pulsanteSalva" type="button">Salva</button>
+        </td>
+        <td>
+          <div class="containerPulsanti">
+            <div>
+              <button class="pulsanteSalva"type="button" (click)="confirmCreation()">Salva</button>
+            </div>
           </div>
-        </div>
-      </td>
-      <td></td>
-      <!-- An empty cell to balance the layout -->
-    </tr>
-  </table>
+        </td>
+        <td></td>
+        <!-- An empty cell to balance the layout -->
+      </tr>
+    </table>
+  </div>
 </body>
 
 <!--! TO-DO -->
