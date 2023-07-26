@@ -1,46 +1,128 @@
 //* Definizione delle variabili */
 :root {
-    --common-width: 300px;
-    --common-height: 200px; 
-  }
+  --common-width: 300px;
+  --common-height: 200px;
+}
 //*----------------------------------------------------------------
-
-
 
 //? SCSS ARTICOLI
 
-
 //? SCSS CLIENTE
-
 
 //? SCSS REPARTO
 
-
 //? SCSS NUMERO FATTURA
 
-
-//? SCSS DATA 
-
+//? SCSS DATA
 
 //? SCSS NUMERO BOLLA
 
-
 //? SCSS NUMEORO BUONO
 
-
-//? SCSS ORDINE REPARTO 
-
+//? SCSS ORDINE REPARTO
 
 //? SCSS DIFETTOSITA
 
-
 //? SCSS DESCRIZIONE
-
 
 //? SCSS STATO
 
-
 //? SCSS MOTIVAZIONE
 
-
 //? SCSS PULSANTI
+.pulsanteMail {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  height: 33px;
+  border: none; /* Rimuove i bordi dei pulsanti */
+  border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
+  cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
+  transition: background-color 0.4s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
+  width: 422px; /* Imposta la larghezza del pulsante*/
+
+  &:hover {
+    background-color: darken(
+      #0e65b1,
+      10%
+    ); /* Scure il colore di sfondo del pulsante del 10% al passaggio del mouse */
+  }
+
+  &:focus {
+    outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
+  }
+}
+
+.pulsanteIndietro {
+  margin-top: 9px;
+  margin-right: 9px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  height: 33px;
+  border: none; /* Rimuove i bordi dei pulsanti */
+  border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
+  cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
+  transition: background-color 0.4s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
+  width: 200px; /* Imposta la larghezza del pulsante*/
+
+  &:hover {
+    background-color: darken(
+      #0e65b1,
+      10%
+    ); /* Scure il colore di sfondo del pulsante del 10% al passaggio del mouse */
+  }
+
+  &:focus {
+    outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
+  }
+}
+
+.pulsanteSalva {
+  margin-top: 9px;
+  margin-left: 9px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  height: 33px;
+  border: none; /* Rimuove i bordi dei pulsanti */
+  border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
+  cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
+  transition: background-color 0.4s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
+  width: 200px; /* Imposta la larghezza del pulsante*/
+
+  &:hover {
+    background-color: darken(
+      #0e65b1,
+      10%
+    ); /* Scure il colore di sfondo del pulsante del 10% al passaggio del mouse */
+  }
+
+  &:focus {
+    outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
+  }
+}
+
+.pulsanteSalva{
+  margin-top: 9px;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  height: 33px;
+  border: none; /* Rimuove i bordi dei pulsanti */
+  border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
+  cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
+  transition: background-color 0.4s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
+  width: 200px; /* Imposta la larghezza del pulsante*/
+
+  &:hover {
+    background-color: darken(
+      #5cb85c,
+      10%
+    ); /* Scure il colore di sfondo del pulsante del 10% al passaggio del mouse */
+  }
+
+  &:focus {
+    outline: none; /* Rimuove l'outline al pulsante quando è focalizzato */
+  }
+}
