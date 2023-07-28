@@ -139,6 +139,7 @@
   <div class="custom-box">
     <a
       ><img
+        title="Filtro Tabella"
         class="filtroTABELLA"
         aria-label="Cerca"
         src="assets\images\align-vertical-spacing-svgrepo-com.svg"
@@ -146,6 +147,7 @@
     /></a>
     <a
       ><img
+        title="Ricarica Tabella"
         aria-label="Ricarica tabella"
         class="reloadTABELLA"
         src="assets\images\reload-svgrepo-com.svg"
@@ -155,11 +157,12 @@
 
     <a
       ><img
+        
         class="counterTABELLA"
         src="assets\images\counter-svgrepo-com.svg"
         alt="Cont"
     /></a>
-    <a routerLink="add"><button class="crea">+</button></a>
+    <a routerLink="add"><button title="Crea nuova contstazione" class="crea">+</button></a>
   </div>
 </div>
 
@@ -187,7 +190,12 @@
       <td>{{ con.cod_cliente }} - {{ con.company }}</td>
       <td>{{ con.num_fattura }}</td>
       <td>{{ con.data_fattura }}</td>
-      <td>{{ con.stato }}</td>
+      <td>
+        <div *ngIf="con.stato === 'presa_in_carico'">PRESA IN CARICO</div>
+        <div *ngIf="con.stato === 'ACCETTATA'">ACCETTATA</div>
+        <div *ngIf="con.stato === 'RIFIUTATA'">RIFIUTATA</div>
+        <div *ngIf="con.stato === 'INSERITA'">INSERITA</div>     
+      </td>
       <td>{{ con.utente_creazione }}</td>
       <td>{{ con.data_creazione }}</td>
       <td>Vuoto</td>

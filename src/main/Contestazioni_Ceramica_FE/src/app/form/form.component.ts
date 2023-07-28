@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core'; // Component decorator e OnIn
 import { Contestazioni_eliosDTO } from 'src/api/model/contesatzioni_eliosDTO'; // Import del modello per le contestazioni
 import { eliosFiltroDTO } from 'src/api/model/eliosFiltroDTO'; // Import del modello per il filtro
 import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.service'; // Import del servizio per le contestazioni
-import { format } from 'date-fns';
+import { format, formatISO } from 'date-fns';
 
 @Component({
   selector: 'app-form',
@@ -81,9 +81,9 @@ export class FormComponent implements OnInit {
   }
 
   convertiFormatoData(data: Date): string {
-    // Utilizza la funzione format di date-fns per convertire la data nel formato desiderato
-    return format(data, 'dd/MM/yyyy');
-  }
+    // Utilizza la funzione formatISO per ottenere la data in formato ISO 8601 (timestamp)
+    return formatISO(data);
+}
 
   // Modifica la funzione salvareValoreDateIni
   salvareValoreDateIni(event: Event): String {
@@ -140,6 +140,8 @@ export class FormComponent implements OnInit {
       .catch((error) => {
         console.error('Si è verificato un errore nella richiesta:', error);
       });
+    location.reload();
+    location.reload();
     location.reload();
   }
   // Metodo chiamato quando il bottone "Scarica" viene cliccato

@@ -1,11 +1,11 @@
 //----------------------------------------------------------------
 //? SCSS per i pulsanti nell header della tabella
 .filtroTABELLA,
-.reloadTABELLA{
+.reloadTABELLA
+{
   width: 22px;
   height: 22px;
 }
-
 
 .counterTABELLA{
   width: 25px;
@@ -141,6 +141,9 @@ select {
   }
 }
 //* SCSS per il pulsante Crea +
+.crea{
+  width: 40px;
+}
 .crea:hover {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s ease; /* Aggiungi l'animazione di 1 secondo */
   transform: scale(0.9);
