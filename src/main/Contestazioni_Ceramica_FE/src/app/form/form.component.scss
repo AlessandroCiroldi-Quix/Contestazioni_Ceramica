@@ -4,15 +4,16 @@
   width: 95%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
   border-collapse: collapse; /* Comprime i bordi delle celle in modo che si uniscano */
   margin: 0 auto; /* Imposta il margine sinistro e destro a "auto" per centrare la tabella orizzontalmente */
-  margin-bottom: 20px; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
-  border-radius: 10px;
+  margin-bottom: 1.25rem; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
+  border-radius: 0.625rem;
   // margin-top: 20px;
+  overflow-x: hidden;
 
   th,
   td {
-    padding: 8px; /* Aggiunge un padding di 8 pixel alle celle del titolo e del contenuto */
+    padding: 0.5rem; /* Aggiunge un padding di 8 pixel alle celle del titolo e del contenuto */
     text-align: left; /* Allinea il testo delle celle a sinistra */
-    border-bottom: 1px solid #ddd; /* Aggiunge un bordo inferiore di 1 pixel alle celle */
+    border-bottom: 0.063rem solid #ddd; /* Aggiunge un bordo inferiore di 1 pixel alle celle */
   }
 
   th {
@@ -36,6 +37,17 @@
 
 //----------------------------------------------------------------
 //! SCSS per form
+tbody {
+  overflow-x: hidden;
+}
+form {
+  padding-right: 0.313rem;
+  padding-left: 0.938rem;
+  margin: 1.875rem;
+  width: 100%;
+  table-layout: fixed;
+  overflow-x: hidden;
+}
 
 .id_cont,
 .data_inz,
@@ -48,12 +60,12 @@
 .utente_crtr,
 .pulsanti {
   flex: 50%;
-  padding: 0px;
-  margin: 4px; // Adjust the margin between each container
+  padding: 0rem;
+  margin: 0.25rem; // Adjust the margin between each container
 }
 
-$common-width: 250px;
-$common-height: 24px;
+$common-width: 15.625rem;
+$common-height: 1.5rem;
 
 input[type="text"],
 input[type="date"] {
@@ -63,28 +75,28 @@ input[type="date"] {
 }
 
 .select {
-  width: 263px;
-  height: 38px;
+  width: 16.438rem;
+  height: 2.375rem;
 }
 
 .cod_art_input {
-  width: 500px !important;
+  width: 31.25rem !important;
 }
-label {    
+label {
   font-weight: 590; /* Imposta il grado di grassetto a 600 */
 }
 
 input,
 select {
   width: 20%;
-  padding: 5px;
+  padding: 0.313rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 //----------------------------------------------------------------
 //? SCSS per i pulsanti cerca e Azzera e crea
 //* SCSS per i pulsanti cerca e Azzera
-.pulsantiTab{
+.pulsantiTab {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,17 +105,17 @@ select {
 .pulsanti {
   button[type="reset"],
   button[type="button"] {
-    margin: 18px;
+    margin: 1.125rem;
     margin-bottom: 0px !important;
     background-color: #337ab7; /* Imposta il colore di sfondo dei pulsanti */
     color: #fff; /* Imposta il colore del testo dei pulsanti a bianco */
-    height: 33px;
+    height: 2.063rem;
     border: none; /* Rimuove i bordi dei pulsanti */
-    border-radius: 4px; /* Aggiunge un bordo smussato ai pulsanti */
+    border-radius: 0.25rem; /* Aggiunge un bordo smussato ai pulsanti */
     cursor: pointer; /* Mostra un cursore a forma di puntatore quando si passa sopra i pulsanti */
     transition: background-color 0.4s ease; /* Aggiunge una transizione di colore di sfondo con durata di 0.3 secondi */
-    width: 260px; /* Imposta la larghezza del pulsante*/
-    height: 35px;
+    width: 16.25rem; /* Imposta la larghezza del pulsante*/
+    height: 2.188rem;
 
     &:hover {
       background-color: darken(
@@ -127,7 +139,7 @@ select {
 #scelta-aziende {
   position: absolute; /*
   top: 50px; /* Regola la distanza dall'alto come desiderato */
-  right: 50px; /* Regola la distanza dalla destra come desiderato */
+  right: 3.125rem; /* Regola la distanza dalla destra come desiderato */
   width: 5%;
 }
 
@@ -136,13 +148,12 @@ a {
   cursor: pointer;
 }
 
-
 //----------------------------------------------------------------
 //* SCSS per la riga di aggiornamento tabella
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 2.5rem;
 }
 
 .custom-box {
@@ -150,24 +161,24 @@ a {
   align-items: center;
   justify-content: space-between;
   background-color: #f0f0f0;
-  padding: 7px;
+  padding: 0.438rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   width: 94%;
   justify-content: flex-end; /* Modifica per allineare a destra */
 }
 
 .custom-box img {
-  max-width: 100px;
-  margin-right: 10px;
+  max-width: 6.25rem;
+  margin-right: 0.625rem;
 }
 
 .custom-box button {
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   background-color: #337ab7;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   cursor: pointer;
 }
 
@@ -182,14 +193,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 100px;
+  margin-top: 1.25rem;
+  margin-bottom: 6.25rem;
+  overflow-x: hidden;
 }
 
 /* Stile dei pulsanti di navigazione */
 .pagination button {
-  padding: 8px 16px;
-  margin: 0 5px;
+  padding: 0.5rem 1rem;
+  margin: 0rem 0.313rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
@@ -204,7 +216,7 @@ a {
 /* Stile del testo "Pagina X" */
 .pagination span {
   font-size: 14px;
-  margin: 0 10px;
+  margin: 0 0.625rem;
 }
 
 /* Stile del pulsante di navigazione disabilitato */
@@ -223,8 +235,9 @@ a {
 //! SCSS per il Footer
 /* Stile per il footer */
 .footer {
+  overflow-x: hidden;
   background-color: #b6b4b4;
-  padding: 10px 0;
+  padding: 0.625rem 0;
   text-align: center;
 }
 
@@ -241,7 +254,7 @@ a {
 //? SCSS PER IL FORM
 
 .table-container {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -250,5 +263,5 @@ a {
 }
 
 .form td {
-  padding: 12px; /* Regola questo valore per aumentare o diminuire lo spazio tra le colonne */
+  padding: 0.75rem; /* Regola questo valore per aumentare o diminuire lo spazio tra le colonne */
 }
