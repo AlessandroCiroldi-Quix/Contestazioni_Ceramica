@@ -20,7 +20,7 @@
   margin-bottom: 1.25rem; /* Aggiunge 20 pixel di spazio tra la tabella e la fine della pagina */
   border-radius: 0.625rem;
   // margin-top: 20px;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 
   th,
   td {
@@ -50,31 +50,31 @@
 
 //----------------------------------------------------------------
 //! SCSS per form
-tbody {
-  overflow-x: hidden;
-}
-form {
-  padding-right: 0.313rem;
-  padding-left: 0.938rem;
-  margin: 1.875rem;
-  width: 100%;
-  table-layout: fixed;
-  overflow-x: hidden;
-}
+// tbody {
+//   overflow-x: hidden;
+// }
+// form {
+//   padding-right: 0.313rem;
+//   padding-left: 0.938rem;
+//   margin: 1.875rem;
+//   width: 100%;
+//   table-layout: fixed;
+//   overflow-x: hidden;
+// }
 
-.id_cont,
-.data_inz,
-.data_fine,
-.cod_art,
-.cliente,
-.stato,
-.reparto,
-.formato,
-.utente_crtr,
-.pulsanti {
-  flex: 50%;
-  padding: 0rem;
-}
+// .id_cont,
+// .data_inz,
+// .data_fine,
+// .cod_art,
+// .cliente,
+// .stato,
+// .reparto,
+// .formato,
+// .utente_crtr,
+// .pulsanti {
+//   flex: 50%;
+//   padding: 0rem;
+// }
 $common-width: 15.625rem;
 $common-height: 1.5rem;
 
@@ -82,17 +82,16 @@ input[type="text"],
 input[type="date"] {
   width: $common-width;
   height: $common-height;
-  /* Add any other common styling for the input elements here */
 }
 
 .select {
   width: 16.438rem;
   height: 2.375rem;
 }
-
-.cod_art_input {
-  width: 31.25rem !important;
-}
+//per allungare il form di input della descrizione
+// .cod_art_input {
+//   width: 31.25rem !important;
+// }
 label {
   font-weight: 590; /* Imposta il grado di grassetto a 600 */
 }
@@ -104,9 +103,14 @@ select {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
 }
+
+.form {
+  display: inline-block;
+  width: 100%;
+  margin: 40px;
+}
 //----------------------------------------------------------------
 //? SCSS per i pulsanti cerca e Azzera e crea
-//* SCSS per i pulsanti cerca e Azzera
 .pulsantiTab {
   display: flex;
   justify-content: center;
@@ -184,7 +188,7 @@ select {
 }
 
 .custom-box button:hover {
-  
+
   background-color: darken(rgb(92, 184, 92), 10%);
 }
 
