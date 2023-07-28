@@ -11,7 +11,7 @@
           <label for="input1">Id contestazione:</label>
           <br />
           <input
-            type="text"   
+            type="text"
             id="myText"
             name="myText"
             (input)="onInputID_cont($event)"
@@ -137,11 +137,28 @@
 
 <div class="container">
   <div class="custom-box">
-    <a><img src="path_to_image1.jpg" alt="FltrTab" /></a>
     <a
-      ><img src="path_to_image2.jpg" (click)="reloadTable()" alt="ricarica"
+      ><img
+        class="filtroTABELLA"
+        aria-label="Cerca"
+        src="assets\images\align-vertical-spacing-svgrepo-com.svg"
+        alt="SVG"
     /></a>
-    <a><img src="path_to_image1.jpg" alt="Cont" /></a>
+    <a
+      ><img
+        aria-label="Ricarica tabella"
+        class="reloadTABELLA"
+        src="assets\images\reload-svgrepo-com.svg"
+        (click)="reloadTable()"
+        alt="ricarica"
+    /></a>
+
+    <a
+      ><img
+        class="counterTABELLA"
+        src="assets\images\counter-svgrepo-com.svg"
+        alt="Cont"
+    /></a>
     <a routerLink="add"><button class="crea">+</button></a>
   </div>
 </div>

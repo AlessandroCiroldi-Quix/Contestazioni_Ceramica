@@ -1,4 +1,17 @@
 //----------------------------------------------------------------
+//? SCSS per i pulsanti nell header della tabella
+.filtroTABELLA,
+.reloadTABELLA{
+  width: 22px;
+  height: 22px;
+}
+
+
+.counterTABELLA{
+  width: 25px;
+  height: 25px;
+  transform: rotate(90deg);
+}
 //? SCSS per la tabella
 .table {
   width: 95%; /* Imposta la larghezza della tabella al 100% del suo contenitore */
@@ -132,21 +145,7 @@ select {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s ease; /* Aggiungi l'animazione di 1 secondo */
   transform: scale(0.9);
 }
-//----------------------------------------------------------------
-//? SCSS per il menù scelta delle ceramiche
-#scelta-aziende {
-  position: absolute; /*
-  top: 50px; /* Regola la distanza dall'alto come desiderato */
-  right: 3.125rem; /* Regola la distanza dalla destra come desiderato */
-  width: 5%;
-}
 
-//-----------------------
-a {
-  cursor: pointer;
-}
-
-//----------------------------------------------------------------
 //* SCSS per la riga di aggiornamento tabella
 .container {
   display: flex;
@@ -172,6 +171,7 @@ a {
 }
 
 .custom-box button {
+  // transform: scale(0.9);
   padding: 0.5rem 1rem;
   background-color: #337ab7;
   color: white;
@@ -181,6 +181,7 @@ a {
 }
 
 .custom-box button:hover {
+  
   background-color: darken(rgb(92, 184, 92), 10%);
 }
 
@@ -263,3 +264,5 @@ a {
 .form td {
   padding: 0.75rem; /* Regola questo valore per aumentare o diminuire lo spazio tra le colonne */
 }
+
+
