@@ -4,13 +4,12 @@ import { Component, OnInit } from '@angular/core'; // Component decorator e OnIn
 import { Contestazioni_eliosDTO } from 'src/api/model/contesatzioni_eliosDTO'; // Import del modello per le contestazioni
 import { eliosFiltroDTO } from 'src/api/model/eliosFiltroDTO'; // Import del modello per il filtro
 import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.service'; // Import del servizio per le contestazioni
-
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-
 })
 export class FormComponent implements OnInit {
   //* Variabili
@@ -81,24 +80,30 @@ export class FormComponent implements OnInit {
     return this.valoreCliente;
   }
 
-  // Metodo per salvare il valore della data iniziale selezionata tramite il datepicker
-  salvareValoreDateIni(event: Event): Date {
+  convertiFormatoData(data: Date): string {
+    // Utilizza la funzione format di date-fns per convertire la data nel formato desiderato
+    return format(data, 'dd/MM/yyyy');
+  }
+
+  // Modifica la funzione salvareValoreDateIni
+  salvareValoreDateIni(event: Event): String {
     const target = event.target as HTMLInputElement;
-    this.valoreDateIni = new Date(target.value);
-    console.log(this.valoreDateIni);
-    return this.valoreDateIni;
+    const dataStringa = target.value;
+    this.valoreDateIni = new Date(dataStringa);
+    const dataStringaConvertita = this.convertiFormatoData(this.valoreDateIni);
+    console.log(dataStringaConvertita);
+    return dataStringaConvertita;
   }
   // Metodo per salvare il valore della data finale selezionata tramite il datepicker
-  salvareValoreDateOut(event: Event | null): string | null{
+  salvareValoreDateOut(event: Event | null): string | null {
     const pick = event.target as HTMLInputElement;
     this.valoreDateOut = new Date(pick.value);
 
-    this.valoreDateOut.setHours(this.valoreDateOut.getHours()+2)
+    this.valoreDateOut.setHours(this.valoreDateOut.getHours() + 2);
 
     console.log(this.valoreDateOut);
     return this.valoreDateOut.toISOString();
     //return this.valoreDateOut;
-
   }
   // Metodo per salvare lo stato selezionato tramite il select
   sceltaStato(event: Event): string {
@@ -106,7 +111,6 @@ export class FormComponent implements OnInit {
     console.log('Stato: ' + this.valoreStato); // Per verificare che effettivamente prende l'input
     return this.valoreStato;
   }
-
 
   //* ----------------------------------------------------------------
   // Bottoni contestazioni
@@ -143,18 +147,15 @@ export class FormComponent implements OnInit {
     console.log('bottone scarica funzionante!');
   }
 
-
   // Metodo per ottenere le contestazioni tramite i filtri selezionati
   getContestationByFiltro(
-      id: any,
-      stato: string,
-      cod_articolo: any,
-      rs_cliente: any,
-      data_creazione: Date,
-      data_ultima_mod: Date,
-      )
-    {
-    //console.log(id);
+    id: any,
+    stato: string,
+    cod_articolo: any,
+    rs_cliente: any,
+    data_creazione: Date,
+    data_ultima_mod: Date
+  ) {
     // formato: any utente_creazione: any, reparto: any,
     this.eliosFiltroDTO.id = id;
     this.eliosFiltroDTO.stato = stato;
@@ -173,7 +174,6 @@ export class FormComponent implements OnInit {
         this.datasource = res;
       });
   }
-
 
   //! Funzioni per la tabella
   getCurrentPageData(): any[] {
@@ -207,6 +207,4 @@ export class FormComponent implements OnInit {
       this.datasource = res;
     });
   }
-
-
 }
