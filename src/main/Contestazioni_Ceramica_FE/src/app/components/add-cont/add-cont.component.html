@@ -1,50 +1,49 @@
 <!--? ARTICOLI -->
 <!-- HTML per il rettangolo Articoli -->
-<div class="container">
-  <div class="contenitoreArticoli">
-    <!-- Campo per inserire il Cod. Articolo / Descrizione -->
-    <div class="articoli">
-      <label for="articoli">Cod. Articolo / Descrizione: </label>
-      <br />
-      <input type="text" id="articoli" name="articoli" />
-    </div>
 
-    <!-- Campo per inserire il Tono / Calibro -->
-    <div class="tono">
-      <label for="tono"> Tono / Calibro: </label>
-      <br />
-      <input type="text" id="tono" name="tono" />
-    </div>
+<div class="contenitoreArticoli">
+  <!-- Campo per inserire il Cod. Articolo / Descrizione -->
+  <div class="articoli">
+    <label for="articoli">Cod. Articolo / Descrizione: </label>
+    <br />
+    <input type="text" id="articoli" name="articoli" (input)="onInputCod_art($event)" />
+  </div>
 
-    <!-- Campo per inserire la Quantità contestata -->
-    <div class="qta_cont">
-      <label for="qta">Quantità contestata: </label>
-      <br />
-      <input type="text" id="qta" name="qta" />
-    </div>
+  <!-- Campo per inserire il Tono / Calibro -->
+  <div class="tono">
+    <label for="tono"> Tono / Calibro: </label>
+    <br />
+    <input type="text" id="tono" name="tono" (input)="onInputTono($event)" />
+  </div>
 
-    <!-- Menu a tendina per selezionare l'Unità di misura contestata -->
-    <div class="uinita_mis">
-      <label for="dropdown1">U.M contestata: </label>
-      <br />
-      <select class="uinita_mis" id="uinita_mis" name="uinita_mis">
-        <option value="Null"></option>
-        <option value="MQ">MQ</option>
-        <option value="PZ">PZ</option>
-        <option value="CO">CO</option>
-      </select>
-    </div>
+  <!-- Campo per inserire la Quantità contestata -->
+  <div class="qta_cont">
+    <label for="qta">Quantità contestata: </label>
+    <br />
+    <input type="text" id="qta" name="qta" (input)="onInputQta_cont($event)"/>
+  </div>
 
-    <!-- Menu a tendina per selezionare se l'articolo è stato Posato o meno -->
-    <div class="posato">
-      <label>Posato </label>
-      <br />
-      <select class="posato" name="posato" id="posato">
-        <option value="Null"></option>
-        <option value="NO">NO</option>
-        <option value="SI">SI</option>
-      </select>
-    </div>
+  <!-- Menu a tendina per selezionare l'Unità di misura contestata -->
+  <div class="uinita_mis">
+    <label for="dropdown1">U.M contestata: </label>
+    <br />
+    <select class="uinita_mis" id="uinita_mis" name="uinita_mis" (change)="onInputUm_cont($event)">
+      <option value="Null"></option>
+      <option value="MQ">MQ</option>
+      <option value="PZ">PZ</option>
+      <option value="CO">CO</option>
+    </select>
+  </div>
+
+  <!-- Menu a tendina per selezionare se l'articolo è stato Posato o meno -->
+  <div class="posato">
+    <label>Posato </label>
+    <br />
+    <select class="posato" name="posato" id="posato" (change)="onInputPosato($event)">
+      <option value="Null"></option>
+      <option value="NO">NO</option>
+      <option value="SI">SI</option>
+    </select>
   </div>
 </div>
 
@@ -59,28 +58,28 @@
     <!-- Campo per inserire il nome del Cliente -->
     <div class="cliente">
       <label for="input1">Cliente</label>
-      <input type="text" id="input1" />
+      <input type="text" id="input1" (input)="onInputCliente($event)" />
     </div>
 
     <!--? NUMERO FATTURA -->
     <!-- Campo per inserire il Numero della Fattura -->
     <div class="num_fattura">
       <label for="input2">Numero fattura</label>
-      <input type="text" id="input2" />
+      <input type="text" id="input2" (input)="onInputNum_fattura($event)"/>
     </div>
 
     <!--? NUMERO BOLLA -->
     <!-- Campo per inserire il Numero della Bolla -->
     <div class="num_bolla">
       <label for="input3">Numero bolla: </label>
-      <input type="text" id="input3" />
+      <input type="text" id="input3" (input)="onInputNum_bolla($event)"/>
     </div>
 
     <!--? NUMERO BUONO -->
     <!-- Campo per inserire il Numero del Buono di Prelievo -->
     <div class="num_buono">
       <label for="input4">Numero buono di prelievo: </label>
-      <input type="text" id="input4" />
+      <input type="text" id="input4" (input)="onInputNum_bolla($event)" />
     </div>
 
     <!--? ORDINE REPARTO -->
@@ -89,14 +88,14 @@
       <label for="input5"
         >Numero ordine del reparto contestazione selezionato:</label
       >
-      <input type="text" id="input5" />
+      <input type="text" id="input5" (input)="onInputNum_ordineReparto($event)"/>
     </div>
 
     <!--? DATA FATTURA -->
     <!-- Selezionatore di data (Datepicker) per la Data della Fattura -->
     <div class="data_fattura">
       <label for="datepicker">Data fattura</label>
-      <input type="date" id="datepicker" ng-model="selectedDate" />
+      <input type="date" id="datepicker" ng-model="selectedDate" (change)="onInputData($event)" />
     </div>
 
     <!--? DIFETTOSITA -->
@@ -104,7 +103,7 @@
     <!-- Menu a tendina per selezionare la Difettosità -->
     <div class="difettosita">
       <label for="dropdown">Difettosità: </label>
-      <select id="dropdown" ng-model="selectedOption">
+      <select id="dropdown" ng-model="selectedOption"  (change)="onInputDifettosita($event)"  >
         <option value="Null"></option>
         <option value="opzione1">Errore qta (in evasione ordine)</option>
         <option value="opzione1">Opzione 1</option>
@@ -119,7 +118,7 @@
     <div class="reparto">
       <label for="dropdown">Reparto contestazione</label>
       <br />
-      <select id="dropdown">
+      <select id="dropdown"  (change)="onInputReparto($event)" >
         <option value="Null"></option>
         <option value="Produzione">Produzione</option>
         <option value="logistica">Logistica</option>
@@ -133,7 +132,7 @@
         >Descrizione del problema:</label
       >
       <br />
-      <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+      <textarea id="comment" name="comment" rows="4" cols="50" (input)="onInputDescrizione($event)"></textarea>
     </div>
 
     <!--? STATO -->
@@ -141,7 +140,7 @@
     <div class="stato">
       <label for="dropdown"> Stato </label>
       <br />
-      <select id="dropdownStato">
+      <select id="dropdownStato"  (change)="onInputStato($event)" >
         <option value="Null"></option>
         <option value="Accettata">Accettata</option>
         <option value="Rifiutata">Rifiutata</option>
@@ -149,10 +148,9 @@
     </div>
   </div>
 
-
-  <br/>
-  <br/>
-  <br/>
+  <br />
+  <br />
+  <br />
   <!--? PULSANTI -->
   <div class="table-container">
     <table class="pulsantiAdd">
@@ -178,7 +176,13 @@
         <td>
           <div class="containerPulsanti">
             <div>
-              <button class="pulsanteSalva"type="button" (click)="confirmCreation()">Salva</button>
+              <button
+                class="pulsanteSalva"
+                type="button"
+                (click)="confirmCreation()"
+              >
+                Salva
+              </button>
             </div>
           </div>
         </td>

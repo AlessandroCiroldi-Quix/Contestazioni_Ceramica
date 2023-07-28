@@ -12,14 +12,28 @@ export class AddContComponent {
   constructor(private http: HttpClient) {}
   //*----------------------------------------------------------------
   //* Variabili:
+  valoreCod_art: string = '';
+  valoreTono: string = '';
+  valoreQta_cont: string = '';
+  valoreUm_cont: string = '';
+  valorePosato: string = '';
+  valoreCliente: string = '';
+  valoreNum_fattura: string = '';
+  valoreNum_bolla: string = '';
+  valoreNum_buono: string = '';
+  valoreNum_ordineReparto: string = '';
+  valoreData_fattura: Date;
+  valoreDifettosita: string = '';
+  valoreReparto: string = '';
+  valoreDescrizione: string = '';
+  valoreStato: string = '';
 
   //*----------------------------------------------------------------
   //* Funciton:
-
   /*1) Funtion: confirmCreation()--> la funzione deve passare i valori al DB da POST
   //!  Ma come si fa?
   */
- //! Per il momento la funzione FUNZIONA!! INCREDIBILE, ora i passaggi sono capire come si fa a passarli IL JSON, ovvero i valori dei filtri
+  //! Per il momento la funzione FUNZIONA!! INCREDIBILE, ora i passaggi sono capire come si fa a passarli IL JSON, ovvero i valori dei filtri
   confirmCreation(): void {
     const url = 'http://localhost:8080/elios/add';
 
@@ -62,12 +76,112 @@ export class AddContComponent {
     this.http.post(url, jsonData, { headers }).subscribe(
       // Callback per gestire la risposta del server in caso di successo
       (response) => {
-        console.log('Richiesta POST riuscita!' + "POST COMPLETE", response);
+        console.log('Richiesta POST riuscita!' + 'POST COMPLETE', response);
       },
       // Callback per gestire eventuali errori durante la richiesta
       (error) => {
         console.error('Errore durante la richiesta POST: ERROR!!', error);
       }
     );
-  } 
+  }
+
+  //*----------------------------------------------------------------
+  // Funzioni GET per ottenere il valore dal form e inserirli dentro una variabile:
+  onInputCod_art(event: Event): string {
+    this.valoreCod_art = (<HTMLInputElement>event.target).value;
+    console.log('VALORE COD ARTICOLO: ' + this.valoreCod_art); // Per verificare che effettivamente prende l'input
+    return this.valoreCod_art;
+  }
+
+  onInputTono(event: Event): string {
+    this.valoreTono = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreTono); // Per verificare che effettivamente prende l'input
+    return this.valoreTono;
+  }
+
+  onInputQta_cont(event: Event): string {
+    this.valoreQta_cont = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreQta_cont); // Per verificare che effettivamente prende l'input
+    return this.valoreQta_cont;
+  }
+
+  onInputUm_cont(event: Event): string {
+    this.valoreUm_cont = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreUm_cont); // Per verificare che effettivamente prende l'input
+    return this.valoreUm_cont;
+  }
+
+  onInputPosato(event: Event): string {
+    this.valorePosato = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valorePosato); // Per verificare che effettivamente prende l'input
+    return this.valorePosato;
+  }
+
+  onInputCliente(event: Event): string {
+    this.valoreCliente = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreCliente); // Per verificare che effettivamente prende l'input
+    return this.valoreCliente;
+  }
+
+  onInputNum_fattura(event: Event): string {
+    this.valoreNum_fattura = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreNum_fattura); // Per verificare che effettivamente prende l'input
+    return this.valoreNum_fattura;
+  }
+
+  onInputNum_bolla(event: Event): string {
+    this.valoreNum_bolla = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreNum_bolla); // Per verificare che effettivamente prende l'input
+    return this.valoreNum_bolla;
+  }
+
+  onInputNum_buono(event: Event): string {
+    this.valoreNum_buono = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreNum_buono); // Per verificare che effettivamente prende l'input
+    return this.valoreNum_buono;
+  }
+
+  onInputNum_ordineReparto(event: Event): string {
+    this.valoreNum_ordineReparto = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreNum_ordineReparto); // Per verificare che effettivamente prende l'input
+    return this.valoreNum_ordineReparto;
+  }
+
+  onInputDifettosita(event: Event): string {
+    this.valoreDifettosita = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreDifettosita); // Per verificare che effettivamente prende l'input
+    return this.valoreDifettosita;
+  }
+
+  onInputReparto(event: Event): string {
+    this.valoreReparto = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreReparto); // Per verificare che effettivamente prende l'input
+    return this.valoreReparto;
+  }
+
+  onInputDescrizione(event: Event): string {
+    this.valoreDescrizione = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreDescrizione); // Per verificare che effettivamente prende l'input
+    return this.valoreDescrizione;
+  }
+
+  onInputStato(event: Event): string {
+    this.valoreStato = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreStato); // Per verificare che effettivamente prende l'input
+    return this.valoreStato;
+  }
+
+  onInputData(event: Event): Date | null {
+    const inputDate = (<HTMLInputElement>event.target).value;
+    const dateValue = new Date(inputDate);
+  
+    // Verifica se la data è valida
+    if (isNaN(dateValue.getTime())) {
+      console.log('Data non valida'); // Puoi gestire l'errore in modo opportuno qui
+      return null;
+    }
+    console.log('Data inserita: ' + dateValue.toISOString()); // Per verificare che effettivamente prende l'input
+    return dateValue;
+  }
+  
 }
