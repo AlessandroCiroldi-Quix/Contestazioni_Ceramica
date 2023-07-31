@@ -3,14 +3,15 @@ package DTO;
 import lombok.Data;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 
 @SuppressWarnings("unused")
 @Data
 public class eliosFiltroDTO {
     private int id;
-    private Timestamp data_creazione;
-    private Timestamp data_ultima_mod;
+    private Date data_creazione;
+    private Date data_ultima_mod;
     private String cod_articolo;
     private String rs_cliente;
     private String stato;
