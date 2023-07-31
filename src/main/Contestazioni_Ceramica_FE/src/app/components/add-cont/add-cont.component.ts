@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 // Import delle librerie necessarie
 
@@ -9,7 +10,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./add-cont.component.scss'],
 })
 export class AddContComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private location: Location) {}
+
   //*----------------------------------------------------------------
   //* Variabili:
   valoreCod_art: string = '';
@@ -40,9 +42,9 @@ export class AddContComponent {
     // Il JSON da inviare come dati della richiesta POST
     const jsonData = {
       id: 1,
-      cod_cliente: 'COD008',
+      cod_cliente: 'COD000',
       rs_cliente: 'Cliente A',
-      cod_articolo: 'ART001',
+      cod_articolo: '9',
       tono: 'Tono A',
       num_fattura: null,
       data_fattura: null,
@@ -71,7 +73,6 @@ export class AddContComponent {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
     // Effettua la richiesta POST utilizzando il modulo HttpClient
     this.http.post(url, jsonData, { headers }).subscribe(
       // Callback per gestire la risposta del server in caso di successo
@@ -85,6 +86,10 @@ export class AddContComponent {
     );
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+  
   //*----------------------------------------------------------------
   // Funzioni GET per ottenere il valore dal form e inserirli dentro una variabile:
   onInputCod_art(event: Event): string {
@@ -174,7 +179,7 @@ export class AddContComponent {
   onInputData(event: Event): Date | null {
     const inputDate = (<HTMLInputElement>event.target).value;
     const dateValue = new Date(inputDate);
-  
+
     // Verifica se la data è valida
     if (isNaN(dateValue.getTime())) {
       console.log('Data non valida'); // Puoi gestire l'errore in modo opportuno qui
@@ -183,5 +188,4 @@ export class AddContComponent {
     console.log('Data inserita: ' + dateValue.toISOString()); // Per verificare che effettivamente prende l'input
     return dateValue;
   }
-  
 }

@@ -10,7 +10,6 @@ public class cont_art_italcerDTO {
 
 
     private Long id_cont;
-
     private String cod_articolo;
     private String tono;
     private boolean posato;
