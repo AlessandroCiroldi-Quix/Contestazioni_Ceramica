@@ -9,45 +9,87 @@
 .contenitoreArticoli,
 .cliente-reparto,
 .nfattura-dataFattura,
-.bolla-nbuono-nordine
+.bolla-nbuono-nordine,
+.difettosita
 {
   display: flex;
-  margin: 3% 20%;
-  //padding: 1%;
+  margin: 1%;
+  padding: 1%;
 }
 
-.contenitoreArticoli {
+.panelHeading {
+ margin-top: 1%;
+ background-color: lightgrey;
+}
+
+.contenitoreArticoli, .panelHeading {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
+.articoli input {
+  width: 27rem !important
+}
+
 //grandezza casella di input
-.uinita_mis,
-.posato,
-.qta_cont,
-.tono
-input[type=text]
-{
-  width: 100%;
-  color: red;
+.contenitoreArticoli input,
+.contenitoreArticoli select {
+  width: 11rem;
+}
+
+.qta_cont input{
+  width: 11rem;
 }
 
 .cliente-reparto {
   background-color: aqua;
 }
 
-.cliente-reparto input, .cliente-reparto select{
-  width: 25vh;
+.cliente-reparto input{ //lunghezza campo cliente
+  width: 43rem;
 }
 
+.cliente-reparto select{ //lunghezza campo Reparto Contestazione
+  width: 21rem;
+}
+
+//serve per separare la casella di input
+.reparto,
+.data_fattura,
+.num_ordine,
+.num_buono,
+.posato,
+.qta_cont,
+.uinita_mis,
+.tono
+{
+  margin-left: 2%;
+}
+
+.reparto input {
+  width: 15rem;
+}
 
 .nfattura-dataFattura {
   background-color: brown;
 }
 
+.nfattura-dataFattura input{
+  width: 21rem;
+}
+
+
 .bolla-nbuono-nordine {
   background-color: blueviolet;
+}
+
+.num_ordine input{
+  width: 28rem !important
+}
+
+.bolla-nbuono-nordine input{
+  width: 21rem;
 }
 
 input, select {

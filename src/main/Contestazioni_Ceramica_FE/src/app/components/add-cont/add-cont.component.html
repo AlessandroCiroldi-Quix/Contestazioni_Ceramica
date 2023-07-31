@@ -1,6 +1,8 @@
 <!--? ARTICOLI -->
 <!-- HTML per il rettangolo Articoli -->
-
+<div class="panelHeading">
+  <p>Articoli:</p>
+</div>
 <div class="contenitoreArticoli">
   <!-- Campo per inserire il Cod. Articolo / Descrizione -->
   <div class="articoli">
@@ -92,8 +94,7 @@
 
       <!-- ORDINE REPARTO -->
       <div class="num_ordine">
-        <label for="input5"
-          >Numero ordine del reparto contestazione selezionato:</label><br />
+        <label for="input5">Numero ordine del reparto contestazione selezionato:</label><br />
         <input type="text" id="input5" (input)="onInputNum_ordineReparto($event)"/>
       </div>
     </div>
@@ -102,7 +103,7 @@
     <!--! Attenzione! devo capire ancora se questo menù a tendina va in base al back oppure è unico per tutte le contestazioni -->
     <!-- Menu a tendina per selezionare la Difettosità -->
     <div class="difettosita">
-      <label for="dropdown">Difettosità: </label>
+      <label for="dropdown">Difettosità: </label><br />
       <select id="dropdown" ng-model="selectedOption"  (change)="onInputDifettosita($event)"  >
         <option value="Null"></option>
         <option value="opzione1">Errore qta (in evasione ordine)</option>
