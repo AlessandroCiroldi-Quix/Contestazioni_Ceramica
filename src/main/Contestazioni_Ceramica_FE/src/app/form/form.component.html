@@ -92,10 +92,11 @@
         <td class="utente_crtr">
           <label for="dropdown4"> Utente creatore:</label>
           <br />
-          <select class="select" id="dropdown4" name="dropdown4">
-            <option value="opzione1">Opzione 1</option>
-            <option value="opzione2">Opzione 2</option>
-            <option value="opzione3">Opzione 3</option>
+          <select class="select" id="dropdown3" name="dropdown3">
+            <option value="Null"></option>
+            <option *ngFor="let con of getCurrentPageData()" [value]="con.utente_creazione" >
+              {{ con.utente_creazione }}
+            </option>
           </select>
         </td>
       </tr>
@@ -157,16 +158,18 @@
 
     <a
       ><img
-        
+        title="Conteggio Contestazioni "
         class="counterTABELLA"
         src="assets\images\counter-svgrepo-com.svg"
         alt="Cont"
     /></a>
-    <a routerLink="add"><button title="Crea nuova contstazione" class="crea">+</button></a>
+    <a routerLink="add"
+      ><button title="Crea nuova contstazione" class="crea">+</button></a
+    >
   </div>
 </div>
 
-<table class="table" id="myTable">
+<table class="table" id="myTable" #myTable>
   <thead>
     <!-- Aggiunta della sezione di intestazione -->
     <tr>
@@ -194,7 +197,7 @@
         <div *ngIf="con.stato === 'presa_in_carico'">PRESA IN CARICO</div>
         <div *ngIf="con.stato === 'ACCETTATA'">ACCETTATA</div>
         <div *ngIf="con.stato === 'RIFIUTATA'">RIFIUTATA</div>
-        <div *ngIf="con.stato === 'INSERITA'">INSERITA</div>     
+        <div *ngIf="con.stato === 'INSERITA'">INSERITA</div>
       </td>
       <td>{{ con.utente_creazione }}</td>
       <td>{{ con.data_creazione }}</td>

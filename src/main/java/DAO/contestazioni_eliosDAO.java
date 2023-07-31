@@ -29,10 +29,7 @@ public class contestazioni_eliosDAO {
 
         String query = "SELECT * FROM contestazioni_elios";
 
-        return jdbi.withHandle(handle -> handle.createQuery(query)
-                .mapToBean(contestazioni_eliosDTO.class)
-                .list()
-        );
+        return jdbi.withHandle(handle -> handle.createQuery(query).mapToBean(contestazioni_eliosDTO.class).list());
     }
 
 
@@ -42,40 +39,12 @@ public class contestazioni_eliosDAO {
     public void addContestazione_elios(contestazioni_eliosDTO contestazione) {
         Jdbi jdbi = jdbiProducer.getJdbi(); // Otteniamo l'oggetto Jdbi dal produttore Jdbi
 
-        String query = "INSERT INTO contestazioni_elios VALUES (:id, :cod_cliente, :rs_cliente, :cod_articolo," +
-                " :tono, :num_fattura, :data_fattura, :descrizione, :qta_contestata, :unita_misura, :posato, :stato," +
-                " :utente_creazione, :data_creazione, :utente_ultima_mod, :data_ultima_mod, :desc_prodotto, :uid_files," +
-                " :tipology, :motivazione, :company, :num_buono, :num_bolla, :num_ord_reparto, :difettosita, :deleted)";
+        String query = "INSERT INTO contestazioni_elios VALUES (:id, :cod_cliente, :rs_cliente, :cod_articolo," + " :tono, :num_fattura, :data_fattura, :descrizione, :qta_contestata, :unita_misura, :posato, :stato," + " :utente_creazione, :data_creazione, :utente_ultima_mod, :data_ultima_mod, :desc_prodotto, :uid_files," + " :tipology, :motivazione, :company, :num_buono, :num_bolla, :num_ord_reparto, :difettosita, :deleted)";
         // Query SQL per inserire i dati nella tabella "contestazioni_elios"
 
         jdbi.withHandle(handle -> handle.createUpdate(query) // Eseguiamo una query di aggiornamento
                 .bind("id", contestazione.getId()) // Assegniamo i valori dei parametri alla query
-                .bind("cod_cliente", contestazione.getCod_cliente())
-                .bind("rs_cliente", contestazione.getRs_cliente())
-                .bind("cod_articolo", contestazione.getCod_articolo())
-                .bind("tono", contestazione.getTono())
-                .bind("num_fattura", contestazione.getNum_fattura())
-                .bind("data_fattura", contestazione.getData_fattura())
-                .bind("descrizione", contestazione.getDescrizione())
-                .bind("qta_contestata", contestazione.getQta_contestata())
-                .bind("unita_misura", contestazione.getUnita_misura())
-                .bind("posato", contestazione.getPosato())
-                .bind("stato", contestazione.getStato())
-                .bind("utente_creazione", contestazione.getUtente_creazione())
-                .bind("data_creazione", contestazione.getData_creazione())
-                .bind("utente_ultima_mod", contestazione.getUtente_ultima_mod())
-                .bind("data_ultima_mod", contestazione.getData_ultima_mod())
-                .bind("desc_prodotto", contestazione.getDesc_prodotto())
-                .bind("uid_files", contestazione.getUid_files())
-                .bind("tipology", contestazione.getTipology())
-                .bind("motivazione", contestazione.getMotivazione())
-                .bind("company", contestazione.getCompany())
-                .bind("num_buono", contestazione.getNum_buono())
-                .bind("num_bolla", contestazione.getNum_bolla())
-                .bind("num_ord_reparto", contestazione.getNum_ord_reparto())
-                .bind("difettosita", contestazione.getDifettosita())
-                .bind("deleted", contestazione.getDeleted())
-                .execute() // Eseguiamo la query
+                .bind("cod_cliente", contestazione.getCod_cliente()).bind("rs_cliente", contestazione.getRs_cliente()).bind("cod_articolo", contestazione.getCod_articolo()).bind("tono", contestazione.getTono()).bind("num_fattura", contestazione.getNum_fattura()).bind("data_fattura", contestazione.getData_fattura()).bind("descrizione", contestazione.getDescrizione()).bind("qta_contestata", contestazione.getQta_contestata()).bind("unita_misura", contestazione.getUnita_misura()).bind("posato", contestazione.getPosato()).bind("stato", contestazione.getStato()).bind("utente_creazione", contestazione.getUtente_creazione()).bind("data_creazione", contestazione.getData_creazione()).bind("utente_ultima_mod", contestazione.getUtente_ultima_mod()).bind("data_ultima_mod", contestazione.getData_ultima_mod()).bind("desc_prodotto", contestazione.getDesc_prodotto()).bind("uid_files", contestazione.getUid_files()).bind("tipology", contestazione.getTipology()).bind("motivazione", contestazione.getMotivazione()).bind("company", contestazione.getCompany()).bind("num_buono", contestazione.getNum_buono()).bind("num_bolla", contestazione.getNum_bolla()).bind("num_ord_reparto", contestazione.getNum_ord_reparto()).bind("difettosita", contestazione.getDifettosita()).bind("deleted", contestazione.getDeleted()).execute() // Eseguiamo la query
         );
     }
 
@@ -105,8 +74,7 @@ public class contestazioni_eliosDAO {
         String query = "SELECT id FROM contestazioni_elios WHERE id = :id";
 
         // Esegue la query e ottiene l'ID come Optional<String>
-        Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query)
-                .bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
+        Optional<String> id = jdbi.withHandle(handle -> handle.createQuery(query).bind("id", contestazione.getId()) // Collega il valore dell'ID dell'oggetto contestazione al segnaposto ":id"
                 .mapTo(String.class) // Indica che si desidera mappare il risultato della query in una stringa
                 .findOne() // Esegue la query e restituisce al massimo un risultato
         );
@@ -122,46 +90,14 @@ public class contestazioni_eliosDAO {
     public void updateContestazioni_elios(contestazioni_eliosDTO contestazione, String id) {
         Jdbi jdbi = jdbiProducer.getJdbi(); // Ottiene l'oggetto Jdbi tramite jdbiProducer
 
-        String query = "UPDATE contestazioni_elios SET cod_cliente = :cod_cliente, rs_cliente = :rs_cliente, " +
-                "cod_articolo  = :cod_articolo , tono = :tono , num_fattura = :num_fattura , data_fattura= :data_fattura, " +
-                "descrizione= :descrizione, qta_contestata= :qta_contestata, unita_misura = :unita_misura, " +
-                "posato= :posato , stato= :stato , utente_creazione= :utente_creazione ,data_creazione = :data_creazione, " +
-                "utente_ultima_mod = :utente_ultima_mod , data_ultima_mod= :data_ultima_mod ,desc_prodotto = :desc_prodotto, " +
-                "uid_files = :uid_files , tipology= :tipology , motivazione= :motivazione, " +
-                "company = :company ,num_buono = :num_buono , num_bolla= :num_bolla, num_ord_reparto= :num_ord_reparto, " +
-                "difettosita= :difettosita ,deleted = :deleted WHERE id = :id";
+        String query = "UPDATE contestazioni_elios SET cod_cliente = :cod_cliente, rs_cliente = :rs_cliente, " + "cod_articolo  = :cod_articolo , tono = :tono , num_fattura = :num_fattura , data_fattura= :data_fattura, " + "descrizione= :descrizione, qta_contestata= :qta_contestata, unita_misura = :unita_misura, " + "posato= :posato , stato= :stato , utente_creazione= :utente_creazione ,data_creazione = :data_creazione, " + "utente_ultima_mod = :utente_ultima_mod , data_ultima_mod= :data_ultima_mod ,desc_prodotto = :desc_prodotto, " + "uid_files = :uid_files , tipology= :tipology , motivazione= :motivazione, " + "company = :company ,num_buono = :num_buono , num_bolla= :num_bolla, num_ord_reparto= :num_ord_reparto, " + "difettosita= :difettosita ,deleted = :deleted WHERE id = :id";
         // Query di aggiornamento che modifica solo il campo 'cod_cliente'
 
         int rowsAffected = 0; // Dichiarazione e inizializzazione della variabile per il conteggio delle righe modificate
 
         try (Handle handle = jdbi.open()) {
-            rowsAffected = handle.createUpdate(query)
-                    .bind("cod_cliente", contestazione.getCod_cliente()) // Associa il valore di 'cod_cliente' al parametro nella query
-                    .bind("rs_cliente", contestazione.getRs_cliente())
-                    .bind("cod_articolo", contestazione.getCod_articolo())
-                    .bind("tono", contestazione.getTono())
-                    .bind("num_fattura", contestazione.getNum_fattura())
-                    .bind("data_fattura", contestazione.getData_fattura())
-                    .bind("descrizione", contestazione.getDescrizione())
-                    .bind("qta_contestata", contestazione.getQta_contestata())
-                    .bind("unita_misura", contestazione.getUnita_misura())
-                    .bind("posato", contestazione.getPosato())
-                    .bind("stato", contestazione.getStato())
-                    .bind("utente_creazione", contestazione.getUtente_creazione())
-                    .bind("data_creazione", contestazione.getData_creazione())
-                    .bind("utente_ultima_mod", contestazione.getUtente_ultima_mod())
-                    .bind("data_ultima_mod", contestazione.getData_ultima_mod())
-                    .bind("desc_prodotto", contestazione.getDesc_prodotto())
-                    .bind("uid_files", contestazione.getUid_files())
-                    .bind("tipology", contestazione.getTipology())
-                    .bind("motivazione", contestazione.getMotivazione())
-                    .bind("company", contestazione.getCompany())
-                    .bind("num_buono", contestazione.getNum_buono())
-                    .bind("num_bolla", contestazione.getNum_bolla())
-                    .bind("num_ord_reparto", contestazione.getNum_ord_reparto())
-                    .bind("difettosita", contestazione.getDifettosita())
-                    .bind("deleted", contestazione.getDeleted())
-                    .bind("id", id) // Associa il valore dell'ID della contestazione al parametro nella query
+            rowsAffected = handle.createUpdate(query).bind("cod_cliente", contestazione.getCod_cliente()) // Associa il valore di 'cod_cliente' al parametro nella query
+                    .bind("rs_cliente", contestazione.getRs_cliente()).bind("cod_articolo", contestazione.getCod_articolo()).bind("tono", contestazione.getTono()).bind("num_fattura", contestazione.getNum_fattura()).bind("data_fattura", contestazione.getData_fattura()).bind("descrizione", contestazione.getDescrizione()).bind("qta_contestata", contestazione.getQta_contestata()).bind("unita_misura", contestazione.getUnita_misura()).bind("posato", contestazione.getPosato()).bind("stato", contestazione.getStato()).bind("utente_creazione", contestazione.getUtente_creazione()).bind("data_creazione", contestazione.getData_creazione()).bind("utente_ultima_mod", contestazione.getUtente_ultima_mod()).bind("data_ultima_mod", contestazione.getData_ultima_mod()).bind("desc_prodotto", contestazione.getDesc_prodotto()).bind("uid_files", contestazione.getUid_files()).bind("tipology", contestazione.getTipology()).bind("motivazione", contestazione.getMotivazione()).bind("company", contestazione.getCompany()).bind("num_buono", contestazione.getNum_buono()).bind("num_bolla", contestazione.getNum_bolla()).bind("num_ord_reparto", contestazione.getNum_ord_reparto()).bind("difettosita", contestazione.getDifettosita()).bind("deleted", contestazione.getDeleted()).bind("id", id) // Associa il valore dell'ID della contestazione al parametro nella query
                     .execute(); // Eseguiamo la query
 
         } catch (Exception e) {
@@ -173,7 +109,7 @@ public class contestazioni_eliosDAO {
         }
     }
 
-
+    //* FILTRO
     // Questo metodo prende un oggetto eliosFiltroDTO come input e restituisce una lista di oggetti contestazioni_eliosDTO.
     public List<contestazioni_eliosDTO> FiltroElios(eliosFiltroDTO contestazione) throws WebApplicationException {
         // Ottiene un'istanza di Jdbi dal jdbiProducer
@@ -187,7 +123,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getId() > 0) {
             query += ", id = :id";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -195,7 +131,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getData_creazione() != null) {
             query += ", data_creazione = :data_creazione";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -203,7 +139,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getData_ultima_mod() != null) {
             query += ", data_ultima_mod = :data_ultima_mod";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -211,7 +147,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getCod_articolo() != "") {
             query += ", cod_articolo = :cod_articolo";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -220,7 +156,7 @@ public class contestazioni_eliosDAO {
         if (contestazione.getRs_cliente() != "") {
 
             query += ", rs_cliente = :rs_cliente";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -228,7 +164,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getStato() != "") {
             query += ", stato = :stato";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -236,7 +172,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getReparto() != "") {
             query += ", reparto = :reparto";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -244,7 +180,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getFormato() != "") {
             query += ", formato = :formato";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }
@@ -252,7 +188,7 @@ public class contestazioni_eliosDAO {
 
         if (contestazione.getUtente_creazione() != "") {
             query += ", utente_creazione = :utente_creazione";
-            if(!primo){ //se falso
+            if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;
             }

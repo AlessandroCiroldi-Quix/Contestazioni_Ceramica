@@ -11,7 +11,6 @@ import java.util.Date;
 @Data
 public class contestazioni_eliosDTO {
     private int id;
-    //@NonNull
     private String cod_cliente; //NOT NULL
     private String rs_cliente; //NOT NULL
     private String cod_articolo; //NOT NULL

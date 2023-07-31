@@ -1,6 +1,6 @@
 // Import delle librerie necessarie
 import { HttpClient } from '@angular/common/http'; // Per eseguire richieste HTTP
-import { Component, OnInit } from '@angular/core'; // Component decorator e OnInit interface
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'; // Component decorator e OnInit interface
 import { Contestazioni_eliosDTO } from 'src/api/model/contesatzioni_eliosDTO'; // Import del modello per le contestazioni
 import { eliosFiltroDTO } from 'src/api/model/eliosFiltroDTO'; // Import del modello per il filtro
 import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.service'; // Import del servizio per le contestazioni
@@ -23,6 +23,7 @@ export class FormComponent implements OnInit {
   // Variabili per il pageCounter
   currentPage: number = 1; // Counter per le pagine della tabella
   itemsPerPage: number = 25; // Numero di righe max che puoi visualizzare in una pagina della tabella
+  rowCount: number;
 
   // Dichiarazione di un oggetto eliosFiltroDTO con valori di default per i filtri
   eliosFiltroDTO: eliosFiltroDTO = {
@@ -208,5 +209,19 @@ export class FormComponent implements OnInit {
       console.log(JSON.stringify(res) + 'funziona');
       this.datasource = res;
     });
+  }
+
+  @ViewChild('myTable', { static: false }) myTable: ElementRef;
+
+  ngAfterViewInit() {
+    this.countAndPrintRows();
+  }
+
+  countAndPrintRows(): number {
+    const tableElement: HTMLTableElement = this.myTable.nativeElement;
+    const rowCount = tableElement.rows.length;
+
+    console.log('Numero di righe nella tabella:', rowCount + 1);
+    return rowCount;
   }
 }
