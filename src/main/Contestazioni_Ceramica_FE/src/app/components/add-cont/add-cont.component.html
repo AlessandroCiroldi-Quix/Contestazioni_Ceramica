@@ -4,29 +4,25 @@
 <div class="contenitoreArticoli">
   <!-- Campo per inserire il Cod. Articolo / Descrizione -->
   <div class="articoli">
-    <label for="articoli">Cod. Articolo / Descrizione: </label>
-    <br />
+    <label for="articoli">Cod. Articolo / Descrizione: </label><br />
     <input type="text" id="articoli" name="articoli" (input)="onInputCod_art($event)" />
   </div>
 
   <!-- Campo per inserire il Tono / Calibro -->
   <div class="tono">
-    <label for="tono"> Tono / Calibro: </label>
-    <br />
+    <label for="tono"> Tono / Calibro: </label><br />
     <input type="text" id="tono" name="tono" (input)="onInputTono($event)" />
   </div>
 
   <!-- Campo per inserire la Quantità contestata -->
   <div class="qta_cont">
-    <label for="qta">Quantità contestata: </label>
-    <br />
+    <label for="qta">Quantità contestata: </label><br />
     <input type="text" id="qta" name="qta" (input)="onInputQta_cont($event)"/>
   </div>
 
   <!-- Menu a tendina per selezionare l'Unità di misura contestata -->
   <div class="uinita_mis">
-    <label for="dropdown1">U.M contestata: </label>
-    <br />
+    <label for="dropdownUM">U.M contestata: </label><br />
     <select class="uinita_mis" id="uinita_mis" name="uinita_mis" (change)="onInputUm_cont($event)">
       <option value="Null"></option>
       <option value="MQ">MQ</option>
@@ -47,55 +43,59 @@
   </div>
 </div>
 
-<!-- Separatore -->
-<br />
-<br />
-
 <!-- HTML per il Form -->
 <body>
   <div ng-app="formAdd">
-    <!--? CLIENTE -->
-    <!-- Campo per inserire il nome del Cliente -->
-    <div class="cliente">
-      <label for="input1">Cliente</label>
-      <input type="text" id="input1" (input)="onInputCliente($event)" />
+    <div class="cliente-reparto">
+      <!-- CLIENTE -->
+      <div class="cliente">
+        <label for="input1">Cliente</label><br />
+        <input type="text" id="input1" (input)="onInputCliente($event)" />
+      </div>
+
+      <!-- REPARTO -->
+      <div class="reparto">
+        <label for="dropdown">Reparto contestazione</label><br />
+        <select id="dropdown"  (change)="onInputReparto($event)" >
+          <option value="Null"></option>
+          <option value="Produzione">Produzione</option>
+          <option value="logistica">Logistica</option>
+        </select>
+      </div>
     </div>
 
-    <!--? NUMERO FATTURA -->
-    <!-- Campo per inserire il Numero della Fattura -->
-    <div class="num_fattura">
-      <label for="input2">Numero fattura</label>
-      <input type="text" id="input2" (input)="onInputNum_fattura($event)"/>
-    </div>
+    <div class="nfattura-dataFattura">
+      <!-- NUMERO FATTURA -->
+      <div class="num_fattura">
+        <label for="input2">Numero fattura</label><br />
+        <input type="text" id="input2" (input)="onInputNum_fattura($event)"/>
+      </div>
 
-    <!--? NUMERO BOLLA -->
-    <!-- Campo per inserire il Numero della Bolla -->
-    <div class="num_bolla">
-      <label for="input3">Numero bolla: </label>
-      <input type="text" id="input3" (input)="onInputNum_bolla($event)"/>
+      <!-- Selezionatore di data (Datepicker) per la Data della Fattura -->
+      <div class="data_fattura">
+        <label for="datepicker">Data fattura</label><br />
+        <input type="date" id="datepicker" ng-model="selectedDate" (change)="onInputData($event)" />
+      </div>
     </div>
+    <div class="bolla-nbuono-nordine">
+      <!-- NUMERO BOLLA -->
+      <div class="num_bolla">
+        <label for="input3">Numero bolla: </label><br />
+        <input type="text" id="input3" (input)="onInputNum_bolla($event)"/>
+      </div>
 
-    <!--? NUMERO BUONO -->
-    <!-- Campo per inserire il Numero del Buono di Prelievo -->
-    <div class="num_buono">
-      <label for="input4">Numero buono di prelievo: </label>
-      <input type="text" id="input4" (input)="onInputNum_bolla($event)" />
-    </div>
+      <!-- NUMERO BUONO -->
+      <div class="num_buono">
+        <label for="input4">Numero buono di prelievo: </label><br />
+        <input type="text" id="input4" (input)="onInputNum_bolla($event)" />
+      </div>
 
-    <!--? ORDINE REPARTO -->
-    <!-- Campo per inserire il Numero dell'Ordine del reparto contestazione selezionato -->
-    <div class="num_ordine">
-      <label for="input5"
-        >Numero ordine del reparto contestazione selezionato:</label
-      >
-      <input type="text" id="input5" (input)="onInputNum_ordineReparto($event)"/>
-    </div>
-
-    <!--? DATA FATTURA -->
-    <!-- Selezionatore di data (Datepicker) per la Data della Fattura -->
-    <div class="data_fattura">
-      <label for="datepicker">Data fattura</label>
-      <input type="date" id="datepicker" ng-model="selectedDate" (change)="onInputData($event)" />
+      <!-- ORDINE REPARTO -->
+      <div class="num_ordine">
+        <label for="input5"
+          >Numero ordine del reparto contestazione selezionato:</label><br />
+        <input type="text" id="input5" (input)="onInputNum_ordineReparto($event)"/>
+      </div>
     </div>
 
     <!--? DIFETTOSITA -->
@@ -110,18 +110,6 @@
         <option value="opzione2">Opzione 2</option>
         <option value="opzione3">Opzione 3</option>
         <!-- Aggiungi altre opzioni se necessario -->
-      </select>
-    </div>
-
-    <!--? REPARTO -->
-    <!-- Menu a tendina per selezionare il Reparto di contestazione -->
-    <div class="reparto">
-      <label for="dropdown">Reparto contestazione</label>
-      <br />
-      <select id="dropdown"  (change)="onInputReparto($event)" >
-        <option value="Null"></option>
-        <option value="Produzione">Produzione</option>
-        <option value="logistica">Logistica</option>
       </select>
     </div>
 

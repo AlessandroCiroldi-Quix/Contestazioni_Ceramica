@@ -6,6 +6,61 @@
 }
 //*----------------------------------------------------------------
 
+.contenitoreArticoli,
+.cliente-reparto,
+.nfattura-dataFattura,
+.bolla-nbuono-nordine
+{
+  display: flex;
+  margin: 3% 20%;
+  //padding: 1%;
+}
+
+.contenitoreArticoli {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+//grandezza casella di input
+.uinita_mis,
+.posato,
+.qta_cont,
+.tono
+input[type=text]
+{
+  width: 100%;
+  color: red;
+}
+
+.cliente-reparto {
+  background-color: aqua;
+}
+
+.cliente-reparto input, .cliente-reparto select{
+  width: 25vh;
+}
+
+
+.nfattura-dataFattura {
+  background-color: brown;
+}
+
+.bolla-nbuono-nordine {
+  background-color: blueviolet;
+}
+
+input, select {
+  width: 20%;
+  padding: 0.313rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+label {
+  font-weight: 590;
+}
+
 //? SCSS ARTICOLI
 
 //? SCSS CLIENTE
@@ -37,7 +92,6 @@
   justify-content: center;
   align-items: center;
   margin: auto !important;
- 
 }
 //* SCSS pulsanti singoli
 .pulsanteMail {
