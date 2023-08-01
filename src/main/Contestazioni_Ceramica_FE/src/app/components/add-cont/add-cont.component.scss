@@ -10,36 +10,54 @@
 .cliente-reparto,
 .nfattura-dataFattura,
 .bolla-nbuono-nordine,
-.difettosita
+.difettosita,
+.Descrizione
 {
   display: flex;
   margin: 1%;
   padding: 1%;
 }
 
-.panelHeading {
- margin-top: 1%;
- background-color: lightgrey;
+.panel {
+ margin: 1%;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ box-sizing: border-box;
 }
 
-.contenitoreArticoli, .panelHeading {
+.heading {
+  background-color: rgba(235, 228, 228, 0.616);
   border: 1px solid #ccc;
-  border-radius: 4px;
   box-sizing: border-box;
+  height: 3rem;
+}
+
+.heading p {
+  margin-top: 0.7%;
+  margin-left: 2%;
+  font-weight: 500;
 }
 
 .articoli input {
-  width: 27rem !important
+  width: 27rem !important;
+  height: 1.2rem;
 }
 
 //grandezza casella di input
-.contenitoreArticoli input,
+.contenitoreArticoli input
+{
+  width: 11rem;
+  height: 1.2rem;
+}
+
 .contenitoreArticoli select {
   width: 11rem;
+  height: 1.9rem;
 }
 
 .qta_cont input{
   width: 11rem;
+  height: 1.2rem;
 }
 
 .cliente-reparto {
@@ -48,10 +66,12 @@
 
 .cliente-reparto input{ //lunghezza campo cliente
   width: 43rem;
+  height: 1.2rem;
 }
 
 .cliente-reparto select{ //lunghezza campo Reparto Contestazione
   width: 21rem;
+  height: 1.9rem;
 }
 
 //serve per separare la casella di input
@@ -69,6 +89,7 @@
 
 .reparto input {
   width: 15rem;
+  //height: 1.2rem;
 }
 
 .nfattura-dataFattura {
@@ -77,6 +98,7 @@
 
 .nfattura-dataFattura input{
   width: 21rem;
+  height: 1.2rem;
 }
 
 
@@ -85,11 +107,13 @@
 }
 
 .num_ordine input{
-  width: 28rem !important
+  width: 28rem !important;
+  height: 1.2rem;
 }
 
 .bolla-nbuono-nordine input{
   width: 21rem;
+  height: 1.2rem;
 }
 
 input, select {
@@ -122,6 +146,9 @@ label {
 //? SCSS DIFETTOSITA
 
 //? SCSS DESCRIZIONE
+.Descrizione textarea{
+  width: 85rem;
+}
 
 //? SCSS STATO
 
