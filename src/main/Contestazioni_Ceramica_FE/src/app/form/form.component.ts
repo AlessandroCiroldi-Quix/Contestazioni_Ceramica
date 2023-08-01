@@ -4,7 +4,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'; // Com
 import { Contestazioni_eliosDTO } from 'src/api/model/contesatzioni_eliosDTO'; // Import del modello per le contestazioni
 import { eliosFiltroDTO } from 'src/api/model/eliosFiltroDTO'; // Import del modello per il filtro
 import { contestazioniEliosservice } from 'src/api/service/contestazioni_elios.service'; // Import del servizio per le contestazioni
-import { format, formatISO } from 'date-fns';
+import { formatISO } from 'date-fns';
 
 @Component({
   selector: 'app-form',
@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
   valoreStato: string = ''; // Stato selezionato tramite select
   // Variabili per il pageCounter
   currentPage: number = 1; // Counter per le pagine della tabella
-  itemsPerPage: number = 25; // Numero di righe max che puoi visualizzare in una pagina della tabella
+  itemsPerPage: number = 15; // Numero di righe max che puoi visualizzare in una pagina della tabella
   rowCount: number;
 
   // Dichiarazione di un oggetto eliosFiltroDTO con valori di default per i filtri
@@ -84,7 +84,7 @@ export class FormComponent implements OnInit {
   convertiFormatoData(data: Date): string {
     // Utilizza la funzione formatISO per ottenere la data in formato ISO 8601 (timestamp)
     return formatISO(data);
-}
+  }
 
   // Modifica la funzione salvareValoreDateIni
   salvareValoreDateIni(event: Event): String {
@@ -93,18 +93,18 @@ export class FormComponent implements OnInit {
     this.valoreDateIni = new Date(dataStringa);
     const dataStringaConvertita = this.convertiFormatoData(this.valoreDateIni);
     console.log(dataStringaConvertita);
+    console.log(typeof dataStringaConvertita);
     return dataStringaConvertita;
   }
   // Metodo per salvare il valore della data finale selezionata tramite il datepicker
-  salvareValoreDateOut(event: Event | null): string | null {
-    const pick = event.target as HTMLInputElement;
-    this.valoreDateOut = new Date(pick.value);
-
-    this.valoreDateOut.setHours(this.valoreDateOut.getHours() + 2);
-
-    console.log(this.valoreDateOut);
-    return this.valoreDateOut.toISOString();
-    //return this.valoreDateOut;
+  salvareValoreDateOut(event: Event): String {
+    const target = event.target as HTMLInputElement;
+    const dataStringa = target.value;
+    this.valoreDateIni = new Date(dataStringa);
+    const dataStringaConvertita = this.convertiFormatoData(this.valoreDateIni);
+    console.log(dataStringaConvertita);
+    console.log(typeof dataStringaConvertita);
+    return dataStringaConvertita;
   }
   // Metodo per salvare lo stato selezionato tramite il select
   sceltaStato(event: Event): string {
@@ -223,5 +223,9 @@ export class FormComponent implements OnInit {
 
     console.log('Numero di righe nella tabella:', rowCount + 1);
     return rowCount;
+  }
+
+  reloadPage() {
+    location.reload();
   }
 }
