@@ -92,7 +92,7 @@
         <td class="utente_crtr">
           <label for="dropdown4"> Utente creatore:</label>
           <br />
-          <select class="select" id="dropdown3" name="dropdown3">
+          <select class="select" id="dropdown3" name="dropdown3" (change)="sceltaStato($event)" >
             <option value="Null"></option>
             <option *ngFor="let con of getCurrentPageData()" [value]="con.utente_creazione" >
               {{ con.utente_creazione }}
@@ -119,7 +119,8 @@
                 valoreCod_art,
                 valoreCliente,
                 valoreDateIni,
-                valoreDateOut
+                valoreDateOut,
+                valoreUtente_creazione
               )
             "
           >

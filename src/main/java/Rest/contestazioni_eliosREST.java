@@ -70,7 +70,7 @@ public class contestazioni_eliosREST {
                     description = "OK")}
     )
     public List<contestazioni_eliosDTO> getFiltroElios(eliosFiltroDTO filtroElios) {
-        log.info("paolo: "+ filtroElios);
+        log.info("FiltroElios: "+ filtroElios);
         return contestazioni_eliosDAO.FiltroElios(filtroElios);
     }
 

@@ -167,7 +167,7 @@ export class FormComponent implements OnInit {
     this.eliosFiltroDTO.cod_articolo = cod_articolo;
     this.eliosFiltroDTO.rs_cliente = rs_cliente;
     //this.eliosFiltroDTO.reparto = reparto;
-    //this.eliosFiltroDTO.utente_creazione = utente_creazione;
+    this.eliosFiltroDTO.utente_creazione = utente_creazione;
     //this.eliosFiltroDTO.formato = formato;
 
     this.contestazioniService
