@@ -96,6 +96,7 @@ export class FormComponent implements OnInit {
     console.log(typeof dataStringaConvertita);
     return dataStringaConvertita;
   }
+
   // Metodo per salvare il valore della data finale selezionata tramite il datepicker
   salvareValoreDateOut(event: Event): String {
     const target = event.target as HTMLInputElement;
