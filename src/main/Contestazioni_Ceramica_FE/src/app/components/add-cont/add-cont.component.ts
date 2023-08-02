@@ -41,31 +41,30 @@ export class AddContComponent {
 
     // Il JSON da inviare come dati della richiesta POST
     const jsonData = {
-      id: 1,
-      cod_cliente: 'COD000',
-      rs_cliente: 'Cliente A',
-      cod_articolo: '9',
-      tono: 'Tono A',
-      num_fattura: null,
-      data_fattura: null,
-      descrizione: 'Descrizione prodotto',
-      qta_contestata: 10,
-      unita_misura: 'Unità',
-      posato: 1,
-      stato: 'presa_in_carico',
-      utente_creazione: 'Utente1',
+      cod_cliente: 'Null',
+      rs_cliente: 'Cliente A', //!
+      cod_articolo: 'ART001', //!
+      tono: 'Tono A', //!
+      num_fattura: null, //!
+      data_fattura: null, //!
+      descrizione: 'Null', // Descrizione prodotto
+      qta_contestata: 10, //!
+      unita_misura: 'Unità', //!
+      posato: 1, //!
+      stato: 'presa_in_carico', //!
+      utente_creazione: 'Null',
       data_creazione: '2023-06-22T10:30:00.000+00:00',
       utente_ultima_mod: null,
       data_ultima_mod: '2020-06-02T01:02:03.000+00:00',
-      desc_prodotto: 'Descrizione dettagliata prodotto',
+      desc_prodotto: 'Descrizione dettagliata prodotto', //! // Descrizione problema dettagliata
       uid_files: null,
       tipology: null,
-      motivazione: 'Motivazione del contesto',
-      company: 'Nome azienda',
-      num_buono: null,
-      num_bolla: null,
-      num_ord_reparto: null,
-      difettosita: null,
+      motivazione: 'Null',
+      company: 'ELI', // Fisso per Elios
+      num_buono: null, //!
+      num_bolla: null, //!
+      num_ord_reparto: null, //!
+      difettosita: null, //!
       deleted: 0,
     };
 
@@ -86,28 +85,37 @@ export class AddContComponent {
     );
   }
 
+  AlertMessage(message: string): void {
+    alert(message);
+  }
+
   goBack(): void {
     this.location.back();
   }
-  
+
   //*----------------------------------------------------------------
   // Funzioni GET per ottenere il valore dal form e inserirli dentro una variabile:
   onInputCod_art(event: Event): string {
     this.valoreCod_art = (<HTMLInputElement>event.target).value;
-    console.log('VALORE COD ARTICOLO: ' + this.valoreCod_art); // Per verificare che effettivamente prende l'input
+    //Funzione di verifica
+    this.verificaCod_Articolo(this.valoreCod_art);
     return this.valoreCod_art;
   }
 
   onInputTono(event: Event): string {
     this.valoreTono = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreTono); // Per verificare che effettivamente prende l'input
+    //this.verificaFormato(this.valoreTono);
     return this.valoreTono;
   }
 
-  onInputQta_cont(event: Event): string {
+  onInputQta_cont(event: Event): number {
     this.valoreQta_cont = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreQta_cont); // Per verificare che effettivamente prende l'input
-    return this.valoreQta_cont;
+    if (this.valoreQta_cont.length > 11) {
+      console.log('Errore: Valore di Qta_con troppo lungo!');
+    } else {
+      console.log('TONO: ' + this.valoreQta_cont); // Per verificare che effettivamente prende l'input
+    }
+    return parseInt(this.valoreQta_cont);
   }
 
   onInputUm_cont(event: Event): string {
@@ -164,9 +172,10 @@ export class AddContComponent {
     return this.valoreReparto;
   }
 
+  //TEXTAREA:
   onInputDescrizione(event: Event): string {
     this.valoreDescrizione = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreDescrizione); // Per verificare che effettivamente prende l'input
+    console.log('DESCRIZIONE: ' + this.valoreDescrizione); // Per verificare che effettivamente prende l'input
     return this.valoreDescrizione;
   }
 
@@ -187,5 +196,21 @@ export class AddContComponent {
     }
     console.log('Data inserita: ' + dateValue.toISOString()); // Per verificare che effettivamente prende l'input
     return dateValue;
+  }
+
+  // ----------------------------------------------------------------
+  //* Funzioni di verifica dei campi
+  verificaCod_Articolo(codArticolo: string): boolean {
+    // Verifica che la lunghezza della stringa sia al massimo 50
+    if (typeof codArticolo === 'string' && codArticolo.length <= 50) {
+      return true;
+    } else {
+      alert('Il codice cliente è valido. Max 50!');
+      location.reload();
+      console.log(
+        'Il codice cliente non è valido. Assicurati che sia una stringa di massimo 50 caratteri.'
+      );
+      return false;
+    }
   }
 }

@@ -1,14 +1,19 @@
 <!--? ARTICOLI -->
 <!-- HTML per il rettangolo Articoli -->
 <div class="panel">
-    <div class="heading">
-      <p>Articoli:</p>
-    </div>
-    <div class="contenitoreArticoli">
+  <div class="heading">
+    <p>Articoli:</p>
+  </div>
+  <div class="contenitoreArticoli">
     <!-- Campo per inserire il Cod. Articolo / Descrizione -->
     <div class="articoli">
       <label for="articoli">Cod. Articolo: </label><br />
-      <input type="text" id="articoli" name="articoli" (input)="onInputCod_art($event)" />
+      <input
+        type="text"
+        id="articoli"
+        name="articoli"
+        (input)="onInputCod_art($event)"
+      />
     </div>
 
     <!-- Campo per inserire il Tono / Calibro -->
@@ -20,13 +25,23 @@
     <!-- Campo per inserire la Quantità contestata -->
     <div class="qta_cont">
       <label for="qta">Quantità contestata: </label><br />
-      <input type="text" id="qta" name="qta" (input)="onInputQta_cont($event)"/>
+      <input
+        type="text"
+        id="qta"
+        name="qta"
+        (input)="onInputQta_cont($event)"
+      />
     </div>
 
     <!-- Menu a tendina per selezionare l'Unità di misura contestata -->
     <div class="uinita_mis">
       <label for="dropdownUM">U.M contestata: </label><br />
-      <select class="uinita_mis" id="uinita_mis" name="uinita_mis" (change)="onInputUm_cont($event)">
+      <select
+        class="uinita_mis"
+        id="uinita_mis"
+        name="uinita_mis"
+        (change)="onInputUm_cont($event)"
+      >
         <option value="Null"></option>
         <option value="MQ">MQ</option>
         <option value="PZ">PZ</option>
@@ -38,7 +53,12 @@
     <div class="posato">
       <label>Posato </label>
       <br />
-      <select class="posato" name="posato" id="posato" (change)="onInputPosato($event)">
+      <select
+        class="posato"
+        name="posato"
+        id="posato"
+        (change)="onInputPosato($event)"
+      >
         <option value="Null"></option>
         <option value="NO">NO</option>
         <option value="SI">SI</option>
@@ -59,7 +79,7 @@
       <!-- REPARTO -->
       <div class="reparto">
         <label for="dropdown">Reparto contestazione</label><br />
-        <select id="dropdown"  (change)="onInputReparto($event)" >
+        <select id="dropdown" (change)="onInputReparto($event)">
           <option value="Null"></option>
           <option value="Produzione">Produzione</option>
           <option value="logistica">Logistica</option>
@@ -71,20 +91,25 @@
       <!-- NUMERO FATTURA -->
       <div class="num_fattura">
         <label for="input2">Numero fattura</label><br />
-        <input type="text" id="input2" (input)="onInputNum_fattura($event)"/>
+        <input type="text" id="input2" (input)="onInputNum_fattura($event)" />
       </div>
 
       <!-- Selezionatore di data (Datepicker) per la Data della Fattura -->
       <div class="data_fattura">
         <label for="datepicker">Data fattura</label><br />
-        <input type="date" id="datepicker" ng-model="selectedDate" (change)="onInputData($event)" />
+        <input
+          type="date"
+          id="datepicker"
+          ng-model="selectedDate"
+          (change)="onInputData($event)"
+        />
       </div>
     </div>
     <div class="bolla-nbuono-nordine">
       <!-- NUMERO BOLLA -->
       <div class="num_bolla">
         <label for="input3">Numero bolla: </label><br />
-        <input type="text" id="input3" (input)="onInputNum_bolla($event)"/>
+        <input type="text" id="input3" (input)="onInputNum_bolla($event)" />
       </div>
 
       <!-- NUMERO BUONO -->
@@ -95,8 +120,14 @@
 
       <!-- ORDINE REPARTO -->
       <div class="num_ordine">
-        <label for="input5">Numero ordine del reparto contestazione selezionato:</label><br />
-        <input type="text" id="input5" (input)="onInputNum_ordineReparto($event)"/>
+        <label for="input5"
+          >Numero ordine del reparto contestazione selezionato:</label
+        ><br />
+        <input
+          type="text"
+          id="input5"
+          (input)="onInputNum_ordineReparto($event)"
+        />
       </div>
     </div>
 
@@ -105,7 +136,11 @@
     <!-- Menu a tendina per selezionare la Difettosità -->
     <div class="difettosita">
       <label for="dropdown">Difettosità: </label><br />
-      <select id="dropdown" ng-model="selectedOption"  (change)="onInputDifettosita($event)"  >
+      <select
+        id="dropdown"
+        ng-model="selectedOption"
+        (change)="onInputDifettosita($event)"
+      >
         <option value="Null"></option>
         <option value="opzione1">Errore qta (in evasione ordine)</option>
         <option value="opzione1">Opzione 1</option>
@@ -118,9 +153,17 @@
     <!--? DESCRIZIONE -->
     <!-- Campo textarea per inserire la Descrizione del problema -->
     <div class="Descrizione">
-      <label for="textarea" class="textarea" id="textarea">Descrizione del problema:</label>
+      <label for="textarea" class="textarea" id="textarea"
+        >Descrizione del problema:</label
+      >
       <br />
-      <textarea id="comment" name="comment" rows="4" cols="50" (input)="onInputDescrizione($event)"></textarea>
+      <textarea
+        id="comment"
+        name="comment"
+        rows="4"
+        cols="50"
+        (input)="onInputDescrizione($event)"
+      ></textarea>
     </div>
 
     <!--? STATO -->
@@ -128,7 +171,7 @@
     <div class="stato">
       <label for="dropdown"> Stato </label>
       <br />
-      <select id="dropdownStato"  (change)="onInputStato($event)" >
+      <select id="dropdownStato" (change)="onInputStato($event)">
         <option value="Null"></option>
         <option value="Accettata">Accettata</option>
         <option value="Rifiutata">Rifiutata</option>
@@ -156,7 +199,9 @@
         <td>
           <div class="containerPulsanti">
             <div>
-              <button class="pulsanteIndietro" type="button"  (click)="goBack()" >Indietro</button>
+              <button class="pulsanteIndietro" type="button" (click)="goBack()">
+                Indietro
+              </button>
             </div>
           </div>
         </td>
