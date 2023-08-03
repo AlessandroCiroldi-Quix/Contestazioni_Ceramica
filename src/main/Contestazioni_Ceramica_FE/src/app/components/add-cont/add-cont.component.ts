@@ -41,31 +41,47 @@ export class AddContComponent {
 
     // Il JSON da inviare come dati della richiesta POST
     const jsonData = {
+      //@NotNull
       // ID: Autoincrement,
       cod_cliente: 'Null', //varchar(50)
+      //@NotNull
       rs_cliente: this.valoreCliente, //varchar(255)
+      //@NotNull
       cod_articolo: this.valoreCod_art, //varchar(50)
+      //@NotNull
       tono: this.valoreTono, //varchar(50)
       num_fattura: this.valoreNum_fattura, //varchar(255)
       data_fattura: this.valoreData_fattura, // Date
+      //@NotNull
       descrizione: 'Null', // text Descrizione prodotto
+      //@NotNull
       qta_contestata: this.valoreQta_cont, //int(11)
+      //@NotNull
       unita_misura: this.valoreUm_cont, //varchar(10)
-      posato: this.valorePosato, //tinyint(1)
+      //@NotNull
+      posato: this.valorePosato, //tinyint(1) //* ✔
+      //@NotNull
       stato: this.valoreStato, // varchar(20)
+      //@NotNull
       utente_creazione: 'Null', //varchar(45)
+      //@NotNull
       data_creazione: '2023-06-22T10:30:00.000+00:00', //Timestamp
       utente_ultima_mod: null, //varchar(45)
+      //@NotNull
       data_ultima_mod: '2020-06-02T01:02:03.000+00:00', //Timestamp
+      //@NotNull
       desc_prodotto: this.valoreDescrizione, //text
       uid_files: null, //varchar(36)
       tipology: null, //varchar(255)
+      //@NotNull
       motivazione: 'Null', //text
+      //@NotNull
       company: 'ELI', // varchar(50)  //Enum
       num_buono: this.valoreNum_buono, //varchar(45)
       num_bolla: this.valoreNum_bolla, //varchar(45)
       num_ord_reparto: this.valoreNum_ordineReparto, //varchar(45)
       difettosita: this.valoreDifettosita, //varchar(45)
+      //@NotNull
       deleted: 0, //tinyint(1)
     };
 
@@ -97,15 +113,32 @@ export class AddContComponent {
   //*----------------------------------------------------------------
   // Funzioni GET per ottenere il valore dal form e inserirli dentro una variabile:
   onInputCliente(event: Event): string {
-    this.valoreCliente = (<HTMLInputElement>event.target).value;
+    const inputElement = event.target as HTMLInputElement;
+    this.valoreCliente = inputElement.value;
+
+    // Verifica lunghezza massima
+    if (this.valoreCliente.length > 255) {
+      console.error(
+        'Errore: Il valore inserito supera la lunghezza massima consentita (255 caratteri).'
+      );
+      return '';
+    }
+
+    // Verifica caratteri speciali usando una regex (consente lettere, numeri, spazi, punto e underscore)
+    const regex = /^[a-zA-Z0-9\s._]+$/;
+    if (!regex.test(this.valoreCliente)) {
+      console.error(
+        'Errore: Il valore inserito contiene caratteri speciali non consentiti.'
+      );
+      return '';
+    }
+
     console.log('TONO: ' + this.valoreCliente); // Per verificare che effettivamente prende l'input
     return this.valoreCliente;
   }
 
   onInputCod_art(event: Event): string {
     this.valoreCod_art = (<HTMLInputElement>event.target).value;
-    //Funzione di verifica
-    this.verificaCod_Articolo(this.valoreCod_art);
     console.log('Cod_art: ' + this.valoreCod_art);
     return this.valoreCod_art;
   }
@@ -150,10 +183,19 @@ export class AddContComponent {
     return this.valoreUm_cont;
   }
 
-  onInputPosato(event: Event): string {
+  onInputPosato(event: Event): number {
+    let valore1 = 1;
+    let valore0 = 0;
     this.valorePosato = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valorePosato); // Per verificare che effettivamente prende l'input
-    return this.valorePosato;
+    console.log('POSATO: ' + this.valorePosato); // Per verificare che effettivamente prende l'input
+
+    if (this.valorePosato === '1') {
+      console.log('Il valore è 1');
+      return valore1;
+    } else {
+      console.log('Il valore è 0');
+      return valore0;
+    }
   }
 
   onInputStato(event: Event): string {
@@ -202,17 +244,6 @@ export class AddContComponent {
 
   // ----------------------------------------------------------------
   //* Funzioni di verifica dei campi
-  verificaCod_Articolo(codArticolo: string): boolean {
-    // Verifica che la lunghezza della stringa sia al massimo 50
-    if (typeof codArticolo === 'string' && codArticolo.length <= 50) {
-      return true;
-    } else {
-      alert('Il codice cliente è valido. Max 50!');
-      location.reload();
-      console.log(
-        'Il codice cliente non è valido. Assicurati che sia una stringa di massimo 50 caratteri.'
-      );
-      return false;
-    }
-  }
+  //* Queste funzioni devo controllare che il valore che si inserisce nell'add sono corrette,
+  //! altrimenti esplode il progetto!!!!
 }
