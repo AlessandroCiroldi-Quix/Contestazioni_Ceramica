@@ -130,7 +130,7 @@ public class contestazioni_eliosDAO {
         }
 
         if (contestazione.getData_creazione() != null) {
-            query += ", data_creazione = :data_creazione";
+            query += ", data_creazione >= :data_creazione";
             if (!primo) { //se falso
                 query = query.replace(",", "");
                 primo = true;

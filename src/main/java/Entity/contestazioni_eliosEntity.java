@@ -40,10 +40,10 @@ public class contestazioni_eliosEntity {
     @NotNull
     private String utente_creazione; //NOT NULL
     @NotNull
-    private Timestamp data_creazione;  //DEFAULT CURRENT_TIMESTAMP,
+    private Date data_creazione;  //DEFAULT CURRENT_TIMESTAMP,
     private String utente_ultima_mod; //NULL
     @NotNull
-    private Timestamp data_ultima_mod; //DEFAULT '0000-00-00 00:00:00',
+    private Date data_ultima_mod; //DEFAULT '0000-00-00 00:00:00',
     @NotNull
     private String desc_prodotto;
     private String uid_files; //NULL

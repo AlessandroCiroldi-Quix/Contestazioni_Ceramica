@@ -17,8 +17,8 @@ export class FormComponent implements OnInit {
   valoreID_cont: string = ''; // ID della contestazione
   valoreCod_art: string = ''; // Codice articolo
   valoreCliente: string = ''; // Nome del cliente
-  valoreDateIni: Date; // Data iniziale selezionata tramite datepicker
-  valoreDateOut: Date; // Data finale selezionata tramite datepicker
+  valoreDateIni: string; // Data iniziale selezionata tramite datepicker
+  valoreDateOut: string; // Data finale selezionata tramite datepicker
   valoreStato: string = ''; // Stato selezionato tramite select
   valoreReparto: string = ''; 
   valoreFormato: string = '';
@@ -61,6 +61,8 @@ export class FormComponent implements OnInit {
     // Ottenimento delle contestazioni dal servizio all'avvio del componente
     this.contestazioniService.getContesatzioni_elios().subscribe((res) => {
       this.datasource = res;
+      console.log("Conteggio contestazioni"+res.length);
+      this.rowCount = res.length;
     }); // Assegnamento del risultato dell'observable al datasource dell'array
   }
 
@@ -91,25 +93,17 @@ export class FormComponent implements OnInit {
   }
 
   // Modifica la funzione salvareValoreDateIni
-  salvareValoreDateIni(event: Event): String {
-    const target = event.target as HTMLInputElement;
-    const dataStringa = target.value;
-    this.valoreDateIni = new Date(dataStringa);
-    const dataStringaConvertita = this.convertiFormatoData(this.valoreDateIni);
-    console.log(dataStringaConvertita);
-    console.log(typeof dataStringaConvertita);
-    return dataStringaConvertita;
+  salvareValoreDateIni(event: Event): string {
+    this.valoreDateIni = (<HTMLInputElement>event.target).value;
+    console.log('Data In: ' + this.valoreDateIni + typeof this.valoreDateIni); //Queste console.log sono di prova
+    return this.valoreDateIni;
   }
 
   // Metodo per salvare il valore della data finale selezionata tramite il datepicker
-  salvareValoreDateOut(event: Event): String {
-    const target = event.target as HTMLInputElement;
-    const dataStringa = target.value;
-    this.valoreDateIni = new Date(dataStringa);
-    const dataStringaConvertita = this.convertiFormatoData(this.valoreDateIni);
-    console.log(dataStringaConvertita);
-    console.log(typeof dataStringaConvertita);
-    return dataStringaConvertita;
+  salvareValoreDateOut(event: Event): string {
+    this.valoreDateOut = (<HTMLInputElement>event.target).value;
+    console.log('Cliente: ' + this.valoreDateOut); //Queste console.log sono di prova
+    return this.valoreDateOut;
   }
   // Metodo per salvare lo stato selezionato tramite il select
   sceltaStato(event: Event): string {
@@ -178,8 +172,8 @@ export class FormComponent implements OnInit {
   // Metodo per ottenere le contestazioni tramite i filtri selezionati
   getContestationByFiltro(
     id: any,
-    data_creazione: Date,
-    data_ultima_mod: Date,
+    data_creazione: string,
+    data_ultima_mod: string,
     cod_articolo: any,
     rs_cliente: any,
     stato: string,
@@ -249,6 +243,7 @@ export class FormComponent implements OnInit {
     const rowCount = tableElement.rows.length;
 
     console.log('Numero di righe nella tabella:', rowCount + 1);
+    console.log(this.datasource);
     return rowCount;
   }
 

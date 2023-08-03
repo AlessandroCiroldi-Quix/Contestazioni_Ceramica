@@ -1,7 +1,7 @@
 export interface eliosFiltroDTO {
     id: number;
-    data_creazione: Date;
-    data_ultima_mod: Date | null;
+    data_creazione: string;
+    data_ultima_mod: string | null;
     cod_articolo: string;
     rs_cliente: string;
     stato: string;

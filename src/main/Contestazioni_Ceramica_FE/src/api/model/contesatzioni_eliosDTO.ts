@@ -13,9 +13,9 @@ export interface Contestazioni_eliosDTO {
   posato: number; //NOT NULL
   stato: string; //NOT NULL
   utente_creazione: string; //NOT NULL
-  data_creazione: Date; //DEFAULT CURRENT_TIMESTAMP,
+  data_creazione: string; //DEFAULT CURRENT_TIMESTAMP,
   utente_ultima_mod: string | null; //NULL
-  data_ultima_mod: Date | null; //DEFAULT '0000-00-00 00:00:00',
+  data_ultima_mod: string | null; //DEFAULT '0000-00-00 00:00:00',
   desc_prodotto: string;
   uid_files: string | null; //NULL
   tipology: string | null; //NULL
