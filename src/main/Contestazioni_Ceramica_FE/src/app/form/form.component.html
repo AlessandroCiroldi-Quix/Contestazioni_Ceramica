@@ -74,27 +74,28 @@
         <td class="reparto">
           <label for="dropdown2">Reparto: </label>
           <br />
-          <select class="select" id="dropdown2" name="dropdown2">
+          <select class="select" id="dropdown2" name="dropdown2" (change)="sceltaReparto($event)">
             <option value="opzione0"></option>
-            <option value="opzione2">Produzione</option>
-            <option value="opzione3">Logistica</option>
+            <option value="Produzione">Produzione</option>
+            <option value="Logistica">Logistica</option>
           </select>
         </td>
         <td class="formato">
           <label for="dropdown3">Formato: </label>
           <br />
-          <select class="select" id="dropdown3" name="dropdown3">
-            <option value="opzione1">Opzione 1</option>
-            <option value="opzione2">Opzione 2</option>
-            <option value="opzione3">Opzione 3</option>
+          <select class="select" id="dropdown3" name="dropdown3" (change)="sceltaFormato($event)" >
+            <option value="Null"></option>
+            <option *ngFor="let con of getCurrentPageData()" [value]="con.formato" >
+              {{ con.formato}}
+            </option>
           </select>
         </td>
         <td class="utente_crtr">
           <label for="dropdown4"> Utente creatore:</label>
           <br />
-          <select class="select" id="dropdown3" name="dropdown3" (change)="sceltaStato($event)" >
+          <select class="select" id="dropdown3" name="dropdown3" (change)="sceltaUtenteCreatore($event)" >
             <option value="Null"></option>
-            <option *ngFor="let con of getCurrentPageData()" [value]="con.utente_creazione" >
+            <option *ngFor="let con of getCurrentPageData()" [value]="con.utente_creazione">
               {{ con.utente_creazione }}
             </option>
           </select>
@@ -115,11 +116,13 @@
             (click)="
               getContestationByFiltro(
                 valoreID_cont,
-                valoreStato,
+                valoreDateIni,
+                valoreDateOut,
                 valoreCod_art,
                 valoreCliente,
-                valoreDateIni,
-                valoreDateOut
+                valoreStato,
+                valoreReparto,
+                valoreUtenteCreatore
               )
             "
           >

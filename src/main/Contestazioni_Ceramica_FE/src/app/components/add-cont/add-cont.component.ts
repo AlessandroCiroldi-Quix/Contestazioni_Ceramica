@@ -41,31 +41,32 @@ export class AddContComponent {
 
     // Il JSON da inviare come dati della richiesta POST
     const jsonData = {
-      cod_cliente: 'Null',
-      rs_cliente: 'Cliente A', //!
-      cod_articolo: 'ART001', //!
-      tono: 'Tono A', //!
-      num_fattura: null, //!
-      data_fattura: null, //!
-      descrizione: 'Null', // Descrizione prodotto
-      qta_contestata: 10, //!
-      unita_misura: 'Unità', //!
-      posato: 1, //!
-      stato: 'presa_in_carico', //!
-      utente_creazione: 'Null',
-      data_creazione: '2023-06-22T10:30:00.000+00:00',
-      utente_ultima_mod: null,
-      data_ultima_mod: '2020-06-02T01:02:03.000+00:00',
-      desc_prodotto: 'Descrizione dettagliata prodotto', //! // Descrizione problema dettagliata
-      uid_files: null,
-      tipology: null,
-      motivazione: 'Null',
-      company: 'ELI', // Fisso per Elios
-      num_buono: null, //!
-      num_bolla: null, //!
-      num_ord_reparto: null, //!
-      difettosita: null, //!
-      deleted: 0,
+      // ID: Autoincrement,
+      cod_cliente: 'Null', //varchar(50)
+      rs_cliente: this.valoreCliente, //varchar(255)
+      cod_articolo: this.valoreCod_art, //varchar(50)
+      tono: this.valoreTono, //varchar(50)
+      num_fattura: this.valoreNum_fattura, //varchar(255)
+      data_fattura: this.valoreData_fattura, // Date
+      descrizione: 'Null', // text Descrizione prodotto
+      qta_contestata: this.valoreQta_cont, //int(11)
+      unita_misura: this.valoreUm_cont, //varchar(10)
+      posato: this.valorePosato, //tinyint(1)
+      stato: this.valoreStato, // varchar(20)
+      utente_creazione: 'Null', //varchar(45)
+      data_creazione: '2023-06-22T10:30:00.000+00:00', //Timestamp
+      utente_ultima_mod: null, //varchar(45)
+      data_ultima_mod: '2020-06-02T01:02:03.000+00:00', //Timestamp
+      desc_prodotto: this.valoreDescrizione, //text
+      uid_files: null, //varchar(36)
+      tipology: null, //varchar(255)
+      motivazione: 'Null', //text
+      company: 'ELI', // varchar(50)  //Enum
+      num_buono: this.valoreNum_buono, //varchar(45)
+      num_bolla: this.valoreNum_bolla, //varchar(45)
+      num_ord_reparto: this.valoreNum_ordineReparto, //varchar(45)
+      difettosita: this.valoreDifettosita, //varchar(45)
+      deleted: 0, //tinyint(1)
     };
 
     // Imposta gli header se necessario (ad esempio, se il server richiede header specifici)
@@ -95,17 +96,42 @@ export class AddContComponent {
 
   //*----------------------------------------------------------------
   // Funzioni GET per ottenere il valore dal form e inserirli dentro una variabile:
+  onInputCliente(event: Event): string {
+    this.valoreCliente = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreCliente); // Per verificare che effettivamente prende l'input
+    return this.valoreCliente;
+  }
+
   onInputCod_art(event: Event): string {
     this.valoreCod_art = (<HTMLInputElement>event.target).value;
     //Funzione di verifica
     this.verificaCod_Articolo(this.valoreCod_art);
+    console.log('Cod_art: ' + this.valoreCod_art);
     return this.valoreCod_art;
   }
 
   onInputTono(event: Event): string {
     this.valoreTono = (<HTMLInputElement>event.target).value;
     //this.verificaFormato(this.valoreTono);
+    console.log('Cod_art: ' + this.valoreTono);
     return this.valoreTono;
+  }
+
+  onInputNum_fattura(event: Event): string {
+    this.valoreNum_fattura = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreNum_fattura); // Per verificare che effettivamente prende l'input
+    return this.valoreNum_fattura;
+  }
+
+  onInputData(event: Event): Date {
+    let inputElement = <HTMLInputElement>event.target;
+    let selectedDateStr = inputElement.value;
+
+    // Converti la stringa in un oggetto Date
+    const selectedDate = new Date(selectedDateStr);
+
+    this.valoreData_fattura = selectedDate; // Per verificare che effettivamente prende l'input
+    return this.valoreData_fattura;
   }
 
   onInputQta_cont(event: Event): number {
@@ -130,28 +156,29 @@ export class AddContComponent {
     return this.valorePosato;
   }
 
-  onInputCliente(event: Event): string {
-    this.valoreCliente = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreCliente); // Per verificare che effettivamente prende l'input
-    return this.valoreCliente;
+  onInputStato(event: Event): string {
+    this.valoreStato = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreStato); // Per verificare che effettivamente prende l'input
+    return this.valoreStato;
   }
 
-  onInputNum_fattura(event: Event): string {
-    this.valoreNum_fattura = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreNum_fattura); // Per verificare che effettivamente prende l'input
-    return this.valoreNum_fattura;
-  }
-
-  onInputNum_bolla(event: Event): string {
-    this.valoreNum_bolla = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreNum_bolla); // Per verificare che effettivamente prende l'input
-    return this.valoreNum_bolla;
+  //TEXTAREA:
+  onInputDescrizione(event: Event): string {
+    this.valoreDescrizione = (<HTMLInputElement>event.target).value;
+    console.log('DESCRIZIONE: ' + this.valoreDescrizione); // Per verificare che effettivamente prende l'input
+    return this.valoreDescrizione;
   }
 
   onInputNum_buono(event: Event): string {
     this.valoreNum_buono = (<HTMLInputElement>event.target).value;
     console.log('TONO: ' + this.valoreNum_buono); // Per verificare che effettivamente prende l'input
     return this.valoreNum_buono;
+  }
+
+  onInputNum_bolla(event: Event): string {
+    this.valoreNum_bolla = (<HTMLInputElement>event.target).value;
+    console.log('TONO: ' + this.valoreNum_bolla); // Per verificare che effettivamente prende l'input
+    return this.valoreNum_bolla;
   }
 
   onInputNum_ordineReparto(event: Event): string {
@@ -166,36 +193,11 @@ export class AddContComponent {
     return this.valoreDifettosita;
   }
 
+  //! QUESTO RIMANE FUORI
   onInputReparto(event: Event): string {
     this.valoreReparto = (<HTMLInputElement>event.target).value;
     console.log('TONO: ' + this.valoreReparto); // Per verificare che effettivamente prende l'input
     return this.valoreReparto;
-  }
-
-  //TEXTAREA:
-  onInputDescrizione(event: Event): string {
-    this.valoreDescrizione = (<HTMLInputElement>event.target).value;
-    console.log('DESCRIZIONE: ' + this.valoreDescrizione); // Per verificare che effettivamente prende l'input
-    return this.valoreDescrizione;
-  }
-
-  onInputStato(event: Event): string {
-    this.valoreStato = (<HTMLInputElement>event.target).value;
-    console.log('TONO: ' + this.valoreStato); // Per verificare che effettivamente prende l'input
-    return this.valoreStato;
-  }
-
-  onInputData(event: Event): Date | null {
-    const inputDate = (<HTMLInputElement>event.target).value;
-    const dateValue = new Date(inputDate);
-
-    // Verifica se la data è valida
-    if (isNaN(dateValue.getTime())) {
-      console.log('Data non valida'); // Puoi gestire l'errore in modo opportuno qui
-      return null;
-    }
-    console.log('Data inserita: ' + dateValue.toISOString()); // Per verificare che effettivamente prende l'input
-    return dateValue;
   }
 
   // ----------------------------------------------------------------

@@ -20,6 +20,10 @@ export class FormComponent implements OnInit {
   valoreDateIni: Date; // Data iniziale selezionata tramite datepicker
   valoreDateOut: Date; // Data finale selezionata tramite datepicker
   valoreStato: string = ''; // Stato selezionato tramite select
+  valoreReparto: string = ''; 
+  valoreFormato: string = '';
+  valoreUtenteCreatore: string = '';
+
   // Variabili per il pageCounter
   currentPage: number = 1; // Counter per le pagine della tabella
   itemsPerPage: number = 15; // Numero di righe max che puoi visualizzare in una pagina della tabella
@@ -114,6 +118,26 @@ export class FormComponent implements OnInit {
     return this.valoreStato;
   }
 
+  sceltaReparto(event: Event): string {
+    this.valoreReparto = (<HTMLInputElement>event.target).value;
+    console.log('Stato: ' + this.valoreReparto); // Per verificare che effettivamente prende l'input
+    return this.valoreReparto;
+  }
+  
+  sceltaUtenteCreatore(event: Event): string {
+    this.valoreUtenteCreatore = (<HTMLInputElement>event.target).value;
+    console.log('Utente creatore: ' + this.valoreUtenteCreatore); // Per verificare che effettivamente prende l'input
+    return this.valoreUtenteCreatore;
+  }
+  
+  sceltaFormato(event: Event): string {
+    this.valoreFormato = (<HTMLInputElement>event.target).value;
+    console.log('Utente creatore: ' + this.valoreFormato); // Per verificare che effettivamente prende l'input
+    return this.valoreFormato;
+  }
+  
+
+
   //* ----------------------------------------------------------------
   // Bottoni contestazioni
 
@@ -154,21 +178,23 @@ export class FormComponent implements OnInit {
   // Metodo per ottenere le contestazioni tramite i filtri selezionati
   getContestationByFiltro(
     id: any,
-    stato: string,
+    data_creazione: Date,
+    data_ultima_mod: Date,
     cod_articolo: any,
     rs_cliente: any,
-    data_creazione: Date,
-    data_ultima_mod: Date
-  ) {
+    stato: string,
+    reparto: string,
+    utente_creazione: any,
+    ) {
     // formato: any utente_creazione: any, reparto: any,
     this.eliosFiltroDTO.id = id;
-    this.eliosFiltroDTO.stato = stato;
     this.eliosFiltroDTO.data_creazione = data_creazione;
     this.eliosFiltroDTO.data_ultima_mod = data_ultima_mod;
     this.eliosFiltroDTO.cod_articolo = cod_articolo;
     this.eliosFiltroDTO.rs_cliente = rs_cliente;
-    //this.eliosFiltroDTO.reparto = reparto;
-    //this.eliosFiltroDTO.utente_creazione = utente_creazione;
+    this.eliosFiltroDTO.stato = stato;
+    this.eliosFiltroDTO.reparto = reparto;
+    this.eliosFiltroDTO.utente_creazione = utente_creazione;
     //this.eliosFiltroDTO.formato = formato;
 
     this.contestazioniService
